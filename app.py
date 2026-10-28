@@ -3,7 +3,7 @@ import pandas as pd
 import json, io
 from datetime import datetime
 
-st.set_page_config(page_title='SentinelX | Threat Intelligence', page_icon='🛡️', layout='wide', initial_sidebar_state='expanded')
+st.set_page_config(page_title='SentinelX | Security Intelligence', page_icon='🛡️', layout='wide', initial_sidebar_state='expanded')
 st.markdown(r'''<style>
 :root{color-scheme:dark} .stApp{background:#080b16;color:#e8ecf8}.block-container{padding-top:1rem;padding-bottom:2rem;max-width:1700px}
 [data-testid="stSidebar"]{background:#0b1020;border-right:1px solid #222a43}
@@ -54,25 +54,26 @@ def analyze(raw, threshold=4):
     alerts=[]
     def add(sev, rule, user, ip, rows, explanation, next_check, response, points):
         alerts.append({'severity':sev,'rule':rule,'entity':str(user),'source_ip':str(ip),'event_count':len(rows),'first_seen':rows.timestamp.min().strftime('%Y-%m-%d %H:%M:%S'),'last_seen':rows.timestamp.max().strftime('%Y-%m-%d %H:%M:%S'),'evidence_rows':', '.join(str(int(x)+2) for x in rows.index[:12]),'explanation':explanation,'next_validation':next_check,'recommended_action':response,'risk_score':min(100,points)})
-    fail=df[(df.event_norm.isin(['login','authentication','auth'])) & df.status_norm.isin(['failed','failure','denied','blocked'])]
+    auth_events=['login','login_failure','login_success','authentication','auth','authentication_failure','authentication_success','failed_login','successful_login','vpn_login']
+    fail=df[(df.event_norm.isin(auth_events)) & df.status_norm.isin(['failed','failure','denied','blocked','error'])]
     for (u,ip),g in fail.groupby(['username','source_ip']):
         if len(g)>=threshold:
             add('HIGH','Repeated authentication failures',u,ip,g,f'{len(g)} failed authentication events for the same user and source; configured threshold is {threshold}.','Check whether a successful login followed these failures and confirm the source with the user.','Review identity-provider logs; consider a temporary protective control according to incident policy.',72+min(20,len(g)))
     # failure -> success from same user/IP within 20 minutes
     for (u,ip),g in df.groupby(['username','source_ip']):
         fg=g[g.status_norm.isin(['failed','failure','denied','blocked'])]
-        sg=g[(g.status_norm.isin(['success','successful','allowed'])) & g.event_norm.isin(['login','authentication','auth'])]
+        sg=g[(g.status_norm.isin(['success','successful','allowed'])) & g.event_norm.isin(auth_events)]
         if not fg.empty and not sg.empty:
             for _,s in sg.iterrows():
                 prior=fg[fg.timestamp.between(s.timestamp-pd.Timedelta(minutes=20),s.timestamp)]
                 if len(prior)>=2:
                     add('CRITICAL','Failure-to-success sequence',u,ip,g[(g.timestamp>=prior.timestamp.min())&(g.timestamp<=s.timestamp)],f'{len(prior)} failed authentication attempts were followed by a successful login within 20 minutes from the same user/source pair. This pattern may indicate account compromise.','Validate MFA outcome, device identity, geolocation context and whether the user recognizes the session.','Escalate for analyst review; revoke sessions or reset credentials only under approved incident procedures.',92)
                     break
-    for _,r in df[df.event_norm.isin(['privilege_change','role_change','privilege_escalation'])].iterrows():
+    for _,r in df[df.event_norm.isin(['privilege_change','role_change','privilege_escalation','admin_role_granted','privilege_escalation_attempt'])].iterrows():
         add('HIGH','Privilege or role change',r.username,r.source_ip,df.loc[[r.name]],f'Privilege-related event recorded on asset {r.asset}. Context: {r.details}.','Confirm an approved change/request and verify the actor had authority.','Review identity audit trail and remove unauthorized privilege only after validation.',78)
-    for _,r in df[df.event_norm.isin(['data_export','bulk_download','mass_download','database_export'])].iterrows():
+    for _,r in df[df.event_norm.isin(['data_export','bulk_download','mass_download','database_export','bulk_data_export'])].iterrows():
         add('HIGH','Potential bulk data movement',r.username,r.source_ip,df.loc[[r.name]],f'Data-export event observed on {r.asset}. A single event does not prove exfiltration.','Check export volume, business purpose, destination, and preceding authentication/privilege events.','Preserve relevant logs and escalate to the data owner for validation.',76)
-    for _,r in df[df.event_norm.isin(['security_setting_change','mfa_disabled','logging_disabled'])].iterrows():
+    for _,r in df[df.event_norm.isin(['security_setting_change','mfa_disabled','logging_disabled','audit_logging_disabled','firewall_rule_change'])].iterrows():
         add('HIGH','Security control configuration change',r.username,r.source_ip,df.loc[[r.name]],f'Security-related configuration change observed: {r.details}.','Confirm the change ticket, approver, and before/after configuration.','Verify logging and MFA posture; follow change-control and incident procedures.',82)
     for _,r in df[df.event_norm.isin(['change','deployment','config_change']) & df.status_norm.isin(['failed','denied','rejected'])].iterrows():
         add('MEDIUM','Failed or rejected change event',r.username,r.source_ip,df.loc[[r.name]],f'Change event on {r.asset} was marked {r.status}. Details: {r.details}.','Check the change record, approval reference and deployment logs.','Investigate repeated attempts and reconcile with the authorized change calendar.',48)
@@ -81,6 +82,80 @@ def analyze(raw, threshold=4):
     if not out.empty:
         out=out.drop_duplicates(subset=['rule','entity','source_ip','first_seen']).sort_values('risk_score',ascending=False).reset_index(drop=True)
     return df,out
+
+
+def next_check_engine(events, alert):
+    """Evidence-gap analysis and deterministic next-check prioritization.
+    This is a transparent decision-support heuristic, not an ML model.
+    """
+    user = str(alert.get('entity', ''))
+    ip = str(alert.get('source_ip', ''))
+    try:
+        start = pd.to_datetime(alert.get('first_seen'))
+        end = pd.to_datetime(alert.get('last_seen'))
+        window = events[(events['timestamp'] >= start - pd.Timedelta(minutes=20)) &
+                        (events['timestamp'] <= end + pd.Timedelta(minutes=20))]
+    except Exception:
+        window = events.copy()
+    related = window[(window['username'].astype(str) == user) |
+                     (window['source_ip'].astype(str) == ip)]
+    ev = set(related['event_norm'].astype(str))
+    details = ' '.join(related.get('details', pd.Series(dtype=str)).fillna('').astype(str).str.lower().tolist())
+    checks = []
+    def add(priority, check, reason, expected):
+        checks.append({'priority': priority, 'check': check, 'why': reason, 'evidence_to_seek': expected})
+    rule = str(alert.get('rule', '')).lower()
+    if 'authentication' in rule or 'failure-to-success' in rule:
+        add(1, 'Validate MFA and identity-provider outcome',
+            'Authentication activity is the entry point of this storyline.',
+            'MFA result, identity-provider audit record, session ID')
+        if not any(x in ev for x in ['mfa_challenge','mfa_result','mfa_verification']):
+            add(1, 'Evidence gap: MFA outcome not present in uploaded events',
+                'The supplied records do not contain an explicit MFA result event.',
+                'MFA success/failure record from the identity provider')
+        if not any(x in ev for x in ['device_posture','endpoint_check','device_compliance']):
+            add(2, 'Check device identity and posture',
+                'The current dataset does not show a device compliance/posture event.',
+                'Device ID, managed-device status, endpoint telemetry')
+        if not any(x in ev for x in ['geo_login','location_check','impossible_travel']):
+            add(3, 'Verify sign-in context',
+                'Location or sign-in risk context is not present in this event window.',
+                'Authorized location, VPN context, sign-in risk telemetry')
+    if 'privilege' in rule or any(x in ev for x in ['privilege_change','role_change','privilege_escalation','admin_role_granted']):
+        if not any(x in details for x in ['ticket','approved','change request','request id']):
+            add(1, 'Verify approval evidence for privilege change',
+                'No obvious approval reference was found in nearby event details.',
+                'Change/request ID, approver, role assignment audit record')
+        add(2, 'Review actions after privilege elevation',
+            'Privilege changes can increase impact if followed by sensitive actions.',
+            'Subsequent admin actions, accessed assets, session audit trail')
+    if 'data' in rule or any(x in ev for x in ['data_export','bulk_download','mass_download','database_export','bulk_data_export']):
+        if not any(x in details for x in ['approved export','business purpose','ticket']):
+            add(1, 'Validate export purpose and data-owner approval',
+                'The available event details do not establish an approved business purpose.',
+                'Export request, data-owner approval, ticket/reference')
+        add(2, 'Inspect export volume and destination',
+            'A data-export event alone does not prove exfiltration.',
+            'Bytes/records exported, destination, query/job ID, DLP records')
+    if 'security control' in rule or any(x in ev for x in ['security_setting_change','mfa_disabled','logging_disabled','audit_logging_disabled','firewall_rule_change']):
+        if not any(x in details for x in ['ticket','approved','change request','maintenance window']):
+            add(1, 'Confirm change request and maintenance window',
+                'No approval evidence is apparent in the supplied event details.',
+                'Change ticket, approver, before/after configuration')
+        add(2, 'Check telemetry continuity after the change',
+            'A logging or security-setting change may reduce visibility.',
+            'Audit pipeline status, log-source heartbeat, configuration diff')
+    if not checks:
+        add(1, 'Confirm event with system owner',
+            'The rule fired, but additional context is required before making a conclusion.',
+            'Owner confirmation, source-system audit record, related events')
+    # Keep only the highest-priority occurrence of each check label.
+    seen = set()
+    unique = []
+    for item in sorted(checks, key=lambda x: x['priority']):
+        if item['check'] not in seen:
+            unique.append(item); seen.add(item['check'])
+    return unique[:5]
 
 with st.sidebar:
     st.header('Control Center')
@@ -100,7 +175,7 @@ except Exception as e:
 # Top navigation tabs
 tabs=st.tabs(['Executive Overview','Event Explorer','Attack Storylines','Threat Context','Response Playbooks','Export & Methodology'])
 with tabs[0]:
-    st.markdown('<div class="sx-head"><h2>Threat Intelligence Dashboard</h2><span>● Prototype telemetry &nbsp; | &nbsp; Sample dataset</span></div>',unsafe_allow_html=True)
+    st.markdown('<div class="sx-head"><h2>Security Operations Overview</h2><span>● ANALYSIS READY &nbsp; | &nbsp; Rule-based triage</span></div>',unsafe_allow_html=True)
     m1,m2,m3,m4,m5=st.columns(5)
     m1.metric('TOTAL EVENTS',f'{len(events):,}', 'Parsed')
     m2.metric('ACTIVE ALERTS',f'{len(alerts):,}', 'Rule detections')
@@ -159,7 +234,7 @@ with tabs[1]:
     st.caption(f'Showing {len(filt)} of {len(events)} valid timestamped events.')
 with tabs[2]:
     st.subheader('Attack Storyline Engine')
-    st.write('This prototype groups related detections by account and source IP, orders them by time, and shows the evidence that supports or weakens a suspected sequence.')
+    st.write('This prototype groups related detections by account and source IP, orders them by time, surfaces likely evidence gaps, and prioritizes follow-up checks with an explanation for each recommendation.')
     if alerts.empty: st.info('No storylines available for this dataset.')
     else:
         pairs=alerts.assign(story=alerts.entity+' | '+alerts.source_ip)['story'].drop_duplicates().tolist()
@@ -173,6 +248,11 @@ with tabs[2]:
                 st.write('**Source CSV row(s):** '+r['evidence_rows'])
                 st.write('**Next validation question:** '+r['next_validation'])
                 st.write('**Recommended next step:** '+r['recommended_action'])
+                st.markdown('**Evidence-driven next checks**')
+                check_items = next_check_engine(events, r)
+                for chk in check_items:
+                    st.markdown(f"**P{chk['priority']} · {chk['check']}**")
+                    st.caption(chk['why'] + ' Evidence to seek: ' + chk['evidence_to_seek'])
         st.info('Storyline association is based on shared username/source IP and event timestamps; it does not establish attribution or prove an attack.')
 with tabs[3]:
     st.subheader('Threat context & indicator handling')
@@ -199,11 +279,11 @@ with tabs[4]:
     st.caption('Playbooks are decision support. Analysts must follow organizational authorization and incident procedures.')
 with tabs[5]:
     st.subheader('Export investigation artefacts')
-    report={'product':'SentinelX','generated_at':datetime.utcnow().isoformat()+'Z','event_count':len(events),'alert_count':len(alerts),'method':'Deterministic rule-based event triage and user/source correlation','limitations':['Synthetic data may be used','No live SIEM ingestion','No external threat-intelligence lookup','Risk scores are not calibrated probabilities','Correlated events do not prove attribution'], 'alerts':alerts.to_dict(orient='records') if not alerts.empty else []}
+    report={'product':'SentinelX','generated_at':datetime.utcnow().isoformat()+'Z','event_count':len(events),'alert_count':len(alerts),'method':'Deterministic rule-based event triage, user/source correlation, and evidence-gap next-check heuristics','limitations':['Synthetic data may be used','No live SIEM ingestion','No external threat-intelligence lookup','Risk scores are not calibrated probabilities','Correlated events do not prove attribution'], 'alerts':alerts.to_dict(orient='records') if not alerts.empty else []}
     st.download_button('Download alert report (JSON)',json.dumps(report,indent=2,default=str),file_name='sentinelx_investigation_report.json',mime='application/json')
     st.download_button('Download detections (CSV)',alerts.to_csv(index=False) if not alerts.empty else 'severity,rule,entity,source_ip\n',file_name='sentinelx_alerts.csv',mime='text/csv')
     st.markdown('#### Methodology and scope')
-    st.markdown('''- **Inputs:** timestamped event CSVs with username, source IP, event, and status fields.\n- **Detection:** configurable failed-login threshold; failure-to-success sequence within a 20-minute window; privilege changes; data-export events; security-setting changes; rejected change events.\n- **Explainability:** each alert includes the rule, supporting event rows, rationale, next validation question, and recommended response.\n- **Novelty claim to validate:** evidence-linked storyline grouping plus a next-validation prompt, compared with independent rule alerts on a labelled synthetic dataset. This is a proposed design contribution, not a claim of market-wide uniqueness.\n- **Limitations:** not a production SIEM, no endpoint telemetry, no automated containment, and no external IOC reputation feed.''')
+    st.markdown('''- **Inputs:** timestamped event CSVs with username, source IP, event, and status fields.\n- **Detection:** configurable failed-login threshold; failure-to-success sequence within a 20-minute window; privilege changes; data-export events; security-setting changes; rejected change events.\n- **Explainability:** each alert includes the rule, supporting event rows, rationale, next validation question, and recommended response.\n- **Proposed contribution to evaluate:** evidence-linked storyline grouping plus deterministic evidence-gap detection and prioritized next-check recommendations. Compare against independent rule alerts on a labelled synthetic dataset; do not claim market-wide uniqueness without comparative testing.\n- **Limitations:** not a production SIEM, no endpoint telemetry, no automated containment, and no external IOC reputation feed.''')
 
 st.divider()
-st.caption('SentinelX academic prototype • Use synthetic or authorized data only • Validate findings before taking response action')
+st.caption('SentinelX academic prototype v0.2 • Evidence-gap heuristics are deterministic decision support, not proof of compromise • Use synthetic or authorized data only')
