@@ -37,7 +37,12 @@ SAMPLE = '''timestamp,username,source_ip,event,status,asset,details
 REQUIRED={'timestamp','username','source_ip','event','status'}
 
 @st.cache_data
-def load_sample(): return pd.read_csv(io.StringIO(SAMPLE))
+def load_sample():
+    # Prefer the bundled 1,560-event dataset; fall back to the small inline demo if absent.
+    sample_path = __import__('os').path.join(__import__('os').path.dirname(__file__), 'sentinelx_sample_events_1500.csv')
+    if __import__('os').path.exists(sample_path):
+        return pd.read_csv(sample_path)
+    return pd.read_csv(io.StringIO(SAMPLE))
 
 def analyze(raw, threshold=4):
     df=raw.copy()
@@ -161,65 +166,77 @@ with st.sidebar:
     st.header('Control Center')
     st.caption('DETECTION CONFIGURATION')
     threshold=st.slider('Failed-login alert threshold',3,10,4)
-    source=st.radio('Data source',['Synthetic scenario','Upload CSV'],index=0)
+    source=st.radio('Event source',['Bundled event dataset','Upload CSV'],index=0)
     uploaded=st.file_uploader('Upload security events (.csv)',type=['csv']) if source=='Upload CSV' else None
     st.caption('Required columns: timestamp, username, source_ip, event, status. Optional: asset, details.')
-    st.download_button('Download sample CSV',SAMPLE,file_name='sentinelx_sample_events.csv',mime='text/csv',use_container_width=True)
+    st.download_button('Download sample CSV (1,560 events)',load_sample().to_csv(index=False),file_name='sentinelx_sample_events_1500.csv',mime='text/csv',use_container_width=True)
 try:
     raw=pd.read_csv(uploaded) if source=='Upload CSV' and uploaded is not None else load_sample()
-    if source=='Upload CSV' and uploaded is None: st.info('Upload a CSV to begin, or switch to Synthetic scenario for a guided demo.'); st.stop()
+    if source=='Upload CSV' and uploaded is None: st.info('Upload a CSV file to open the incident workspace.'); st.stop()
     events,alerts=analyze(raw,threshold)
 except Exception as e:
     st.error(f'Unable to process input: {e}'); st.stop()
 
-# Top navigation tabs
-tabs=st.tabs(['Executive Overview','Event Explorer','Attack Storylines','Threat Context','Response Playbooks','Export & Methodology'])
+# Incident-centric command workspace
+tabs=st.tabs(['Incident Command','Event Explorer','Attack Storylines','Threat Context','Response Playbooks','Export & Methodology'])
 with tabs[0]:
-    st.markdown('<div class="sx-head"><h2>Security Operations Overview</h2><span>● ANALYSIS READY &nbsp; | &nbsp; Rule-based triage</span></div>',unsafe_allow_html=True)
-    m1,m2,m3,m4,m5=st.columns(5)
-    m1.metric('TOTAL EVENTS',f'{len(events):,}', 'Parsed')
-    m2.metric('ACTIVE ALERTS',f'{len(alerts):,}', 'Rule detections')
+    st.markdown('<div class="sx-head"><div><h2>Incident Command Center</h2><span>Prioritize detections · investigate evidence · coordinate response</span></div><span class="sx-status">● PIPELINE READY</span></div>',unsafe_allow_html=True)
+    # Rule-triggered detections are candidate incidents pending analyst validation.
+    incident_count=len(alerts)
     critical=int((alerts.severity=='CRITICAL').sum()) if not alerts.empty else 0
-    m3.metric('CRITICAL INCIDENTS',f'{critical:,}', 'Needs validation')
-    m4.metric('SUSPICIOUS USERS',events[events.username.isin(alerts.entity.unique())].username.nunique() if not alerts.empty else 0, 'Correlated')
-    m5.metric('SOURCE IPs',events.source_ip.nunique(), 'Observed')
-    left,mid,right=st.columns([.82,1.5,1.55],gap='medium')
+    high=int((alerts.severity=='HIGH').sum()) if not alerts.empty else 0
+    entities=alerts.entity.nunique() if not alerts.empty else 0
+    clusters=alerts.assign(cluster=alerts.entity.astype(str)+' / '+alerts.source_ip.astype(str)).cluster.nunique() if not alerts.empty else 0
+    m1,m2,m3,m4,m5=st.columns(5)
+    m1.metric('INCIDENTS TO TRIAGE',f'{incident_count:,}','Detection queue')
+    m2.metric('CRITICAL PRIORITY',f'{critical:,}','Immediate review')
+    m3.metric('HIGH PRIORITY',f'{high:,}','Analyst attention')
+    m4.metric('AFFECTED IDENTITIES',f'{entities:,}','Unique accounts')
+    m5.metric('CORRELATED CLUSTERS',f'{clusters:,}','User + source IP')
+
+    left,right=st.columns([1.7,1],gap='large')
     with left:
-        st.markdown('<div class="sx-panel"><h4>Threat Distribution by Severity</h4>',unsafe_allow_html=True)
+        st.markdown('<div class="sx-panel"><h4>Incident Queue</h4><span class="sx-muted">Rule-triggered cases ranked by severity and risk score. Validate before declaring a confirmed incident.</span></div>',unsafe_allow_html=True)
+        if not alerts.empty:
+            sev_order={'CRITICAL':0,'HIGH':1,'MEDIUM':2,'LOW':3}
+            queue=alerts.copy()
+            queue['priority_order']=queue.severity.map(sev_order).fillna(9)
+            queue=queue.sort_values(['priority_order','risk_score'],ascending=[True,False]).reset_index(drop=True)
+            queue['case_id']=[f'SX-{1001+i:04d}' for i in range(len(queue))]
+            queue['triage_status']='Needs review'
+            show=queue[['case_id','severity','rule','entity','source_ip','first_seen','risk_score','triage_status']].rename(columns={'case_id':'CASE ID','severity':'PRIORITY','rule':'DETECTION','entity':'IDENTITY','source_ip':'SOURCE IP','first_seen':'FIRST SEEN','risk_score':'RISK','triage_status':'STATUS'})
+            st.dataframe(show,use_container_width=True,hide_index=True,height=340)
+            case_options=[f"{r['case_id']} · {r['severity']} · {r['rule']} · {r['entity']}" for _,r in queue.iterrows()]
+            chosen_case=st.selectbox('Open incident for investigation',case_options,key='incident_queue_select')
+            incident=queue.iloc[case_options.index(chosen_case)]
+            st.markdown(f'''<div class="sx-panel"><h4>{incident['case_id']} · {incident['rule']}</h4><span class="sx-pill">{incident['severity']}</span><span class="sx-muted">Identity: {incident['entity']} · Source: {incident['source_ip']} · Risk score: {incident['risk_score']}/100</span><hr><b>Why this is in the queue</b><p>{incident['explanation']}</p><b>Next validation</b><p>{incident['next_validation']}</p><b>Recommended response</b><p>{incident['recommended_action']}</p><span class="sx-muted">Source CSV row(s): {incident['evidence_rows']}</span></div>''',unsafe_allow_html=True)
+            st.markdown('#### Evidence-driven next checks')
+            for chk in next_check_engine(events,incident):
+                with st.container(border=True):
+                    c1,c2=st.columns([0.18,1])
+                    c1.metric('Priority',chk['priority'])
+                    c2.markdown(f"**{chk['check']}**\n\n{chk['why']}\n\n**Evidence to seek:** {chk['evidence_to_seek']}")
+        else:
+            st.success('No detections matched the configured rules. Upload additional logs or review the detection threshold.')
+    with right:
+        st.markdown('<div class="sx-panel"><h4>Priority Distribution</h4><span class="sx-muted">Candidate incidents by rule severity</span>',unsafe_allow_html=True)
         if not alerts.empty:
             sev=alerts.groupby('severity').size().reindex(['CRITICAL','HIGH','MEDIUM','LOW'],fill_value=0)
-            st.bar_chart(sev, color='#ef526b', height=190)
-            st.markdown('<span class="sx-muted">Severity is rule-based and requires analyst validation.</span></div>',unsafe_allow_html=True)
-        else: st.info('No detections for current input.')
-        st.markdown('<div class="sx-panel"><h4>Detection Summary</h4>',unsafe_allow_html=True)
+            st.bar_chart(sev,color='#ef526b',height=210)
+        else: st.info('No detections for the current input.')
+        st.markdown('</div>',unsafe_allow_html=True)
+        st.markdown('<div class="sx-panel"><h4>Incident Activity</h4><span class="sx-muted">Event volume over time</span>',unsafe_allow_html=True)
+        trend=events.set_index('timestamp').resample('15min').size().rename('Events')
+        st.area_chart(trend,color='#648bff',height=190)
+        st.markdown('</div>',unsafe_allow_html=True)
+        st.markdown('<div class="sx-panel"><h4>Top Detection Categories</h4>',unsafe_allow_html=True)
         if not alerts.empty:
-            st.metric('Average risk score',f"{alerts.risk_score.mean():.0f}/100")
-            st.metric('High / Critical',int(alerts.severity.isin(['HIGH','CRITICAL']).sum()))
-        st.markdown('<span class="sx-muted">Scores are prioritization indicators, not compromise probabilities.</span></div>',unsafe_allow_html=True)
-    with mid:
-        st.markdown('<div class="sx-panel"><h4>Attack Storyline & Correlated Events</h4><span class="sx-muted">Related activity grouped by user and source address</span>',unsafe_allow_html=True)
-        if not alerts.empty:
-            for _,r in alerts.head(5).iterrows():
-                color='CRITICAL' if r.severity=='CRITICAL' else 'HIGH' if r.severity=='HIGH' else 'MEDIUM'
-                st.markdown(f'<div class="sx-alert"><span class="sx-pill">{color}</span><b>{r["rule"]}</b><br><span class="sx-muted">{r["entity"]} · {r["source_ip"]} · Risk {r["risk_score"]}</span></div>',unsafe_allow_html=True)
-        else: st.info('No storylines found.')
+            byrule=alerts.groupby('rule').size().sort_values(ascending=True).tail(6).rename('Cases')
+            st.bar_chart(byrule,color='#e7a94b',height=200)
+        else: st.info('No detection categories to show.')
         st.markdown('</div>',unsafe_allow_html=True)
-        st.markdown('<div class="sx-panel"><h4>Most Active Source IPs</h4>',unsafe_allow_html=True)
-        ipcounts=events.groupby('source_ip').size().sort_values(ascending=False).head(5).rename('Events')
-        st.bar_chart(ipcounts,color='#648bff',height=180)
-        st.markdown('</div>',unsafe_allow_html=True)
-    with right:
-        st.markdown('<div class="sx-panel"><h4>Threat Activity Over Time</h4><span class="sx-muted">Events per timestamp interval</span>',unsafe_allow_html=True)
-        trend=events.set_index('timestamp').resample('2min').size().rename('Events')
-        st.line_chart(trend,color='#ff627e',height=245)
-        st.markdown('</div>',unsafe_allow_html=True)
-        st.markdown('<div class="sx-panel"><h4>Breakdown by Detection Type</h4>',unsafe_allow_html=True)
-        if not alerts.empty:
-            byrule=alerts.groupby('rule').size().sort_values(ascending=True).tail(7).rename('Alerts')
-            st.bar_chart(byrule,color='#648bff',height=220)
-        else: st.info('No detection types to show.')
-        st.markdown('</div>',unsafe_allow_html=True)
-    st.caption('SentinelX academic prototype • Data shown is synthetic unless a CSV is uploaded • Correlation does not prove attribution.')
+    st.caption('Incident queue contains rule-triggered candidates, not confirmed breaches. The bundled dataset is for testing; use authorized operational logs for real investigations.')
+
 with tabs[1]:
     st.subheader('Normalized event explorer')
     c1,c2,c3=st.columns(3)
@@ -234,7 +251,7 @@ with tabs[1]:
     st.caption(f'Showing {len(filt)} of {len(events)} valid timestamped events.')
 with tabs[2]:
     st.subheader('Attack Storyline Engine')
-    st.write('This prototype groups related detections by account and source IP, orders them by time, surfaces likely evidence gaps, and prioritizes follow-up checks with an explanation for each recommendation.')
+    st.write('SentinelX groups detections by account and source IP, orders them by time, identifies likely evidence gaps, and prioritizes follow-up checks with a reason and the evidence an analyst should seek. The engine is deterministic and transparent; it does not claim to prove compromise.')
     if alerts.empty: st.info('No storylines available for this dataset.')
     else:
         pairs=alerts.assign(story=alerts.entity+' | '+alerts.source_ip)['story'].drop_duplicates().tolist()
@@ -242,6 +259,12 @@ with tabs[2]:
         user,ip=chosen.split(' | ',1)
         related=alerts[(alerts.entity==user)&(alerts.source_ip==ip)].sort_values('first_seen')
         st.markdown(f'**Investigation entity:** `{user}`  ·  **Source:** `{ip}`')
+        story_events = events[(events['username'].astype(str) == user) | (events['source_ip'].astype(str) == ip)].copy()
+        story_events = story_events.sort_values('timestamp')
+        st.markdown('#### Correlated event timeline')
+        timeline_cols = [c for c in ['timestamp','username','source_ip','event','status','asset','details'] if c in story_events.columns]
+        st.dataframe(story_events[timeline_cols].head(30), use_container_width=True, hide_index=True)
+        st.caption(f'{len(story_events)} event(s) matched this account or source IP across the uploaded dataset. Correlation is a lead for investigation, not proof of a single actor or incident.')
         for _,r in related.iterrows():
             with st.expander(f"{r['first_seen']} — {r['severity']}: {r['rule']}",expanded=True):
                 st.write('**Evidence explanation:** '+r['explanation'])
@@ -251,7 +274,7 @@ with tabs[2]:
                 st.markdown('**Evidence-driven next checks**')
                 check_items = next_check_engine(events, r)
                 for chk in check_items:
-                    st.markdown(f"**P{chk['priority']} · {chk['check']}**")
+                    st.markdown(f"**Priority {chk['priority']} · {chk['check']}**")
                     st.caption(chk['why'] + ' Evidence to seek: ' + chk['evidence_to_seek'])
         st.info('Storyline association is based on shared username/source IP and event timestamps; it does not establish attribution or prove an attack.')
 with tabs[3]:
@@ -279,11 +302,11 @@ with tabs[4]:
     st.caption('Playbooks are decision support. Analysts must follow organizational authorization and incident procedures.')
 with tabs[5]:
     st.subheader('Export investigation artefacts')
-    report={'product':'SentinelX','generated_at':datetime.utcnow().isoformat()+'Z','event_count':len(events),'alert_count':len(alerts),'method':'Deterministic rule-based event triage, user/source correlation, and evidence-gap next-check heuristics','limitations':['Synthetic data may be used','No live SIEM ingestion','No external threat-intelligence lookup','Risk scores are not calibrated probabilities','Correlated events do not prove attribution'], 'alerts':alerts.to_dict(orient='records') if not alerts.empty else []}
+    report={'product':'SentinelX','generated_at':datetime.utcnow().isoformat()+'Z','event_count':len(events),'alert_count':len(alerts),'method':'Deterministic rule-based event triage, user/source correlation, and evidence-gap next-check heuristics','limitations':['Bundled test data may be synthetic; validate against authorized operational logs','No live SIEM ingestion','No external threat-intelligence lookup','Risk scores are not calibrated probabilities','Correlated events do not prove attribution'], 'alerts':alerts.to_dict(orient='records') if not alerts.empty else []}
     st.download_button('Download alert report (JSON)',json.dumps(report,indent=2,default=str),file_name='sentinelx_investigation_report.json',mime='application/json')
     st.download_button('Download detections (CSV)',alerts.to_csv(index=False) if not alerts.empty else 'severity,rule,entity,source_ip\n',file_name='sentinelx_alerts.csv',mime='text/csv')
     st.markdown('#### Methodology and scope')
     st.markdown('''- **Inputs:** timestamped event CSVs with username, source IP, event, and status fields.\n- **Detection:** configurable failed-login threshold; failure-to-success sequence within a 20-minute window; privilege changes; data-export events; security-setting changes; rejected change events.\n- **Explainability:** each alert includes the rule, supporting event rows, rationale, next validation question, and recommended response.\n- **Proposed contribution to evaluate:** evidence-linked storyline grouping plus deterministic evidence-gap detection and prioritized next-check recommendations. Compare against independent rule alerts on a labelled synthetic dataset; do not claim market-wide uniqueness without comparative testing.\n- **Limitations:** not a production SIEM, no endpoint telemetry, no automated containment, and no external IOC reputation feed.''')
 
 st.divider()
-st.caption('SentinelX academic prototype v0.2 • Evidence-gap heuristics are deterministic decision support, not proof of compromise • Use synthetic or authorized data only')
+st.caption('SentinelX incident investigation prototype v0.4 • Evidence-gap heuristics are deterministic decision support, not proof of compromise • Use synthetic or authorized data only')
