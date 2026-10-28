@@ -3,7 +3,7 @@ import pandas as pd
 import json, io
 from datetime import datetime
 
-st.set_page_config(page_title='SentinelX | Security Intelligence', page_icon='🛡️', layout='wide', initial_sidebar_state='expanded')
+st.set_page_config(page_title='SentinelX | Incident Command', page_icon='🛡️', layout='wide', initial_sidebar_state='expanded')
 st.markdown(r'''<style>
 :root{color-scheme:dark} .stApp{background:#080b16;color:#e8ecf8}.block-container{padding-top:1rem;padding-bottom:2rem;max-width:1700px}
 [data-testid="stSidebar"]{background:#0b1020;border-right:1px solid #222a43}
@@ -16,7 +16,7 @@ st.markdown(r'''<style>
 .stSelectbox label,.stRadio label,.stSlider label,.stFileUploader label{color:#b6c3df!important}
 hr{border-color:#242d46}.sx-brand{display:flex;align-items:center;gap:12px;padding:3px 0 16px}.sx-logo{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:11px;background:linear-gradient(135deg,#304caa,#172451);font-size:21px}.sx-brand h1{font-size:1.35rem;margin:0;color:#f7f9ff}.sx-brand p{font-size:.75rem;margin:2px 0 0;color:#8d9bbd}.sx-head{display:flex;justify-content:space-between;align-items:center;margin:3px 0 16px}.sx-head h2{font-size:1.25rem;margin:0;color:#f1f4ff}.sx-head span{color:#95a4c5;font-size:.8rem}.sx-panel{border:1px solid #252d48;background:linear-gradient(145deg,#101627,#0d1220);border-radius:14px;padding:16px;margin-bottom:12px;min-height:150px}.sx-panel h4{font-size:.9rem;margin:0 0 12px;color:#e2e8fb}.sx-muted{color:#8796b7;font-size:.78rem}.sx-alert{padding:10px 12px;border:1px solid #493047;border-radius:9px;background:#1b1425;margin:7px 0}.sx-pill{display:inline-block;padding:3px 7px;border-radius:99px;font-size:.68rem;background:#35202b;color:#ff9eae;margin-right:7px}.sx-status{color:#73e2b2;font-size:.78rem}
 </style>''', unsafe_allow_html=True)
-st.markdown('<div class="sx-brand"><div class="sx-logo">🛡️</div><div><h1>SentinelX</h1><p>THREAT INTELLIGENCE & SECURITY OPERATIONS</p></div></div>', unsafe_allow_html=True)
+st.markdown('<div class="sx-brand"><div class="sx-logo">🛡️</div><div><h1>SentinelX</h1><p>INCIDENT COMMAND · DETECTION · INVESTIGATION</p></div></div>', unsafe_allow_html=True)
 
 SAMPLE = '''timestamp,username,source_ip,event,status,asset,details
 2026-10-28 09:00:01,akshay,198.51.100.23,login,failed,vpn-gateway,invalid password
@@ -38,7 +38,7 @@ REQUIRED={'timestamp','username','source_ip','event','status'}
 
 @st.cache_data
 def load_sample():
-    # Prefer the bundled 1,560-event dataset; fall back to the small inline demo if absent.
+    # Load the bundled event dataset; use the inline fallback only if the CSV file is missing.
     sample_path = __import__('os').path.join(__import__('os').path.dirname(__file__), 'sentinelx_sample_events_1500.csv')
     if __import__('os').path.exists(sample_path):
         return pd.read_csv(sample_path)
@@ -166,7 +166,7 @@ with st.sidebar:
     st.header('Control Center')
     st.caption('DETECTION CONFIGURATION')
     threshold=st.slider('Failed-login alert threshold',3,10,4)
-    source=st.radio('Event source',['Bundled event dataset','Upload CSV'],index=0)
+    source=st.radio('Event source',['Security event dataset','Upload CSV'],index=0)
     uploaded=st.file_uploader('Upload security events (.csv)',type=['csv']) if source=='Upload CSV' else None
     st.caption('Required columns: timestamp, username, source_ip, event, status. Optional: asset, details.')
     st.download_button('Download sample CSV (1,560 events)',load_sample().to_csv(index=False),file_name='sentinelx_sample_events_1500.csv',mime='text/csv',use_container_width=True)
@@ -180,7 +180,7 @@ except Exception as e:
 # Incident-centric command workspace
 tabs=st.tabs(['Incident Command','Event Explorer','Attack Storylines','Threat Context','Response Playbooks','Export & Methodology'])
 with tabs[0]:
-    st.markdown('<div class="sx-head"><div><h2>Incident Command Center</h2><span>Prioritize detections · investigate evidence · coordinate response</span></div><span class="sx-status">● PIPELINE READY</span></div>',unsafe_allow_html=True)
+    st.markdown('<div class="sx-head"><div><h2>Incident Command Center</h2><span>Live analysis of loaded security events · validate detections before declaring incidents</span></div><span class="sx-status">● ANALYSIS READY</span></div>',unsafe_allow_html=True)
     # Rule-triggered detections are candidate incidents pending analyst validation.
     incident_count=len(alerts)
     critical=int((alerts.severity=='CRITICAL').sum()) if not alerts.empty else 0
