@@ -1,0 +1,1561 @@
+timestamp,username,source_ip,event,status,asset,details
+2026-10-28 08:00:09,dev,10.0.8.223,security_setting_change,success,db-server,firewall rule changed
+2026-10-28 08:01:10,service_backup,10.0.9.37,privilege_change,success,cloud-console,privilege removed
+2026-10-28 08:01:32,rahul,185.22.223.162,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 08:01:48,service_backup,185.22.195.138,login_failure,failure,backup-server,MFA timeout
+2026-10-28 08:02:05,service_backup,10.0.1.176,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 08:02:21,analyst2,10.0.13.22,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 08:02:32,akshay,10.0.18.58,login_success,success,db-server,valid credentials
+2026-10-28 08:03:13,analyst1,10.0.8.131,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 08:03:35,rahul,185.22.40.97,data_export,success,vpn-gateway,sensitive archive downloaded
+2026-10-28 08:03:55,mira,10.0.3.57,file_access,success,idp-server,file accessed
+2026-10-28 08:04:21,nina,10.0.13.154,privilege_change,success,backup-server,role membership updated
+2026-10-28 08:04:59,websvc,10.0.9.118,password_reset,success,endpoint-23,password reset completed
+2026-10-28 08:05:18,analyst2,185.22.139.246,privilege_change,success,idp-server,admin role granted
+2026-10-28 08:05:36,websvc,10.0.6.180,password_reset,success,endpoint-23,password reset completed
+2026-10-28 08:05:47,analyst1,10.0.18.194,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 08:06:14,rahul,10.0.12.149,login_success,success,idp-server,valid credentials
+2026-10-28 08:06:40,admin_ops,10.0.19.104,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 08:06:54,dbadmin,10.0.19.111,login_failure,failure,cloud-console,unknown account
+2026-10-28 08:06:57,analyst1,10.0.1.196,password_reset,success,email-gateway,password reset completed
+2026-10-28 08:07:04,analyst2,10.0.9.198,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 08:08:41,admin_ops,10.0.3.99,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 08:08:51,rahul,10.0.9.250,password_reset,success,cloud-console,password reset completed
+2026-10-28 08:09:02,priya,10.0.12.58,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 08:09:34,dbadmin,10.0.9.250,login_success,success,endpoint-17,valid credentials
+2026-10-28 08:10:16,websvc,10.0.11.56,login_success,success,endpoint-23,valid credentials
+2026-10-28 08:10:22,rahul,10.0.11.28,vpn_connection,success,backup-server,VPN session established
+2026-10-28 08:10:43,dbadmin,10.0.7.182,file_access,success,file-server,file accessed
+2026-10-28 08:10:45,finance_user,10.0.9.37,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 08:11:19,akshay,185.22.52.184,password_reset,success,endpoint-23,password reset completed
+2026-10-28 08:11:21,dev,10.0.2.188,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 08:11:23,nina,10.0.9.198,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 08:13:32,dev,10.0.3.157,security_setting_change,success,endpoint-23,audit logging disabled
+2026-10-28 08:13:40,hr_user,185.22.68.137,data_export,success,backup-server,small report exported
+2026-10-28 08:13:48,service_backup,10.0.3.57,file_access,success,file-server,file accessed
+2026-10-28 08:14:23,websvc,10.0.18.52,login_failure,failure,file-server,MFA timeout
+2026-10-28 08:15:07,priya,10.0.12.92,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 08:15:48,dev,10.0.12.92,data_export,success,db-server,small report exported
+2026-10-28 08:16:13,mira,10.0.8.131,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 08:16:31,mira,10.0.8.43,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 08:16:41,priya,10.0.1.176,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 08:17:38,nina,10.0.19.73,password_reset,success,hr-portal,password reset completed
+2026-10-28 08:17:41,hr_user,10.0.15.38,data_export,success,db-server,bulk customer export requested
+2026-10-28 08:17:47,finance_user,10.0.12.156,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 08:18:16,akshay,10.0.18.58,login_failure,failure,backup-server,unknown account
+2026-10-28 08:18:21,service_backup,10.0.9.193,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 08:18:55,hr_user,10.0.7.182,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 08:18:55,rahul,10.0.16.25,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 08:19:34,finance_user,10.0.18.109,password_reset,success,backup-server,password reset completed
+2026-10-28 08:19:40,dbadmin,10.0.14.154,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 08:20:02,admin_ops,10.0.3.13,data_export,success,idp-server,bulk customer export requested
+2026-10-28 08:20:41,mira,10.0.12.156,privilege_change,success,hr-portal,role membership updated
+2026-10-28 08:20:55,rahul,185.22.195.138,backup_job,success,endpoint-17,scheduled backup completed
+2026-10-28 08:21:10,service_backup,185.22.238.94,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 08:21:24,contractor7,10.0.3.57,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 08:21:28,service_backup,10.0.12.43,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 08:21:35,dbadmin,10.0.18.222,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 08:22:27,hr_user,10.0.4.93,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 08:22:58,rahul,185.22.185.69,data_export,success,email-gateway,sensitive archive downloaded
+2026-10-28 08:23:06,service_backup,10.0.20.8,data_export,success,backup-server,bulk customer export requested
+2026-10-28 08:23:33,dev,10.0.3.99,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 08:23:39,mira,10.0.4.41,mfa_challenge,success,endpoint-17,MFA challenge completed
+2026-10-28 08:23:44,rahul,10.0.4.99,file_access,success,backup-server,file accessed
+2026-10-28 08:23:51,service_backup,10.0.12.149,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 08:24:04,akshay,10.0.14.89,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 08:24:24,websvc,10.0.8.37,data_export,success,idp-server,sensitive archive downloaded
+2026-10-28 08:24:43,mira,10.0.12.43,data_export,success,backup-server,sensitive archive downloaded
+2026-10-28 08:24:44,service_backup,10.0.8.131,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 08:24:49,analyst1,10.0.8.199,firewall_block,blocked,endpoint-23,connection blocked by firewall
+2026-10-28 08:24:51,akshay,10.0.14.89,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 08:24:51,analyst2,185.22.225.214,vpn_connection,success,idp-server,VPN session established
+2026-10-28 08:25:06,admin_ops,10.0.11.28,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 08:25:14,priya,185.22.139.195,login_failure,failure,email-gateway,unknown account
+2026-10-28 08:26:55,analyst2,10.0.10.22,data_export,success,vpn-gateway,bulk customer export requested
+2026-10-28 08:27:06,finance_user,10.0.19.73,privilege_change,success,file-server,role membership updated
+2026-10-28 08:27:06,dev,185.22.40.97,file_access,success,endpoint-23,file accessed
+2026-10-28 08:27:10,analyst1,10.0.16.103,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 08:27:21,mira,10.0.19.110,privilege_change,success,db-server,privilege removed
+2026-10-28 08:27:39,dev,185.22.21.23,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 08:27:42,dev,10.0.2.9,login_failure,failure,cloud-console,invalid password
+2026-10-28 08:27:56,hr_user,10.0.9.238,vpn_connection,success,file-server,VPN session established
+2026-10-28 08:28:11,analyst1,185.22.139.195,login_success,success,file-server,valid credentials
+2026-10-28 08:28:40,mira,10.0.18.139,login_failure,failure,endpoint-17,invalid password
+2026-10-28 08:29:16,dbadmin,10.0.9.64,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 08:29:33,rahul,10.0.7.173,vpn_connection,success,backup-server,VPN session established
+2026-10-28 08:29:35,analyst1,10.0.8.116,login_success,success,cloud-console,valid credentials
+2026-10-28 08:30:03,hr_user,10.0.9.250,vpn_connection,success,endpoint-23,VPN session established
+2026-10-28 08:30:36,nina,10.0.19.110,security_setting_change,success,idp-server,MFA policy updated
+2026-10-28 08:32:18,contractor7,10.0.15.137,file_access,success,hr-portal,file accessed
+2026-10-28 08:32:34,dev,10.0.1.176,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 08:32:48,rahul,185.22.200.238,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 08:33:17,analyst2,10.0.2.9,password_reset,success,email-gateway,password reset completed
+2026-10-28 08:34:05,nina,185.22.117.2,login_success,success,hr-portal,valid credentials
+2026-10-28 08:34:35,rahul,10.0.9.64,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 08:35:50,rahul,10.0.11.104,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 08:35:59,nina,10.0.2.60,privilege_change,success,file-server,privilege removed
+2026-10-28 08:36:04,nina,10.0.18.222,security_setting_change,success,cloud-console,firewall rule changed
+2026-10-28 08:36:24,akshay,185.22.234.29,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 08:36:43,priya,10.0.9.238,data_export,success,cloud-console,sensitive archive downloaded
+2026-10-28 08:36:44,mira,10.0.15.38,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 08:36:52,akshay,10.0.19.110,login_success,success,cloud-console,valid credentials
+2026-10-28 08:37:21,finance_user,10.0.18.194,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 08:37:54,admin_ops,185.22.156.52,password_reset,success,cloud-console,password reset completed
+2026-10-28 08:38:37,finance_user,185.22.62.16,login_failure,failure,cloud-console,unknown account
+2026-10-28 08:38:44,websvc,10.0.8.192,security_setting_change,success,backup-server,audit logging disabled
+2026-10-28 08:38:54,rahul,10.0.6.138,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 08:40:08,contractor7,10.0.4.176,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 08:40:08,mira,10.0.11.217,backup_job,success,endpoint-17,scheduled backup completed
+2026-10-28 08:40:09,service_backup,10.0.14.154,privilege_change,success,backup-server,privilege removed
+2026-10-28 08:40:20,admin_ops,185.22.109.248,privilege_change,success,cloud-console,privilege removed
+2026-10-28 08:40:57,finance_user,185.22.185.69,data_export,success,backup-server,sensitive archive downloaded
+2026-10-28 08:42:43,finance_user,185.22.185.69,file_access,success,email-gateway,file accessed
+2026-10-28 08:42:53,contractor7,10.0.8.192,password_reset,success,endpoint-17,password reset completed
+2026-10-28 08:43:07,service_backup,185.22.112.42,vpn_connection,success,backup-server,VPN session established
+2026-10-28 08:43:14,contractor7,10.0.12.43,mfa_challenge,success,endpoint-17,MFA challenge completed
+2026-10-28 08:43:15,service_backup,10.0.16.25,password_reset,success,file-server,password reset completed
+2026-10-28 08:43:42,hr_user,10.0.2.60,security_setting_change,success,backup-server,firewall rule changed
+2026-10-28 08:43:45,dbadmin,10.0.1.176,login_failure,failure,endpoint-23,unknown account
+2026-10-28 08:44:30,hr_user,10.0.8.43,privilege_change,success,cloud-console,role membership updated
+2026-10-28 08:45:00,nina,10.0.4.93,login_success,success,cloud-console,valid credentials
+2026-10-28 08:45:08,hr_user,10.0.18.77,privilege_change,success,vpn-gateway,admin role granted
+2026-10-28 08:46:03,finance_user,10.0.19.110,file_access,success,email-gateway,file accessed
+2026-10-28 08:46:17,analyst1,10.0.6.180,file_access,success,file-server,file accessed
+2026-10-28 08:46:48,analyst1,10.0.6.204,security_setting_change,success,backup-server,MFA policy updated
+2026-10-28 08:46:49,akshay,10.0.9.181,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 08:47:01,service_backup,10.0.1.176,password_reset,success,email-gateway,password reset completed
+2026-10-28 08:47:22,service_backup,10.0.9.208,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 08:47:40,mira,10.0.12.156,privilege_change,success,idp-server,role membership updated
+2026-10-28 08:47:51,dev,10.0.2.188,login_failure,failure,vpn-gateway,MFA timeout
+2026-10-28 08:47:56,websvc,10.0.7.173,firewall_block,blocked,db-server,connection blocked by firewall
+2026-10-28 08:48:07,service_backup,185.22.139.246,security_setting_change,success,backup-server,audit logging disabled
+2026-10-28 08:49:10,service_backup,10.0.12.149,file_access,success,backup-server,file accessed
+2026-10-28 08:49:13,contractor7,10.0.7.235,mfa_challenge,success,endpoint-23,MFA challenge completed
+2026-10-28 08:49:26,priya,10.0.9.250,firewall_block,blocked,vpn-gateway,connection blocked by firewall
+2026-10-28 08:49:46,analyst1,10.0.9.208,data_export,success,cloud-console,bulk customer export requested
+2026-10-28 08:49:48,mira,10.0.9.238,login_failure,failure,hr-portal,MFA timeout
+2026-10-28 08:49:55,analyst1,10.0.3.57,login_success,success,db-server,valid credentials
+2026-10-28 08:50:44,dbadmin,10.0.8.192,login_failure,failure,email-gateway,unknown account
+2026-10-28 08:50:48,akshay,185.22.122.244,security_setting_change,success,db-server,audit logging disabled
+2026-10-28 08:50:53,admin_ops,10.0.4.176,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 08:51:02,analyst1,10.0.5.132,data_export,success,vpn-gateway,bulk customer export requested
+2026-10-28 08:51:03,service_backup,10.0.14.154,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 08:51:58,akshay,10.0.20.8,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 08:52:56,analyst1,10.0.19.226,security_setting_change,success,email-gateway,firewall rule changed
+2026-10-28 08:52:58,akshay,10.0.9.118,login_failure,failure,email-gateway,invalid password
+2026-10-28 08:53:21,service_backup,10.0.9.193,file_access,success,idp-server,file accessed
+2026-10-28 08:53:28,akshay,10.0.6.204,login_success,success,idp-server,valid credentials
+2026-10-28 08:55:06,websvc,10.0.19.104,privilege_change,success,endpoint-23,role membership updated
+2026-10-28 08:55:08,analyst1,10.0.9.198,password_reset,success,endpoint-17,password reset completed
+2026-10-28 08:55:54,priya,10.0.14.154,data_export,success,file-server,small report exported
+2026-10-28 08:56:01,dbadmin,10.0.4.99,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 08:56:08,dev,10.0.12.156,password_reset,success,endpoint-17,password reset completed
+2026-10-28 08:56:21,nina,10.0.12.43,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 08:56:22,analyst2,185.22.187.178,privilege_change,success,file-server,privilege removed
+2026-10-28 08:56:24,akshay,10.0.15.137,backup_job,success,file-server,scheduled backup completed
+2026-10-28 08:56:24,akshay,10.0.14.154,login_failure,failure,backup-server,MFA timeout
+2026-10-28 08:56:44,analyst1,10.0.18.77,backup_job,success,file-server,scheduled backup completed
+2026-10-28 08:56:51,contractor7,10.0.3.157,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 08:57:05,rahul,10.0.18.52,login_failure,failure,endpoint-17,unknown account
+2026-10-28 08:58:20,dev,10.0.8.223,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 08:58:25,dev,10.0.2.208,data_export,success,backup-server,bulk customer export requested
+2026-10-28 08:58:46,finance_user,10.0.8.116,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 08:58:52,akshay,10.0.5.132,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 08:59:00,mira,10.0.19.104,file_access,success,endpoint-17,file accessed
+2026-10-28 08:59:33,admin_ops,10.0.18.194,login_success,success,hr-portal,valid credentials
+2026-10-28 09:00:32,dbadmin,185.22.55.239,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 09:01:05,mira,185.22.96.114,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 09:01:07,hr_user,10.0.6.180,vpn_connection,success,backup-server,VPN session established
+2026-10-28 09:01:27,analyst1,10.0.9.238,data_export,success,endpoint-23,bulk customer export requested
+2026-10-28 09:01:32,websvc,10.0.18.139,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 09:01:34,priya,10.0.1.176,login_failure,failure,hr-portal,invalid password
+2026-10-28 09:02:09,nina,10.0.4.99,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 09:02:10,service_backup,10.0.9.37,privilege_change,success,cloud-console,privilege removed
+2026-10-28 09:02:13,analyst2,10.0.12.156,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 09:02:14,rahul,10.0.19.111,vpn_connection,success,db-server,VPN session established
+2026-10-28 09:03:15,akshay,10.0.19.110,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 09:03:39,dbadmin,10.0.8.37,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 09:03:48,dbadmin,10.0.12.92,backup_job,success,db-server,scheduled backup completed
+2026-10-28 09:03:52,dev,10.0.7.247,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 09:04:17,rahul,10.0.19.73,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 09:04:33,akshay,10.0.6.180,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 09:04:43,priya,10.0.2.188,privilege_change,success,file-server,privilege removed
+2026-10-28 09:04:49,admin_ops,10.0.8.37,login_failure,failure,cloud-console,unknown account
+2026-10-28 09:05:10,service_backup,10.0.8.223,vpn_connection,success,file-server,VPN session established
+2026-10-28 09:05:11,websvc,10.0.8.131,password_reset,success,db-server,password reset completed
+2026-10-28 09:05:13,akshay,10.0.9.64,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 09:05:17,analyst2,10.0.9.208,file_access,success,endpoint-23,file accessed
+2026-10-28 09:05:28,contractor7,10.0.19.104,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 09:05:28,contractor7,10.0.9.250,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 09:05:51,rahul,10.0.11.56,backup_job,success,file-server,scheduled backup completed
+2026-10-28 09:06:16,priya,10.0.12.149,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 09:06:32,akshay,10.0.9.198,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 09:06:58,dev,185.22.188.126,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 09:07:51,contractor7,185.22.188.126,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 09:08:54,akshay,10.0.11.56,file_access,success,endpoint-17,file accessed
+2026-10-28 09:08:55,rahul,10.0.9.250,vpn_connection,success,db-server,VPN session established
+2026-10-28 09:08:56,finance_user,185.22.238.94,login_failure,failure,email-gateway,invalid password
+2026-10-28 09:09:19,analyst2,10.0.10.22,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 09:09:32,dev,10.0.15.137,security_setting_change,success,backup-server,MFA policy updated
+2026-10-28 09:09:34,finance_user,10.0.19.73,data_export,success,hr-portal,sensitive archive downloaded
+2026-10-28 09:09:36,akshay,10.0.19.110,data_export,success,endpoint-23,sensitive archive downloaded
+2026-10-28 09:10:00,dbadmin,10.0.9.250,login_success,success,db-server,valid credentials
+2026-10-28 09:10:02,akshay,10.0.19.226,process_alert,warning,hr-portal,suspicious process behavior
+2026-10-28 09:11:02,dev,10.0.3.13,login_success,success,db-server,valid credentials
+2026-10-28 09:12:10,websvc,10.0.9.238,vpn_connection,success,hr-portal,VPN session established
+2026-10-28 09:12:20,contractor7,10.0.8.131,file_access,success,db-server,file accessed
+2026-10-28 09:13:07,admin_ops,10.0.18.109,security_setting_change,success,db-server,firewall rule changed
+2026-10-28 09:13:28,mira,10.0.8.223,data_export,success,hr-portal,bulk customer export requested
+2026-10-28 09:13:47,analyst2,10.0.18.222,password_reset,success,email-gateway,password reset completed
+2026-10-28 09:15:24,dbadmin,185.22.46.131,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 09:15:27,service_backup,10.0.5.132,privilege_change,success,hr-portal,admin role granted
+2026-10-28 09:15:35,nina,10.0.1.196,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 09:16:00,analyst1,10.0.3.13,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 09:16:02,websvc,10.0.4.238,login_success,success,backup-server,valid credentials
+2026-10-28 09:16:20,nina,185.22.5.30,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 09:16:52,websvc,185.22.172.168,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 09:18:09,priya,10.0.3.13,process_alert,warning,file-server,suspicious process behavior
+2026-10-28 09:18:26,priya,10.0.2.222,data_export,success,idp-server,sensitive archive downloaded
+2026-10-28 09:19:16,finance_user,185.22.165.89,privilege_change,success,email-gateway,admin role granted
+2026-10-28 09:19:29,dbadmin,10.0.8.223,password_reset,success,db-server,password reset completed
+2026-10-28 09:19:39,websvc,185.22.223.162,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 09:19:58,dbadmin,10.0.9.118,file_access,success,hr-portal,file accessed
+2026-10-28 09:20:40,hr_user,10.0.7.247,login_failure,failure,hr-portal,unknown account
+2026-10-28 09:21:00,mira,10.0.15.99,security_setting_change,success,hr-portal,MFA policy updated
+2026-10-28 09:21:20,analyst2,10.0.20.8,login_success,success,endpoint-17,valid credentials
+2026-10-28 09:21:27,mira,10.0.20.8,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 09:21:41,nina,10.0.18.77,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 09:21:52,finance_user,10.0.3.57,password_reset,success,cloud-console,password reset completed
+2026-10-28 09:22:26,admin_ops,10.0.16.103,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 09:22:51,dev,10.0.12.43,login_failure,failure,endpoint-23,invalid password
+2026-10-28 09:22:59,websvc,10.0.14.89,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 09:23:13,hr_user,10.0.7.173,security_setting_change,success,endpoint-17,MFA policy updated
+2026-10-28 09:23:37,priya,10.0.9.64,privilege_change,success,cloud-console,privilege removed
+2026-10-28 09:24:24,contractor7,185.22.77.217,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 09:24:32,priya,10.0.3.57,password_reset,success,hr-portal,password reset completed
+2026-10-28 09:24:38,nina,10.0.7.182,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 09:24:48,mira,10.0.2.60,privilege_change,success,endpoint-23,role membership updated
+2026-10-28 09:24:52,mira,10.0.8.192,data_export,success,cloud-console,small report exported
+2026-10-28 09:25:02,rahul,10.0.16.25,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 09:25:11,websvc,10.0.18.52,login_failure,failure,vpn-gateway,invalid password
+2026-10-28 09:25:15,dev,10.0.9.250,file_access,success,endpoint-23,file accessed
+2026-10-28 09:25:54,rahul,10.0.15.137,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 09:26:37,dev,185.22.33.170,login_success,success,idp-server,valid credentials
+2026-10-28 09:26:49,dbadmin,185.22.136.237,login_failure,failure,db-server,unknown account
+2026-10-28 09:26:56,websvc,10.0.11.217,login_success,success,email-gateway,valid credentials
+2026-10-28 09:27:15,analyst1,185.22.117.2,firewall_block,blocked,db-server,connection blocked by firewall
+2026-10-28 09:27:34,mira,10.0.15.38,privilege_change,success,file-server,privilege removed
+2026-10-28 09:27:47,service_backup,185.22.165.89,login_failure,failure,endpoint-17,unknown account
+2026-10-28 09:27:54,dev,10.0.3.13,file_access,success,idp-server,file accessed
+2026-10-28 09:28:03,priya,10.0.7.173,password_reset,success,endpoint-17,password reset completed
+2026-10-28 09:28:14,analyst2,10.0.19.226,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 09:28:27,websvc,10.0.3.57,security_setting_change,success,cloud-console,audit logging disabled
+2026-10-28 09:28:49,admin_ops,10.0.18.24,privilege_change,success,vpn-gateway,admin role granted
+2026-10-28 09:28:59,service_backup,10.0.4.99,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 09:29:59,rahul,10.0.7.247,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 09:30:42,contractor7,10.0.16.103,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 09:30:50,analyst1,10.0.13.154,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 09:31:46,analyst2,10.0.4.93,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 09:32:26,dev,10.0.19.111,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 09:33:13,dbadmin,10.0.19.73,login_failure,failure,email-gateway,MFA timeout
+2026-10-28 09:34:43,nina,10.0.8.223,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 09:34:50,analyst2,10.0.19.73,security_setting_change,success,backup-server,firewall rule changed
+2026-10-28 09:35:52,admin_ops,10.0.3.57,file_access,success,backup-server,file accessed
+2026-10-28 09:36:03,websvc,185.22.122.244,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 09:36:06,analyst1,185.22.197.34,login_success,success,vpn-gateway,valid credentials
+2026-10-28 09:36:27,service_backup,10.0.16.25,vpn_connection,success,db-server,VPN session established
+2026-10-28 09:36:35,finance_user,10.0.12.43,backup_job,success,endpoint-17,scheduled backup completed
+2026-10-28 09:37:00,service_backup,185.22.1.155,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 09:37:13,priya,185.22.62.226,login_failure,failure,vpn-gateway,invalid password
+2026-10-28 09:37:27,analyst1,10.0.7.247,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 09:37:57,admin_ops,185.22.52.184,file_access,success,vpn-gateway,file accessed
+2026-10-28 09:37:59,rahul,10.0.4.41,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 09:37:59,contractor7,10.0.18.222,privilege_change,success,cloud-console,privilege removed
+2026-10-28 09:38:10,websvc,10.0.6.204,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 09:38:15,analyst1,10.0.4.175,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 09:38:45,dbadmin,10.0.9.198,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 09:38:46,dbadmin,10.0.11.217,security_setting_change,success,endpoint-23,firewall rule changed
+2026-10-28 09:39:02,analyst1,10.0.2.9,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 09:39:04,dbadmin,10.0.11.104,login_failure,failure,endpoint-17,MFA timeout
+2026-10-28 09:39:14,akshay,10.0.9.181,file_access,success,email-gateway,file accessed
+2026-10-28 09:39:26,hr_user,10.0.18.194,file_access,success,backup-server,file accessed
+2026-10-28 09:39:37,dev,10.0.9.37,password_reset,success,email-gateway,password reset completed
+2026-10-28 09:40:08,analyst2,185.22.238.94,data_export,success,email-gateway,bulk customer export requested
+2026-10-28 09:40:28,dbadmin,10.0.18.139,mfa_challenge,success,endpoint-17,MFA challenge completed
+2026-10-28 09:40:33,nina,185.22.223.162,backup_job,success,vpn-gateway,scheduled backup completed
+2026-10-28 09:41:35,dbadmin,10.0.14.154,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 09:41:53,admin_ops,10.0.16.103,process_alert,warning,file-server,suspicious process behavior
+2026-10-28 09:42:04,dev,10.0.6.180,firewall_block,blocked,endpoint-23,connection blocked by firewall
+2026-10-28 09:42:12,finance_user,10.0.10.22,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 09:42:20,service_backup,10.0.3.100,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 09:42:38,admin_ops,10.0.9.18,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 09:42:56,contractor7,185.22.46.131,login_success,success,cloud-console,valid credentials
+2026-10-28 09:43:10,dev,10.0.9.208,login_success,success,email-gateway,valid credentials
+2026-10-28 09:43:28,priya,10.0.7.182,password_reset,success,endpoint-17,password reset completed
+2026-10-28 09:43:48,rahul,10.0.11.56,login_success,success,hr-portal,valid credentials
+2026-10-28 09:43:52,nina,185.22.122.244,privilege_change,success,db-server,role membership updated
+2026-10-28 09:43:52,finance_user,10.0.19.226,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 09:44:57,contractor7,185.22.62.16,login_success,success,idp-server,valid credentials
+2026-10-28 09:45:23,akshay,10.0.15.99,backup_job,success,endpoint-17,scheduled backup completed
+2026-10-28 09:45:27,akshay,10.0.18.222,file_access,success,email-gateway,file accessed
+2026-10-28 09:45:32,priya,10.0.9.64,privilege_change,success,cloud-console,role membership updated
+2026-10-28 09:45:57,nina,185.22.172.168,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 09:46:11,admin_ops,10.0.4.176,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 09:46:33,dbadmin,10.0.3.100,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 09:46:59,priya,10.0.2.208,file_access,success,email-gateway,file accessed
+2026-10-28 09:48:52,dbadmin,10.0.11.28,file_access,success,endpoint-17,file accessed
+2026-10-28 09:49:16,analyst1,10.0.15.137,login_failure,failure,idp-server,invalid password
+2026-10-28 09:50:21,mira,10.0.8.116,login_success,success,backup-server,valid credentials
+2026-10-28 09:50:44,dbadmin,10.0.9.198,data_export,success,endpoint-17,small report exported
+2026-10-28 09:51:02,nina,10.0.15.38,data_export,success,idp-server,sensitive archive downloaded
+2026-10-28 09:51:15,dbadmin,10.0.4.93,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 09:52:03,analyst2,10.0.2.60,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 09:52:12,finance_user,10.0.2.188,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 09:54:31,hr_user,10.0.8.43,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 09:54:53,dbadmin,185.22.188.126,firewall_block,blocked,db-server,connection blocked by firewall
+2026-10-28 09:55:06,analyst1,10.0.13.22,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 09:55:16,dev,10.0.4.176,privilege_change,success,idp-server,admin role granted
+2026-10-28 09:55:50,nina,10.0.6.138,privilege_change,success,backup-server,privilege removed
+2026-10-28 09:56:18,analyst1,185.22.209.19,privilege_change,success,hr-portal,privilege removed
+2026-10-28 09:56:44,dbadmin,10.0.3.57,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 09:57:15,contractor7,10.0.8.223,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 09:57:56,dbadmin,185.22.238.94,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 09:58:30,analyst2,10.0.4.99,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 09:58:31,admin_ops,10.0.3.157,privilege_change,success,vpn-gateway,role membership updated
+2026-10-28 09:58:39,websvc,185.22.117.2,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 09:58:56,mira,10.0.11.56,data_export,success,vpn-gateway,small report exported
+2026-10-28 09:58:57,service_backup,185.22.197.34,privilege_change,success,db-server,admin role granted
+2026-10-28 09:59:10,admin_ops,10.0.16.25,password_reset,success,cloud-console,password reset completed
+2026-10-28 09:59:16,hr_user,10.0.16.103,backup_job,success,file-server,scheduled backup completed
+2026-10-28 09:59:27,finance_user,10.0.3.57,password_reset,success,backup-server,password reset completed
+2026-10-28 09:59:29,akshay,10.0.4.8,data_export,success,backup-server,small report exported
+2026-10-28 09:59:36,analyst1,10.0.3.13,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 09:59:40,dev,10.0.9.37,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 09:59:50,rahul,10.0.4.175,security_setting_change,success,db-server,firewall rule changed
+2026-10-28 10:00:00,akshay,185.22.165.89,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:00:07,dev,10.0.12.58,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 10:00:09,akshay,185.22.165.89,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:00:18,akshay,185.22.165.89,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:00:27,akshay,185.22.165.89,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:00:36,akshay,185.22.165.89,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:00:55,akshay,185.22.165.89,login_success,success,vpn-gateway,successful login after repeated failures
+2026-10-28 10:01:00,nina,10.0.20.8,vpn_connection,success,idp-server,VPN session established
+2026-10-28 10:01:22,nina,10.0.12.92,security_setting_change,success,db-server,audit logging disabled
+2026-10-28 10:01:26,dev,185.22.223.162,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 10:01:27,contractor7,185.22.223.162,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 10:01:28,priya,10.0.9.37,data_export,success,file-server,small report exported
+2026-10-28 10:01:44,akshay,10.0.11.104,data_export,success,file-server,small report exported
+2026-10-28 10:02:00,akshay,185.22.165.89,privilege_change,success,idp-server,admin role granted
+2026-10-28 10:02:27,analyst1,10.0.19.110,login_success,success,endpoint-23,valid credentials
+2026-10-28 10:02:28,dbadmin,10.0.3.100,data_export,success,idp-server,bulk customer export requested
+2026-10-28 10:02:30,analyst2,185.22.40.97,backup_job,success,vpn-gateway,scheduled backup completed
+2026-10-28 10:02:46,analyst1,10.0.10.22,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 10:02:47,finance_user,10.0.9.37,password_reset,success,email-gateway,password reset completed
+2026-10-28 10:02:48,rahul,10.0.4.238,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 10:03:21,finance_user,10.0.19.226,file_access,success,idp-server,file accessed
+2026-10-28 10:03:31,finance_user,10.0.9.64,login_success,success,db-server,valid credentials
+2026-10-28 10:03:33,dbadmin,10.0.3.57,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 10:03:43,dev,10.0.9.118,login_failure,failure,hr-portal,MFA timeout
+2026-10-28 10:04:00,akshay,185.22.165.89,data_export,success,file-server,bulk customer export requested
+2026-10-28 10:04:02,websvc,10.0.12.92,data_export,success,cloud-console,bulk customer export requested
+2026-10-28 10:04:16,service_backup,10.0.7.173,login_failure,failure,email-gateway,invalid password
+2026-10-28 10:04:35,nina,10.0.11.217,security_setting_change,success,endpoint-17,firewall rule changed
+2026-10-28 10:04:44,analyst2,10.0.19.110,login_success,success,endpoint-23,valid credentials
+2026-10-28 10:05:00,akshay,185.22.165.89,security_setting_change,success,cloud-console,audit logging disabled
+2026-10-28 10:05:28,priya,185.22.96.114,password_reset,success,email-gateway,password reset completed
+2026-10-28 10:05:36,mira,10.0.8.223,file_access,success,endpoint-17,file accessed
+2026-10-28 10:05:38,websvc,10.0.20.228,login_failure,failure,endpoint-23,MFA timeout
+2026-10-28 10:06:06,hr_user,10.0.4.175,data_export,success,idp-server,sensitive archive downloaded
+2026-10-28 10:06:17,service_backup,10.0.13.22,login_failure,failure,cloud-console,unknown account
+2026-10-28 10:06:39,analyst2,10.0.8.37,security_setting_change,success,backup-server,audit logging disabled
+2026-10-28 10:07:04,nina,185.22.52.184,data_export,success,email-gateway,sensitive archive downloaded
+2026-10-28 10:07:33,dbadmin,10.0.19.110,data_export,success,email-gateway,sensitive archive downloaded
+2026-10-28 10:07:34,mira,185.22.234.29,password_reset,success,idp-server,password reset completed
+2026-10-28 10:07:36,service_backup,10.0.2.60,process_alert,warning,file-server,suspicious process behavior
+2026-10-28 10:08:03,rahul,10.0.6.204,login_failure,failure,endpoint-17,invalid password
+2026-10-28 10:08:15,analyst2,10.0.8.199,file_access,success,endpoint-23,file accessed
+2026-10-28 10:09:11,hr_user,10.0.15.99,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 10:09:32,service_backup,10.0.15.137,privilege_change,success,file-server,role membership updated
+2026-10-28 10:09:58,nina,185.22.77.217,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 10:10:01,hr_user,10.0.7.173,data_export,success,backup-server,sensitive archive downloaded
+2026-10-28 10:10:17,hr_user,10.0.3.99,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 10:10:37,rahul,185.22.195.138,file_access,success,db-server,file accessed
+2026-10-28 10:10:59,dev,10.0.3.99,login_success,success,cloud-console,valid credentials
+2026-10-28 10:11:33,nina,185.22.117.2,vpn_connection,success,endpoint-23,VPN session established
+2026-10-28 10:11:48,analyst2,10.0.3.100,file_access,success,email-gateway,file accessed
+2026-10-28 10:13:14,dev,10.0.4.8,login_failure,failure,cloud-console,invalid password
+2026-10-28 10:13:38,contractor7,10.0.9.198,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 10:13:39,analyst2,10.0.16.103,file_access,success,hr-portal,file accessed
+2026-10-28 10:14:28,priya,10.0.11.56,data_export,success,backup-server,small report exported
+2026-10-28 10:15:21,analyst1,10.0.4.41,backup_job,success,vpn-gateway,scheduled backup completed
+2026-10-28 10:15:35,service_backup,185.22.5.30,privilege_change,success,idp-server,privilege removed
+2026-10-28 10:16:04,analyst1,185.22.141.44,login_success,success,cloud-console,valid credentials
+2026-10-28 10:16:15,akshay,10.0.9.238,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 10:16:16,analyst1,10.0.3.100,security_setting_change,success,backup-server,firewall rule changed
+2026-10-28 10:16:19,finance_user,10.0.14.89,password_reset,success,cloud-console,password reset completed
+2026-10-28 10:16:35,admin_ops,185.22.156.52,security_setting_change,success,email-gateway,MFA policy updated
+2026-10-28 10:16:53,websvc,10.0.4.175,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 10:16:54,contractor7,10.0.16.103,vpn_connection,success,file-server,VPN session established
+2026-10-28 10:17:00,mira,185.22.29.77,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:17:08,contractor7,185.22.117.2,login_failure,failure,cloud-console,unknown account
+2026-10-28 10:17:09,mira,185.22.29.77,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:17:18,mira,185.22.29.77,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:17:27,mira,185.22.29.77,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:17:34,priya,10.0.9.198,login_failure,failure,vpn-gateway,MFA timeout
+2026-10-28 10:17:36,mira,185.22.29.77,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:17:50,hr_user,10.0.12.92,backup_job,success,file-server,scheduled backup completed
+2026-10-28 10:17:55,mira,185.22.29.77,login_success,success,vpn-gateway,successful login after repeated failures
+2026-10-28 10:18:20,admin_ops,10.0.15.139,data_export,success,vpn-gateway,sensitive archive downloaded
+2026-10-28 10:18:31,rahul,185.22.21.23,password_reset,success,db-server,password reset completed
+2026-10-28 10:18:45,nina,185.22.188.126,security_setting_change,success,vpn-gateway,firewall rule changed
+2026-10-28 10:18:53,dbadmin,10.0.19.111,vpn_connection,success,db-server,VPN session established
+2026-10-28 10:19:00,mira,185.22.29.77,privilege_change,success,idp-server,admin role granted
+2026-10-28 10:19:56,websvc,10.0.15.137,security_setting_change,success,backup-server,MFA policy updated
+2026-10-28 10:19:56,mira,10.0.3.57,login_success,success,db-server,valid credentials
+2026-10-28 10:20:03,analyst2,10.0.15.139,vpn_connection,success,file-server,VPN session established
+2026-10-28 10:20:07,finance_user,10.0.4.175,vpn_connection,success,db-server,VPN session established
+2026-10-28 10:21:00,mira,185.22.29.77,data_export,success,file-server,bulk customer export requested
+2026-10-28 10:21:18,priya,10.0.16.25,vpn_connection,success,backup-server,VPN session established
+2026-10-28 10:21:21,contractor7,10.0.8.37,login_failure,failure,endpoint-23,MFA timeout
+2026-10-28 10:21:48,finance_user,10.0.9.198,data_export,success,endpoint-17,sensitive archive downloaded
+2026-10-28 10:21:52,nina,10.0.3.100,privilege_change,success,db-server,role membership updated
+2026-10-28 10:22:07,dev,10.0.11.56,login_failure,failure,email-gateway,invalid password
+2026-10-28 10:22:14,akshay,10.0.9.250,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 10:22:18,hr_user,10.0.6.180,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 10:22:19,finance_user,185.22.141.44,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 10:22:31,finance_user,10.0.7.235,password_reset,success,hr-portal,password reset completed
+2026-10-28 10:22:36,mira,10.0.4.93,security_setting_change,success,endpoint-17,firewall rule changed
+2026-10-28 10:23:23,mira,10.0.11.56,backup_job,success,endpoint-17,scheduled backup completed
+2026-10-28 10:23:31,nina,185.22.185.69,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 10:23:36,analyst2,185.22.187.178,login_failure,failure,email-gateway,unknown account
+2026-10-28 10:23:45,analyst2,185.22.185.226,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 10:24:22,nina,10.0.4.238,vpn_connection,success,db-server,VPN session established
+2026-10-28 10:24:25,finance_user,10.0.18.58,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 10:24:50,priya,10.0.8.131,data_export,success,file-server,small report exported
+2026-10-28 10:24:52,analyst1,10.0.12.149,login_failure,failure,vpn-gateway,unknown account
+2026-10-28 10:24:55,akshay,10.0.7.235,vpn_connection,success,idp-server,VPN session established
+2026-10-28 10:25:00,analyst1,10.0.9.250,password_reset,success,endpoint-23,password reset completed
+2026-10-28 10:25:10,finance_user,10.0.20.8,privilege_change,success,idp-server,role membership updated
+2026-10-28 10:25:32,websvc,10.0.6.204,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 10:26:04,admin_ops,10.0.8.116,login_success,success,file-server,valid credentials
+2026-10-28 10:26:05,contractor7,10.0.5.132,password_reset,success,idp-server,password reset completed
+2026-10-28 10:28:03,akshay,185.22.172.168,privilege_change,success,hr-portal,privilege removed
+2026-10-28 10:28:09,akshay,10.0.9.64,login_failure,failure,cloud-console,MFA timeout
+2026-10-28 10:28:10,analyst1,185.22.80.104,data_export,success,idp-server,small report exported
+2026-10-28 10:28:37,analyst2,10.0.2.188,data_export,success,vpn-gateway,small report exported
+2026-10-28 10:28:54,nina,10.0.15.99,login_success,success,file-server,valid credentials
+2026-10-28 10:28:56,dev,10.0.8.223,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 10:28:58,admin_ops,185.22.223.162,security_setting_change,success,idp-server,MFA policy updated
+2026-10-28 10:29:00,priya,10.0.3.157,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 10:29:12,mira,10.0.11.56,security_setting_change,success,email-gateway,audit logging disabled
+2026-10-28 10:29:22,priya,10.0.4.93,password_reset,success,endpoint-17,password reset completed
+2026-10-28 10:29:26,mira,10.0.9.198,vpn_connection,success,hr-portal,VPN session established
+2026-10-28 10:29:37,nina,185.22.33.170,security_setting_change,success,idp-server,firewall rule changed
+2026-10-28 10:29:56,analyst1,185.22.117.2,login_failure,failure,cloud-console,unknown account
+2026-10-28 10:30:24,service_backup,10.0.4.176,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 10:30:39,websvc,10.0.3.13,security_setting_change,success,vpn-gateway,firewall rule changed
+2026-10-28 10:30:40,priya,185.22.209.19,login_failure,failure,endpoint-23,MFA timeout
+2026-10-28 10:30:42,service_backup,10.0.20.8,data_export,success,file-server,small report exported
+2026-10-28 10:31:15,analyst1,10.0.14.154,password_reset,success,backup-server,password reset completed
+2026-10-28 10:31:21,akshay,10.0.8.43,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 10:31:32,mira,10.0.5.132,file_access,success,endpoint-17,file accessed
+2026-10-28 10:31:56,analyst2,185.22.207.80,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 10:32:05,analyst1,10.0.6.204,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 10:32:19,contractor7,10.0.8.192,password_reset,success,backup-server,password reset completed
+2026-10-28 10:32:47,service_backup,10.0.15.139,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 10:34:00,dev,185.22.112.42,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:34:09,dev,185.22.112.42,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:34:18,dev,185.22.112.42,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:34:27,dev,185.22.112.42,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:34:33,mira,185.22.1.155,file_access,success,db-server,file accessed
+2026-10-28 10:34:36,dev,185.22.112.42,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:34:42,hr_user,185.22.146.244,privilege_change,success,endpoint-23,role membership updated
+2026-10-28 10:34:55,dev,185.22.112.42,login_success,success,vpn-gateway,successful login after repeated failures
+2026-10-28 10:35:18,admin_ops,185.22.139.195,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 10:35:28,analyst1,10.0.10.22,security_setting_change,success,endpoint-23,MFA policy updated
+2026-10-28 10:35:36,websvc,10.0.15.38,file_access,success,hr-portal,file accessed
+2026-10-28 10:35:38,dev,10.0.6.204,backup_job,success,file-server,scheduled backup completed
+2026-10-28 10:35:40,priya,10.0.3.157,password_reset,success,email-gateway,password reset completed
+2026-10-28 10:35:46,dev,185.22.96.114,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 10:36:00,dev,185.22.112.42,privilege_change,success,idp-server,admin role granted
+2026-10-28 10:36:03,finance_user,10.0.19.73,security_setting_change,success,endpoint-17,audit logging disabled
+2026-10-28 10:36:09,contractor7,185.22.165.89,vpn_connection,success,idp-server,VPN session established
+2026-10-28 10:36:11,priya,10.0.1.176,vpn_connection,success,hr-portal,VPN session established
+2026-10-28 10:36:15,nina,185.22.117.2,firewall_block,blocked,db-server,connection blocked by firewall
+2026-10-28 10:36:28,admin_ops,10.0.7.247,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 10:36:36,admin_ops,10.0.19.111,process_alert,warning,file-server,suspicious process behavior
+2026-10-28 10:37:20,analyst2,10.0.9.37,login_failure,failure,endpoint-23,unknown account
+2026-10-28 10:37:32,dbadmin,10.0.9.41,login_success,success,idp-server,valid credentials
+2026-10-28 10:37:58,priya,10.0.15.137,data_export,success,backup-server,sensitive archive downloaded
+2026-10-28 10:38:00,dev,185.22.112.42,data_export,success,file-server,bulk customer export requested
+2026-10-28 10:38:11,analyst1,185.22.195.138,file_access,success,cloud-console,file accessed
+2026-10-28 10:38:17,websvc,10.0.4.176,login_failure,failure,file-server,unknown account
+2026-10-28 10:39:00,dev,185.22.112.42,security_setting_change,success,cloud-console,audit logging disabled
+2026-10-28 10:39:17,finance_user,10.0.20.8,vpn_connection,success,endpoint-23,VPN session established
+2026-10-28 10:39:44,dbadmin,185.22.62.16,file_access,success,cloud-console,file accessed
+2026-10-28 10:40:26,mira,10.0.8.199,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 10:41:12,dev,10.0.20.228,security_setting_change,success,backup-server,MFA policy updated
+2026-10-28 10:41:22,hr_user,10.0.20.8,login_success,success,hr-portal,valid credentials
+2026-10-28 10:41:24,analyst1,10.0.12.149,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 10:41:26,rahul,185.22.62.226,security_setting_change,success,vpn-gateway,firewall rule changed
+2026-10-28 10:41:28,finance_user,10.0.7.235,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 10:42:26,admin_ops,10.0.3.57,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 10:42:57,hr_user,10.0.3.157,privilege_change,success,email-gateway,privilege removed
+2026-10-28 10:43:30,contractor7,10.0.9.41,privilege_change,success,idp-server,role membership updated
+2026-10-28 10:43:34,nina,185.22.156.52,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 10:43:41,hr_user,10.0.12.43,security_setting_change,success,db-server,MFA policy updated
+2026-10-28 10:43:49,analyst1,185.22.185.69,firewall_block,blocked,vpn-gateway,connection blocked by firewall
+2026-10-28 10:43:55,analyst1,185.22.195.138,login_failure,failure,file-server,unknown account
+2026-10-28 10:44:03,akshay,10.0.15.137,security_setting_change,success,idp-server,MFA policy updated
+2026-10-28 10:44:04,nina,10.0.15.139,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 10:44:14,dbadmin,10.0.8.192,login_success,success,hr-portal,valid credentials
+2026-10-28 10:44:20,websvc,10.0.18.139,security_setting_change,success,vpn-gateway,MFA policy updated
+2026-10-28 10:44:27,rahul,10.0.8.131,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 10:44:43,admin_ops,10.0.4.175,login_success,success,email-gateway,valid credentials
+2026-10-28 10:45:06,dev,10.0.18.24,file_access,success,idp-server,file accessed
+2026-10-28 10:45:22,hr_user,10.0.12.58,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 10:46:46,hr_user,10.0.18.194,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 10:47:53,dev,10.0.18.52,security_setting_change,success,idp-server,MFA policy updated
+2026-10-28 10:48:24,websvc,10.0.19.111,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 10:48:26,rahul,10.0.19.104,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 10:48:40,dev,185.22.238.94,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 10:48:54,analyst1,185.22.207.80,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 10:49:31,admin_ops,10.0.3.57,data_export,success,file-server,small report exported
+2026-10-28 10:50:09,analyst2,10.0.16.103,password_reset,success,hr-portal,password reset completed
+2026-10-28 10:50:20,nina,10.0.4.238,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 10:50:41,service_backup,10.0.3.13,data_export,success,endpoint-17,sensitive archive downloaded
+2026-10-28 10:50:42,dbadmin,10.0.8.43,security_setting_change,success,endpoint-17,audit logging disabled
+2026-10-28 10:50:46,service_backup,10.0.8.116,login_success,success,vpn-gateway,valid credentials
+2026-10-28 10:50:53,service_backup,10.0.18.77,backup_job,success,endpoint-17,scheduled backup completed
+2026-10-28 10:51:00,priya,185.22.117.2,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:51:03,priya,10.0.11.56,privilege_change,success,db-server,role membership updated
+2026-10-28 10:51:09,priya,185.22.117.2,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:51:18,priya,185.22.117.2,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:51:21,dev,10.0.4.41,data_export,success,hr-portal,bulk customer export requested
+2026-10-28 10:51:27,priya,185.22.117.2,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:51:36,priya,185.22.117.2,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 10:51:47,dbadmin,10.0.9.37,login_success,success,vpn-gateway,valid credentials
+2026-10-28 10:51:55,priya,185.22.117.2,login_success,success,vpn-gateway,successful login after repeated failures
+2026-10-28 10:52:46,contractor7,10.0.7.173,file_access,success,file-server,file accessed
+2026-10-28 10:53:00,priya,185.22.117.2,privilege_change,success,idp-server,admin role granted
+2026-10-28 10:53:08,admin_ops,10.0.8.223,privilege_change,success,idp-server,privilege removed
+2026-10-28 10:54:02,contractor7,10.0.3.157,mfa_challenge,success,endpoint-17,MFA challenge completed
+2026-10-28 10:54:08,hr_user,10.0.8.223,login_success,success,email-gateway,valid credentials
+2026-10-28 10:54:35,admin_ops,185.22.234.29,data_export,success,endpoint-17,small report exported
+2026-10-28 10:55:00,nina,185.22.33.170,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 10:55:00,priya,185.22.117.2,data_export,success,file-server,bulk customer export requested
+2026-10-28 10:55:14,priya,10.0.8.223,vpn_connection,success,db-server,VPN session established
+2026-10-28 10:55:37,dbadmin,185.22.40.97,login_success,success,backup-server,valid credentials
+2026-10-28 10:55:38,websvc,10.0.8.192,vpn_connection,success,db-server,VPN session established
+2026-10-28 10:56:05,hr_user,10.0.19.111,login_failure,failure,endpoint-23,unknown account
+2026-10-28 10:56:10,service_backup,10.0.1.196,login_failure,failure,hr-portal,MFA timeout
+2026-10-28 10:56:12,contractor7,10.0.8.43,vpn_connection,success,file-server,VPN session established
+2026-10-28 10:56:43,contractor7,10.0.8.199,security_setting_change,success,endpoint-23,audit logging disabled
+2026-10-28 10:58:30,nina,10.0.11.217,privilege_change,success,cloud-console,admin role granted
+2026-10-28 10:58:44,hr_user,10.0.18.109,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 10:59:11,dbadmin,10.0.1.196,firewall_block,blocked,endpoint-23,connection blocked by firewall
+2026-10-28 11:00:42,finance_user,10.0.3.57,file_access,success,cloud-console,file accessed
+2026-10-28 11:01:10,service_backup,10.0.9.41,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 11:01:14,priya,10.0.13.22,file_access,success,hr-portal,file accessed
+2026-10-28 11:01:18,finance_user,10.0.1.176,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 11:02:10,admin_ops,10.0.3.99,login_success,success,db-server,valid credentials
+2026-10-28 11:02:56,rahul,10.0.8.116,privilege_change,success,backup-server,admin role granted
+2026-10-28 11:03:35,mira,10.0.2.9,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 11:03:39,rahul,10.0.8.223,privilege_change,success,file-server,role membership updated
+2026-10-28 11:03:48,rahul,10.0.3.99,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 11:04:23,dbadmin,185.22.112.42,login_success,success,idp-server,valid credentials
+2026-10-28 11:04:26,service_backup,10.0.20.228,login_failure,failure,hr-portal,invalid password
+2026-10-28 11:04:27,finance_user,10.0.13.154,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 11:04:30,service_backup,185.22.234.29,data_export,success,email-gateway,bulk customer export requested
+2026-10-28 11:04:38,akshay,10.0.20.228,password_reset,success,endpoint-23,password reset completed
+2026-10-28 11:04:56,priya,10.0.11.104,login_failure,failure,endpoint-23,unknown account
+2026-10-28 11:05:06,dbadmin,10.0.7.235,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 11:05:09,dev,10.0.19.104,data_export,success,hr-portal,bulk customer export requested
+2026-10-28 11:06:25,service_backup,10.0.18.194,login_success,success,endpoint-17,valid credentials
+2026-10-28 11:06:38,admin_ops,10.0.11.28,process_alert,warning,hr-portal,suspicious process behavior
+2026-10-28 11:07:08,service_backup,185.22.209.19,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 11:07:22,nina,10.0.19.226,file_access,success,cloud-console,file accessed
+2026-10-28 11:07:39,priya,10.0.9.118,backup_job,success,file-server,scheduled backup completed
+2026-10-28 11:08:00,contractor7,185.22.185.226,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:08:09,contractor7,185.22.185.226,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:08:09,hr_user,10.0.12.92,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 11:08:18,contractor7,185.22.185.226,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:08:27,contractor7,185.22.185.226,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:08:29,nina,10.0.6.204,security_setting_change,success,email-gateway,audit logging disabled
+2026-10-28 11:08:36,contractor7,185.22.185.226,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:08:55,contractor7,185.22.185.226,login_success,success,vpn-gateway,successful login after repeated failures
+2026-10-28 11:09:46,dbadmin,10.0.4.176,file_access,success,email-gateway,file accessed
+2026-10-28 11:09:52,nina,10.0.8.223,password_reset,success,hr-portal,password reset completed
+2026-10-28 11:10:00,contractor7,185.22.185.226,privilege_change,success,idp-server,admin role granted
+2026-10-28 11:10:13,admin_ops,10.0.15.38,data_export,success,idp-server,bulk customer export requested
+2026-10-28 11:10:57,finance_user,10.0.13.22,login_success,success,endpoint-23,valid credentials
+2026-10-28 11:11:35,finance_user,10.0.4.41,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 11:11:59,admin_ops,10.0.15.99,password_reset,success,cloud-console,password reset completed
+2026-10-28 11:12:00,contractor7,185.22.185.226,data_export,success,file-server,bulk customer export requested
+2026-10-28 11:12:02,mira,10.0.13.22,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 11:12:20,dev,185.22.139.195,file_access,success,hr-portal,file accessed
+2026-10-28 11:12:24,finance_user,10.0.12.156,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 11:12:43,akshay,10.0.19.104,password_reset,success,email-gateway,password reset completed
+2026-10-28 11:13:00,contractor7,185.22.185.226,security_setting_change,success,cloud-console,audit logging disabled
+2026-10-28 11:13:57,dbadmin,10.0.9.118,vpn_connection,success,hr-portal,VPN session established
+2026-10-28 11:15:01,websvc,10.0.12.149,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 11:15:29,analyst1,10.0.19.226,login_failure,failure,endpoint-17,invalid password
+2026-10-28 11:15:38,websvc,10.0.18.222,data_export,success,vpn-gateway,small report exported
+2026-10-28 11:15:46,nina,10.0.7.182,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 11:15:55,websvc,10.0.14.154,login_failure,failure,endpoint-17,MFA timeout
+2026-10-28 11:16:42,contractor7,10.0.12.43,data_export,success,db-server,bulk customer export requested
+2026-10-28 11:17:05,finance_user,10.0.8.192,vpn_connection,success,endpoint-17,VPN session established
+2026-10-28 11:17:06,finance_user,10.0.7.235,data_export,success,vpn-gateway,sensitive archive downloaded
+2026-10-28 11:19:20,mira,185.22.156.52,password_reset,success,hr-portal,password reset completed
+2026-10-28 11:19:33,finance_user,10.0.18.139,login_failure,failure,vpn-gateway,MFA timeout
+2026-10-28 11:19:47,service_backup,10.0.18.222,backup_job,success,file-server,scheduled backup completed
+2026-10-28 11:20:08,analyst2,10.0.16.103,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 11:20:29,admin_ops,10.0.12.58,security_setting_change,success,endpoint-17,MFA policy updated
+2026-10-28 11:20:50,dbadmin,10.0.4.176,login_success,success,vpn-gateway,valid credentials
+2026-10-28 11:21:03,websvc,10.0.8.131,file_access,success,email-gateway,file accessed
+2026-10-28 11:21:10,nina,10.0.7.235,password_reset,success,file-server,password reset completed
+2026-10-28 11:21:52,service_backup,10.0.4.99,data_export,success,db-server,bulk customer export requested
+2026-10-28 11:21:56,websvc,10.0.12.149,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 11:22:16,dbadmin,10.0.2.222,security_setting_change,success,endpoint-23,audit logging disabled
+2026-10-28 11:22:56,admin_ops,185.22.83.127,file_access,success,hr-portal,file accessed
+2026-10-28 11:23:06,rahul,10.0.2.9,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 11:23:17,analyst1,10.0.18.52,password_reset,success,backup-server,password reset completed
+2026-10-28 11:23:36,mira,10.0.2.9,mfa_challenge,success,endpoint-23,MFA challenge completed
+2026-10-28 11:24:02,service_backup,10.0.18.139,vpn_connection,success,endpoint-23,VPN session established
+2026-10-28 11:24:11,analyst2,10.0.4.93,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 11:24:54,contractor7,10.0.4.41,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 11:24:59,mira,185.22.224.157,firewall_block,blocked,endpoint-23,connection blocked by firewall
+2026-10-28 11:25:00,finance_user,185.22.185.69,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:25:09,finance_user,185.22.185.69,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:25:18,finance_user,185.22.185.69,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:25:25,websvc,10.0.19.111,login_failure,failure,vpn-gateway,invalid password
+2026-10-28 11:25:27,finance_user,185.22.185.69,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:25:29,dbadmin,10.0.12.92,login_failure,failure,endpoint-23,MFA timeout
+2026-10-28 11:25:35,dev,10.0.18.139,file_access,success,endpoint-23,file accessed
+2026-10-28 11:25:36,finance_user,185.22.185.69,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:25:55,finance_user,185.22.185.69,login_success,success,vpn-gateway,successful login after repeated failures
+2026-10-28 11:26:48,finance_user,10.0.4.93,data_export,success,backup-server,sensitive archive downloaded
+2026-10-28 11:27:00,finance_user,185.22.185.69,privilege_change,success,idp-server,admin role granted
+2026-10-28 11:27:13,hr_user,10.0.9.238,password_reset,success,file-server,password reset completed
+2026-10-28 11:27:23,websvc,10.0.4.175,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 11:27:50,mira,10.0.15.99,security_setting_change,success,db-server,MFA policy updated
+2026-10-28 11:28:01,hr_user,10.0.9.37,vpn_connection,success,backup-server,VPN session established
+2026-10-28 11:28:02,rahul,185.22.80.104,data_export,success,endpoint-17,sensitive archive downloaded
+2026-10-28 11:28:18,service_backup,185.22.29.77,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 11:28:59,analyst1,10.0.18.77,firewall_block,blocked,endpoint-23,connection blocked by firewall
+2026-10-28 11:29:00,finance_user,185.22.185.69,data_export,success,file-server,bulk customer export requested
+2026-10-28 11:29:08,nina,10.0.19.110,data_export,success,db-server,small report exported
+2026-10-28 11:29:28,finance_user,10.0.4.93,login_failure,failure,vpn-gateway,unknown account
+2026-10-28 11:29:45,analyst2,10.0.5.132,password_reset,success,endpoint-17,password reset completed
+2026-10-28 11:30:08,rahul,10.0.12.92,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 11:30:11,contractor7,10.0.2.222,login_success,success,file-server,valid credentials
+2026-10-28 11:31:34,service_backup,10.0.1.176,login_success,success,db-server,valid credentials
+2026-10-28 11:31:57,admin_ops,185.22.112.42,login_success,success,db-server,valid credentials
+2026-10-28 11:32:19,mira,10.0.12.92,process_alert,warning,hr-portal,suspicious process behavior
+2026-10-28 11:32:42,contractor7,10.0.8.37,password_reset,success,cloud-console,password reset completed
+2026-10-28 11:32:57,websvc,10.0.12.149,security_setting_change,success,endpoint-23,MFA policy updated
+2026-10-28 11:32:58,hr_user,10.0.15.139,file_access,success,db-server,file accessed
+2026-10-28 11:33:44,rahul,10.0.11.217,password_reset,success,db-server,password reset completed
+2026-10-28 11:35:35,priya,10.0.2.60,security_setting_change,success,endpoint-23,audit logging disabled
+2026-10-28 11:35:48,service_backup,10.0.16.25,login_success,success,idp-server,valid credentials
+2026-10-28 11:36:02,akshay,10.0.15.139,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 11:36:09,dev,10.0.12.43,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 11:36:14,rahul,10.0.13.22,password_reset,success,idp-server,password reset completed
+2026-10-28 11:36:50,mira,10.0.18.139,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 11:37:00,finance_user,10.0.8.223,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 11:37:34,mira,10.0.3.57,file_access,success,file-server,file accessed
+2026-10-28 11:38:16,admin_ops,10.0.18.194,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 11:38:45,websvc,10.0.14.154,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 11:39:01,hr_user,10.0.8.199,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 11:39:12,finance_user,10.0.18.24,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 11:39:20,hr_user,185.22.188.126,data_export,success,idp-server,bulk customer export requested
+2026-10-28 11:39:41,mira,10.0.4.41,password_reset,success,endpoint-17,password reset completed
+2026-10-28 11:40:51,analyst2,10.0.9.250,data_export,success,email-gateway,sensitive archive downloaded
+2026-10-28 11:41:38,nina,10.0.8.43,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 11:41:44,service_backup,10.0.13.22,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 11:41:46,finance_user,185.22.83.127,privilege_change,success,endpoint-23,admin role granted
+2026-10-28 11:42:00,admin_ops,185.22.129.197,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:42:09,admin_ops,185.22.129.197,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:42:18,admin_ops,185.22.129.197,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:42:27,admin_ops,185.22.129.197,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:42:36,admin_ops,185.22.129.197,login_failure,failure,vpn-gateway,invalid password; repeated failed login
+2026-10-28 11:42:53,rahul,10.0.18.58,file_access,success,email-gateway,file accessed
+2026-10-28 11:42:55,admin_ops,185.22.129.197,login_success,success,vpn-gateway,successful login after repeated failures
+2026-10-28 11:43:17,nina,10.0.19.226,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 11:43:17,dev,10.0.7.235,data_export,success,cloud-console,bulk customer export requested
+2026-10-28 11:43:26,analyst1,10.0.16.103,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 11:44:00,admin_ops,185.22.129.197,privilege_change,success,idp-server,admin role granted
+2026-10-28 11:44:20,websvc,10.0.15.137,login_failure,failure,endpoint-17,unknown account
+2026-10-28 11:44:52,mira,10.0.4.176,file_access,success,backup-server,file accessed
+2026-10-28 11:45:00,nina,185.22.77.217,login_failure,failure,endpoint-23,invalid password
+2026-10-28 11:45:19,dbadmin,10.0.18.77,login_failure,failure,email-gateway,MFA timeout
+2026-10-28 11:45:22,service_backup,10.0.9.41,security_setting_change,success,endpoint-23,audit logging disabled
+2026-10-28 11:45:36,akshay,185.22.223.162,mfa_challenge,success,endpoint-23,MFA challenge completed
+2026-10-28 11:45:51,nina,10.0.12.156,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 11:46:00,admin_ops,185.22.129.197,data_export,success,file-server,bulk customer export requested
+2026-10-28 11:46:22,nina,10.0.11.217,password_reset,success,endpoint-23,password reset completed
+2026-10-28 11:46:22,dev,10.0.13.154,mfa_challenge,success,endpoint-23,MFA challenge completed
+2026-10-28 11:46:26,websvc,10.0.1.196,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 11:46:54,dbadmin,10.0.18.139,file_access,success,email-gateway,file accessed
+2026-10-28 11:46:59,admin_ops,10.0.6.138,password_reset,success,endpoint-17,password reset completed
+2026-10-28 11:47:00,admin_ops,185.22.129.197,security_setting_change,success,cloud-console,audit logging disabled
+2026-10-28 11:47:36,admin_ops,10.0.14.154,privilege_change,success,email-gateway,privilege removed
+2026-10-28 11:47:42,dev,10.0.4.99,password_reset,success,backup-server,password reset completed
+2026-10-28 11:47:55,priya,10.0.19.226,privilege_change,success,backup-server,admin role granted
+2026-10-28 11:48:09,akshay,10.0.18.139,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 11:48:24,hr_user,10.0.2.60,security_setting_change,success,endpoint-17,audit logging disabled
+2026-10-28 11:48:24,dev,10.0.18.77,privilege_change,success,backup-server,role membership updated
+2026-10-28 11:48:42,dev,10.0.4.238,security_setting_change,success,hr-portal,firewall rule changed
+2026-10-28 11:48:44,dbadmin,185.22.33.170,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 11:49:08,rahul,10.0.15.38,privilege_change,success,endpoint-17,role membership updated
+2026-10-28 11:49:17,admin_ops,10.0.18.58,privilege_change,success,db-server,privilege removed
+2026-10-28 11:49:55,nina,185.22.1.155,privilege_change,success,endpoint-17,role membership updated
+2026-10-28 11:50:22,analyst1,10.0.11.104,login_failure,failure,idp-server,invalid password
+2026-10-28 11:50:43,rahul,10.0.2.9,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 11:51:27,contractor7,10.0.8.43,process_alert,warning,file-server,suspicious process behavior
+2026-10-28 11:51:58,hr_user,10.0.19.104,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 11:52:11,mira,10.0.7.182,privilege_change,success,vpn-gateway,admin role granted
+2026-10-28 11:52:35,websvc,10.0.18.194,vpn_connection,success,backup-server,VPN session established
+2026-10-28 11:53:03,dbadmin,185.22.188.126,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 11:53:30,service_backup,10.0.4.176,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 11:53:48,analyst2,185.22.139.246,data_export,success,cloud-console,sensitive archive downloaded
+2026-10-28 11:54:35,service_backup,10.0.13.22,file_access,success,file-server,file accessed
+2026-10-28 11:54:52,contractor7,185.22.223.162,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 11:54:56,mira,10.0.1.196,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 11:55:46,analyst2,10.0.7.173,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 11:56:25,analyst1,10.0.15.139,security_setting_change,success,cloud-console,audit logging disabled
+2026-10-28 11:56:51,analyst1,10.0.19.226,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 11:57:00,mira,10.0.8.116,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 11:57:33,analyst1,185.22.139.246,privilege_change,success,file-server,admin role granted
+2026-10-28 11:57:52,dbadmin,10.0.10.22,data_export,success,endpoint-23,small report exported
+2026-10-28 11:59:04,mira,10.0.11.56,backup_job,success,db-server,scheduled backup completed
+2026-10-28 11:59:16,priya,10.0.18.222,firewall_block,blocked,db-server,connection blocked by firewall
+2026-10-28 11:59:58,finance_user,10.0.3.99,data_export,success,db-server,bulk customer export requested
+2026-10-28 12:00:03,service_backup,185.22.1.155,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 12:00:21,nina,10.0.11.28,security_setting_change,success,backup-server,firewall rule changed
+2026-10-28 12:00:33,akshay,185.22.196.43,file_access,success,db-server,file accessed
+2026-10-28 12:00:33,nina,10.0.2.9,privilege_change,success,email-gateway,role membership updated
+2026-10-28 12:00:47,rahul,10.0.4.238,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 12:01:07,nina,185.22.68.137,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 12:01:28,analyst1,10.0.18.139,backup_job,success,endpoint-17,scheduled backup completed
+2026-10-28 12:01:36,dbadmin,10.0.8.116,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 12:01:56,contractor7,10.0.7.173,vpn_connection,success,db-server,VPN session established
+2026-10-28 12:02:10,websvc,10.0.3.157,login_failure,failure,vpn-gateway,unknown account
+2026-10-28 12:02:21,finance_user,10.0.9.193,vpn_connection,success,endpoint-17,VPN session established
+2026-10-28 12:02:51,priya,185.22.129.197,firewall_block,blocked,db-server,connection blocked by firewall
+2026-10-28 12:02:53,nina,10.0.19.73,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 12:02:55,hr_user,10.0.7.235,file_access,success,db-server,file accessed
+2026-10-28 12:03:31,hr_user,10.0.4.93,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 12:03:54,websvc,10.0.3.99,login_failure,failure,endpoint-23,MFA timeout
+2026-10-28 12:05:18,finance_user,10.0.9.41,password_reset,success,hr-portal,password reset completed
+2026-10-28 12:05:19,hr_user,185.22.195.138,mfa_challenge,success,endpoint-23,MFA challenge completed
+2026-10-28 12:05:36,contractor7,10.0.2.188,data_export,success,backup-server,bulk customer export requested
+2026-10-28 12:05:47,rahul,10.0.8.223,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 12:06:02,analyst2,10.0.9.118,login_success,success,endpoint-23,valid credentials
+2026-10-28 12:06:17,contractor7,10.0.9.250,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 12:06:38,admin_ops,185.22.112.42,file_access,success,hr-portal,file accessed
+2026-10-28 12:07:05,admin_ops,10.0.3.100,login_success,success,cloud-console,valid credentials
+2026-10-28 12:07:36,hr_user,10.0.12.92,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 12:07:38,dev,10.0.9.37,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 12:07:44,nina,10.0.6.204,security_setting_change,success,backup-server,firewall rule changed
+2026-10-28 12:07:48,service_backup,10.0.1.176,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 12:07:48,rahul,10.0.20.228,login_failure,failure,endpoint-23,unknown account
+2026-10-28 12:08:29,dev,10.0.9.41,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 12:08:29,websvc,10.0.9.198,privilege_change,success,db-server,role membership updated
+2026-10-28 12:11:20,dbadmin,10.0.9.193,process_alert,warning,file-server,suspicious process behavior
+2026-10-28 12:11:49,websvc,10.0.12.149,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 12:12:18,service_backup,10.0.16.25,data_export,success,backup-server,bulk customer export requested
+2026-10-28 12:12:20,mira,10.0.9.41,login_failure,failure,vpn-gateway,invalid password
+2026-10-28 12:12:39,priya,185.22.185.226,process_alert,warning,hr-portal,suspicious process behavior
+2026-10-28 12:12:48,nina,10.0.16.103,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 12:13:02,rahul,185.22.185.69,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 12:13:14,analyst2,10.0.3.157,login_failure,failure,endpoint-17,invalid password
+2026-10-28 12:13:21,nina,10.0.19.104,file_access,success,hr-portal,file accessed
+2026-10-28 12:13:22,websvc,10.0.9.250,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 12:13:24,service_backup,10.0.18.139,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 12:14:10,rahul,10.0.12.58,backup_job,success,file-server,scheduled backup completed
+2026-10-28 12:14:40,analyst2,185.22.112.42,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 12:16:03,admin_ops,10.0.18.139,password_reset,success,db-server,password reset completed
+2026-10-28 12:16:10,mira,185.22.112.42,login_failure,failure,file-server,MFA timeout
+2026-10-28 12:16:24,websvc,185.22.238.94,password_reset,success,cloud-console,password reset completed
+2026-10-28 12:16:41,nina,10.0.9.181,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 12:18:13,service_backup,10.0.12.92,data_export,success,endpoint-17,sensitive archive downloaded
+2026-10-28 12:18:37,analyst1,10.0.13.22,process_alert,warning,file-server,suspicious process behavior
+2026-10-28 12:19:20,dev,10.0.2.60,data_export,success,cloud-console,small report exported
+2026-10-28 12:20:11,rahul,10.0.19.226,login_failure,failure,cloud-console,unknown account
+2026-10-28 12:20:15,nina,10.0.15.137,privilege_change,success,endpoint-17,privilege removed
+2026-10-28 12:20:15,dbadmin,10.0.15.38,backup_job,success,db-server,scheduled backup completed
+2026-10-28 12:20:29,akshay,185.22.83.127,security_setting_change,success,cloud-console,firewall rule changed
+2026-10-28 12:20:53,mira,10.0.18.109,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 12:21:07,service_backup,10.0.8.131,vpn_connection,success,endpoint-23,VPN session established
+2026-10-28 12:21:35,contractor7,10.0.14.154,login_failure,failure,file-server,invalid password
+2026-10-28 12:21:36,priya,10.0.9.18,login_success,success,endpoint-23,valid credentials
+2026-10-28 12:21:43,hr_user,10.0.12.58,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 12:23:36,websvc,10.0.16.103,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 12:23:43,dev,10.0.3.99,password_reset,success,email-gateway,password reset completed
+2026-10-28 12:23:49,contractor7,10.0.9.18,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 12:24:11,rahul,185.22.224.157,data_export,success,cloud-console,sensitive archive downloaded
+2026-10-28 12:24:33,akshay,185.22.223.162,file_access,success,backup-server,file accessed
+2026-10-28 12:24:44,mira,10.0.20.8,privilege_change,success,file-server,role membership updated
+2026-10-28 12:25:14,hr_user,10.0.10.22,file_access,success,hr-portal,file accessed
+2026-10-28 12:25:20,admin_ops,10.0.12.92,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 12:25:37,rahul,185.22.225.214,login_success,success,hr-portal,valid credentials
+2026-10-28 12:25:45,finance_user,10.0.19.110,file_access,success,cloud-console,file accessed
+2026-10-28 12:27:00,analyst1,10.0.9.198,login_success,success,endpoint-23,valid credentials
+2026-10-28 12:27:22,websvc,10.0.18.109,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 12:27:24,rahul,10.0.7.173,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 12:27:54,websvc,10.0.15.99,login_failure,failure,db-server,MFA timeout
+2026-10-28 12:28:24,service_backup,10.0.2.60,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 12:29:02,mira,10.0.4.41,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 12:29:14,mira,185.22.223.162,login_failure,failure,db-server,invalid password
+2026-10-28 12:29:33,priya,10.0.12.92,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 12:29:52,service_backup,10.0.4.238,password_reset,success,endpoint-23,password reset completed
+2026-10-28 12:30:13,hr_user,185.22.225.214,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 12:30:57,akshay,10.0.19.226,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 12:31:16,finance_user,10.0.6.138,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 12:32:07,finance_user,10.0.12.92,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 12:32:27,service_backup,185.22.195.138,login_success,success,idp-server,valid credentials
+2026-10-28 12:32:32,finance_user,10.0.3.100,login_failure,failure,file-server,unknown account
+2026-10-28 12:32:38,dbadmin,185.22.136.237,backup_job,success,db-server,scheduled backup completed
+2026-10-28 12:32:41,finance_user,10.0.6.138,privilege_change,success,email-gateway,privilege removed
+2026-10-28 12:33:12,finance_user,185.22.225.214,login_failure,failure,cloud-console,MFA timeout
+2026-10-28 12:33:19,mira,185.22.62.16,vpn_connection,success,file-server,VPN session established
+2026-10-28 12:33:29,analyst2,185.22.117.2,login_failure,failure,cloud-console,invalid password
+2026-10-28 12:33:48,dev,185.22.188.126,login_failure,failure,db-server,MFA timeout
+2026-10-28 12:33:51,finance_user,185.22.195.138,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 12:34:09,nina,10.0.18.52,data_export,success,endpoint-23,small report exported
+2026-10-28 12:34:37,contractor7,185.22.77.217,login_success,success,hr-portal,valid credentials
+2026-10-28 12:34:54,priya,185.22.68.137,password_reset,success,hr-portal,password reset completed
+2026-10-28 12:35:38,mira,10.0.9.118,security_setting_change,success,endpoint-17,MFA policy updated
+2026-10-28 12:35:41,rahul,10.0.6.204,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 12:36:28,mira,10.0.12.58,privilege_change,success,db-server,role membership updated
+2026-10-28 12:36:40,rahul,10.0.12.58,security_setting_change,success,cloud-console,firewall rule changed
+2026-10-28 12:36:55,service_backup,10.0.14.154,backup_job,success,vpn-gateway,scheduled backup completed
+2026-10-28 12:37:03,mira,10.0.6.180,file_access,success,db-server,file accessed
+2026-10-28 12:37:03,rahul,185.22.80.104,vpn_connection,success,endpoint-17,VPN session established
+2026-10-28 12:37:43,analyst2,10.0.7.173,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 12:38:57,nina,10.0.13.154,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 12:40:12,websvc,10.0.3.99,login_success,success,endpoint-17,valid credentials
+2026-10-28 12:40:52,websvc,10.0.19.111,login_success,success,file-server,valid credentials
+2026-10-28 12:41:14,finance_user,10.0.12.149,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 12:41:52,websvc,10.0.2.9,file_access,success,file-server,file accessed
+2026-10-28 12:42:20,nina,10.0.4.93,data_export,success,email-gateway,small report exported
+2026-10-28 12:43:16,priya,10.0.9.193,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 12:43:29,finance_user,10.0.9.198,login_failure,failure,cloud-console,MFA timeout
+2026-10-28 12:43:50,dev,10.0.9.238,backup_job,success,file-server,scheduled backup completed
+2026-10-28 12:43:51,akshay,10.0.4.238,backup_job,success,db-server,scheduled backup completed
+2026-10-28 12:44:32,rahul,10.0.1.176,login_success,success,endpoint-17,valid credentials
+2026-10-28 12:44:35,dev,10.0.4.93,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 12:44:40,priya,10.0.8.223,login_success,success,hr-portal,valid credentials
+2026-10-28 12:44:56,analyst1,10.0.4.41,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 12:45:13,priya,10.0.7.247,file_access,success,endpoint-17,file accessed
+2026-10-28 12:45:46,websvc,10.0.9.193,password_reset,success,endpoint-17,password reset completed
+2026-10-28 12:45:53,nina,10.0.2.222,vpn_connection,success,hr-portal,VPN session established
+2026-10-28 12:46:09,mira,10.0.12.92,backup_job,success,db-server,scheduled backup completed
+2026-10-28 12:46:31,priya,10.0.18.194,login_success,success,idp-server,valid credentials
+2026-10-28 12:46:50,analyst1,185.22.112.42,vpn_connection,success,idp-server,VPN session established
+2026-10-28 12:47:10,service_backup,10.0.9.37,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 12:47:14,contractor7,10.0.7.247,security_setting_change,success,endpoint-17,MFA policy updated
+2026-10-28 12:47:30,rahul,10.0.10.22,security_setting_change,success,idp-server,audit logging disabled
+2026-10-28 12:48:03,service_backup,185.22.156.52,password_reset,success,endpoint-17,password reset completed
+2026-10-28 12:48:14,service_backup,10.0.4.99,file_access,success,file-server,file accessed
+2026-10-28 12:48:27,analyst2,10.0.13.154,login_failure,failure,vpn-gateway,MFA timeout
+2026-10-28 12:48:49,dev,10.0.18.77,login_success,success,vpn-gateway,valid credentials
+2026-10-28 12:49:08,nina,10.0.20.228,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 12:49:38,analyst2,10.0.11.56,password_reset,success,email-gateway,password reset completed
+2026-10-28 12:49:40,service_backup,10.0.1.196,data_export,success,vpn-gateway,small report exported
+2026-10-28 12:49:43,admin_ops,185.22.52.184,login_success,success,idp-server,valid credentials
+2026-10-28 12:49:46,finance_user,10.0.8.43,data_export,success,endpoint-17,small report exported
+2026-10-28 12:49:57,nina,10.0.14.154,data_export,success,db-server,sensitive archive downloaded
+2026-10-28 12:50:18,mira,10.0.12.58,process_alert,warning,hr-portal,suspicious process behavior
+2026-10-28 12:50:43,admin_ops,10.0.12.43,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 12:50:56,service_backup,10.0.8.131,vpn_connection,success,db-server,VPN session established
+2026-10-28 12:51:20,priya,10.0.2.208,vpn_connection,success,file-server,VPN session established
+2026-10-28 12:51:50,akshay,10.0.1.196,login_success,success,endpoint-17,valid credentials
+2026-10-28 12:52:07,dbadmin,10.0.16.103,security_setting_change,success,vpn-gateway,audit logging disabled
+2026-10-28 12:52:35,rahul,10.0.11.56,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 12:52:41,nina,185.22.40.97,process_alert,warning,file-server,suspicious process behavior
+2026-10-28 12:52:56,nina,10.0.8.131,privilege_change,success,cloud-console,privilege removed
+2026-10-28 12:53:44,service_backup,185.22.112.42,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 12:54:02,dbadmin,10.0.18.109,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 12:55:41,contractor7,10.0.8.43,security_setting_change,success,email-gateway,firewall rule changed
+2026-10-28 12:55:45,nina,10.0.9.64,data_export,success,vpn-gateway,sensitive archive downloaded
+2026-10-28 12:56:01,dbadmin,10.0.16.103,vpn_connection,success,endpoint-23,VPN session established
+2026-10-28 12:56:24,analyst2,10.0.13.154,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 12:56:35,finance_user,10.0.8.43,file_access,success,endpoint-23,file accessed
+2026-10-28 12:56:42,finance_user,10.0.9.41,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 12:56:54,akshay,10.0.9.238,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 12:56:56,nina,185.22.172.168,privilege_change,success,file-server,privilege removed
+2026-10-28 12:57:17,hr_user,10.0.11.217,data_export,success,backup-server,sensitive archive downloaded
+2026-10-28 12:57:21,contractor7,185.22.225.214,login_success,success,cloud-console,valid credentials
+2026-10-28 12:57:54,rahul,10.0.18.52,data_export,success,file-server,bulk customer export requested
+2026-10-28 13:00:13,finance_user,10.0.1.196,privilege_change,success,hr-portal,admin role granted
+2026-10-28 13:00:21,service_backup,10.0.3.99,vpn_connection,success,backup-server,VPN session established
+2026-10-28 13:00:22,nina,10.0.1.196,firewall_block,blocked,db-server,connection blocked by firewall
+2026-10-28 13:00:38,analyst1,10.0.12.149,login_failure,failure,email-gateway,unknown account
+2026-10-28 13:01:03,dev,10.0.1.176,vpn_connection,success,endpoint-17,VPN session established
+2026-10-28 13:01:16,service_backup,10.0.2.222,backup_job,success,file-server,scheduled backup completed
+2026-10-28 13:01:24,dev,10.0.19.226,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 13:01:29,dbadmin,10.0.15.99,file_access,success,endpoint-17,file accessed
+2026-10-28 13:01:31,websvc,10.0.12.156,data_export,success,hr-portal,sensitive archive downloaded
+2026-10-28 13:01:36,service_backup,10.0.1.196,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 13:01:56,websvc,185.22.52.184,security_setting_change,success,endpoint-23,audit logging disabled
+2026-10-28 13:02:09,mira,10.0.7.235,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 13:02:20,akshay,185.22.122.244,security_setting_change,success,hr-portal,firewall rule changed
+2026-10-28 13:03:28,dbadmin,185.22.187.178,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 13:03:34,admin_ops,10.0.8.43,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 13:04:06,akshay,185.22.225.214,privilege_change,success,db-server,privilege removed
+2026-10-28 13:04:16,analyst2,10.0.9.181,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 13:04:25,priya,185.22.46.131,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 13:04:35,priya,10.0.2.222,login_failure,failure,backup-server,unknown account
+2026-10-28 13:04:39,nina,10.0.15.139,password_reset,success,hr-portal,password reset completed
+2026-10-28 13:04:46,websvc,10.0.1.176,password_reset,success,endpoint-23,password reset completed
+2026-10-28 13:04:58,analyst2,10.0.19.73,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 13:05:10,admin_ops,10.0.12.92,backup_job,success,vpn-gateway,scheduled backup completed
+2026-10-28 13:05:44,service_backup,10.0.18.24,file_access,success,endpoint-17,file accessed
+2026-10-28 13:07:16,admin_ops,10.0.19.104,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 13:07:28,mira,10.0.13.22,vpn_connection,success,file-server,VPN session established
+2026-10-28 13:07:31,priya,185.22.197.34,vpn_connection,success,file-server,VPN session established
+2026-10-28 13:07:59,priya,10.0.2.60,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 13:09:04,analyst1,10.0.4.93,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 13:09:20,websvc,10.0.19.226,file_access,success,db-server,file accessed
+2026-10-28 13:10:13,finance_user,185.22.136.237,login_success,success,email-gateway,valid credentials
+2026-10-28 13:10:40,analyst1,10.0.14.154,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 13:10:59,dbadmin,185.22.117.2,data_export,success,vpn-gateway,small report exported
+2026-10-28 13:11:25,mira,10.0.9.250,login_success,success,hr-portal,valid credentials
+2026-10-28 13:12:02,analyst2,185.22.122.244,login_failure,failure,email-gateway,MFA timeout
+2026-10-28 13:12:03,dev,185.22.172.168,file_access,success,idp-server,file accessed
+2026-10-28 13:12:15,finance_user,185.22.223.162,login_success,success,db-server,valid credentials
+2026-10-28 13:12:30,admin_ops,10.0.3.99,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 13:12:32,websvc,10.0.9.37,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 13:13:09,service_backup,10.0.7.235,privilege_change,success,idp-server,admin role granted
+2026-10-28 13:13:13,service_backup,10.0.9.198,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 13:13:32,priya,10.0.3.100,password_reset,success,backup-server,password reset completed
+2026-10-28 13:14:00,dbadmin,10.0.8.199,security_setting_change,success,cloud-console,audit logging disabled
+2026-10-28 13:14:30,analyst1,10.0.12.156,privilege_change,success,db-server,admin role granted
+2026-10-28 13:14:41,admin_ops,10.0.18.139,security_setting_change,success,endpoint-23,MFA policy updated
+2026-10-28 13:15:21,analyst1,10.0.7.235,security_setting_change,success,email-gateway,MFA policy updated
+2026-10-28 13:16:09,service_backup,10.0.13.22,login_success,success,hr-portal,valid credentials
+2026-10-28 13:17:20,admin_ops,10.0.8.199,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 13:18:14,akshay,10.0.5.132,security_setting_change,success,endpoint-17,audit logging disabled
+2026-10-28 13:18:17,hr_user,185.22.146.244,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 13:19:12,mira,10.0.18.58,vpn_connection,success,backup-server,VPN session established
+2026-10-28 13:19:14,service_backup,185.22.207.80,login_failure,failure,endpoint-23,unknown account
+2026-10-28 13:19:57,analyst1,10.0.9.198,privilege_change,success,endpoint-23,privilege removed
+2026-10-28 13:20:17,finance_user,10.0.6.180,security_setting_change,success,db-server,firewall rule changed
+2026-10-28 13:20:29,priya,10.0.2.222,file_access,success,endpoint-23,file accessed
+2026-10-28 13:20:35,dev,10.0.2.208,login_failure,failure,file-server,invalid password
+2026-10-28 13:20:38,akshay,185.22.172.168,privilege_change,success,backup-server,role membership updated
+2026-10-28 13:20:54,contractor7,10.0.8.43,login_success,success,idp-server,valid credentials
+2026-10-28 13:21:05,hr_user,10.0.8.116,login_failure,failure,backup-server,invalid password
+2026-10-28 13:21:07,akshay,185.22.62.16,password_reset,success,cloud-console,password reset completed
+2026-10-28 13:21:26,analyst2,10.0.8.43,login_success,success,email-gateway,valid credentials
+2026-10-28 13:21:38,dbadmin,10.0.12.92,backup_job,success,file-server,scheduled backup completed
+2026-10-28 13:21:59,analyst2,10.0.19.226,data_export,success,endpoint-17,small report exported
+2026-10-28 13:22:03,finance_user,10.0.9.238,backup_job,success,vpn-gateway,scheduled backup completed
+2026-10-28 13:22:31,mira,10.0.4.93,login_failure,failure,db-server,invalid password
+2026-10-28 13:22:32,mira,10.0.2.60,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 13:23:12,hr_user,10.0.9.198,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 13:23:21,analyst2,185.22.139.246,login_failure,failure,file-server,MFA timeout
+2026-10-28 13:23:52,dbadmin,10.0.4.99,file_access,success,idp-server,file accessed
+2026-10-28 13:24:18,analyst1,185.22.129.197,file_access,success,db-server,file accessed
+2026-10-28 13:24:21,akshay,10.0.8.37,login_success,success,idp-server,valid credentials
+2026-10-28 13:24:30,analyst1,10.0.19.110,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 13:24:58,analyst2,185.22.83.127,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 13:25:24,analyst2,10.0.9.118,login_success,success,email-gateway,valid credentials
+2026-10-28 13:25:37,mira,185.22.223.162,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 13:25:51,service_backup,10.0.18.52,privilege_change,success,endpoint-23,privilege removed
+2026-10-28 13:25:58,akshay,10.0.18.194,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 13:26:01,service_backup,10.0.18.222,login_failure,failure,db-server,unknown account
+2026-10-28 13:27:34,akshay,185.22.141.44,vpn_connection,success,idp-server,VPN session established
+2026-10-28 13:27:54,websvc,10.0.13.154,login_success,success,db-server,valid credentials
+2026-10-28 13:29:24,service_backup,185.22.33.170,privilege_change,success,endpoint-17,admin role granted
+2026-10-28 13:29:42,rahul,10.0.20.228,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 13:29:46,dev,185.22.223.162,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 13:30:37,analyst1,10.0.16.103,data_export,success,backup-server,sensitive archive downloaded
+2026-10-28 13:31:17,mira,185.22.234.29,vpn_connection,success,endpoint-23,VPN session established
+2026-10-28 13:31:40,contractor7,10.0.2.9,login_failure,failure,db-server,invalid password
+2026-10-28 13:32:02,contractor7,10.0.13.22,password_reset,success,email-gateway,password reset completed
+2026-10-28 13:32:16,priya,10.0.13.22,security_setting_change,success,hr-portal,firewall rule changed
+2026-10-28 13:32:31,websvc,10.0.3.99,privilege_change,success,hr-portal,role membership updated
+2026-10-28 13:32:35,priya,10.0.16.25,file_access,success,db-server,file accessed
+2026-10-28 13:32:37,rahul,10.0.19.73,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 13:32:51,dbadmin,10.0.12.149,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 13:33:10,admin_ops,10.0.7.182,privilege_change,success,hr-portal,admin role granted
+2026-10-28 13:33:26,analyst2,10.0.9.208,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 13:33:42,mira,10.0.8.116,security_setting_change,success,db-server,audit logging disabled
+2026-10-28 13:34:03,websvc,10.0.9.64,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 13:34:10,rahul,185.22.62.226,file_access,success,cloud-console,file accessed
+2026-10-28 13:34:12,contractor7,10.0.12.92,security_setting_change,success,email-gateway,firewall rule changed
+2026-10-28 13:34:15,mira,10.0.12.43,data_export,success,cloud-console,small report exported
+2026-10-28 13:35:15,dev,10.0.19.226,login_failure,failure,vpn-gateway,MFA timeout
+2026-10-28 13:35:46,nina,10.0.7.235,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 13:35:49,websvc,185.22.29.77,file_access,success,endpoint-23,file accessed
+2026-10-28 13:36:18,rahul,10.0.3.13,login_success,success,idp-server,valid credentials
+2026-10-28 13:36:32,dbadmin,185.22.188.126,password_reset,success,endpoint-17,password reset completed
+2026-10-28 13:36:35,nina,10.0.15.139,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 13:36:41,analyst2,185.22.109.248,data_export,success,hr-portal,sensitive archive downloaded
+2026-10-28 13:37:12,mira,10.0.4.99,file_access,success,idp-server,file accessed
+2026-10-28 13:38:15,mira,10.0.9.250,password_reset,success,hr-portal,password reset completed
+2026-10-28 13:38:27,dbadmin,10.0.9.198,file_access,success,db-server,file accessed
+2026-10-28 13:38:58,nina,10.0.15.137,privilege_change,success,email-gateway,role membership updated
+2026-10-28 13:39:40,hr_user,10.0.20.8,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 13:41:18,finance_user,10.0.14.154,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 13:41:33,admin_ops,10.0.4.238,privilege_change,success,hr-portal,role membership updated
+2026-10-28 13:41:39,rahul,10.0.20.228,security_setting_change,success,idp-server,firewall rule changed
+2026-10-28 13:42:15,analyst2,10.0.8.43,privilege_change,success,endpoint-17,role membership updated
+2026-10-28 13:42:17,priya,10.0.20.8,backup_job,success,file-server,scheduled backup completed
+2026-10-28 13:42:19,admin_ops,10.0.4.8,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 13:42:53,analyst2,10.0.9.208,password_reset,success,email-gateway,password reset completed
+2026-10-28 13:43:06,mira,185.22.52.184,login_success,success,file-server,valid credentials
+2026-10-28 13:43:49,analyst1,10.0.9.118,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 13:44:08,admin_ops,10.0.9.41,login_success,success,cloud-console,valid credentials
+2026-10-28 13:44:10,service_backup,10.0.8.37,security_setting_change,success,idp-server,firewall rule changed
+2026-10-28 13:44:17,dbadmin,10.0.7.235,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 13:44:25,analyst2,10.0.20.8,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 13:44:37,dev,10.0.3.57,login_success,success,email-gateway,valid credentials
+2026-10-28 13:44:38,analyst2,10.0.13.154,security_setting_change,success,hr-portal,firewall rule changed
+2026-10-28 13:45:07,finance_user,10.0.7.247,privilege_change,success,cloud-console,role membership updated
+2026-10-28 13:45:10,nina,185.22.156.52,data_export,success,endpoint-17,small report exported
+2026-10-28 13:45:47,akshay,10.0.2.222,file_access,success,cloud-console,file accessed
+2026-10-28 13:46:02,websvc,185.22.185.69,security_setting_change,success,hr-portal,firewall rule changed
+2026-10-28 13:46:12,priya,185.22.136.237,privilege_change,success,endpoint-17,admin role granted
+2026-10-28 13:46:42,analyst1,10.0.8.131,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 13:47:04,finance_user,10.0.12.156,vpn_connection,success,endpoint-17,VPN session established
+2026-10-28 13:47:06,contractor7,185.22.223.162,security_setting_change,success,endpoint-17,firewall rule changed
+2026-10-28 13:47:09,service_backup,185.22.200.238,backup_job,success,vpn-gateway,scheduled backup completed
+2026-10-28 13:47:44,akshay,10.0.18.52,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 13:48:00,dbadmin,10.0.18.222,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 13:48:10,rahul,185.22.68.137,file_access,success,email-gateway,file accessed
+2026-10-28 13:48:13,akshay,185.22.80.104,privilege_change,success,idp-server,role membership updated
+2026-10-28 13:48:51,admin_ops,185.22.136.237,security_setting_change,success,db-server,audit logging disabled
+2026-10-28 13:49:14,hr_user,185.22.117.2,data_export,success,endpoint-23,small report exported
+2026-10-28 13:49:16,finance_user,10.0.8.43,process_alert,warning,hr-portal,suspicious process behavior
+2026-10-28 13:49:24,hr_user,10.0.14.89,security_setting_change,success,hr-portal,MFA policy updated
+2026-10-28 13:49:25,rahul,10.0.9.18,file_access,success,endpoint-17,file accessed
+2026-10-28 13:49:41,admin_ops,10.0.15.139,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 13:50:27,analyst2,10.0.4.93,backup_job,success,db-server,scheduled backup completed
+2026-10-28 13:50:28,dbadmin,10.0.19.111,vpn_connection,success,backup-server,VPN session established
+2026-10-28 13:50:30,akshay,10.0.20.8,firewall_block,blocked,vpn-gateway,connection blocked by firewall
+2026-10-28 13:50:48,mira,10.0.16.25,data_export,success,endpoint-17,sensitive archive downloaded
+2026-10-28 13:51:09,analyst1,185.22.5.30,firewall_block,blocked,db-server,connection blocked by firewall
+2026-10-28 13:51:25,websvc,10.0.14.89,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 13:52:01,dev,10.0.19.73,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 13:52:04,dbadmin,185.22.185.69,password_reset,success,backup-server,password reset completed
+2026-10-28 13:52:04,finance_user,10.0.8.131,privilege_change,success,idp-server,role membership updated
+2026-10-28 13:52:05,akshay,10.0.8.131,login_success,success,endpoint-23,valid credentials
+2026-10-28 13:52:12,websvc,10.0.8.116,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 13:52:44,analyst2,10.0.8.37,login_failure,failure,file-server,invalid password
+2026-10-28 13:53:42,mira,10.0.8.192,backup_job,success,file-server,scheduled backup completed
+2026-10-28 13:53:44,dbadmin,10.0.9.118,vpn_connection,success,file-server,VPN session established
+2026-10-28 13:53:59,finance_user,10.0.3.100,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 13:54:03,rahul,10.0.9.64,backup_job,success,db-server,scheduled backup completed
+2026-10-28 13:54:06,akshay,10.0.19.111,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 13:54:34,service_backup,10.0.19.110,login_success,success,file-server,valid credentials
+2026-10-28 13:54:44,rahul,10.0.1.196,login_success,success,endpoint-17,valid credentials
+2026-10-28 13:54:50,priya,10.0.4.41,file_access,success,idp-server,file accessed
+2026-10-28 13:54:53,mira,185.22.172.168,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 13:55:16,priya,10.0.4.99,data_export,success,file-server,sensitive archive downloaded
+2026-10-28 13:56:12,hr_user,10.0.18.194,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 13:56:46,nina,10.0.18.24,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 13:56:55,dbadmin,10.0.12.156,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 13:57:36,admin_ops,10.0.18.139,login_success,success,endpoint-17,valid credentials
+2026-10-28 13:57:58,priya,10.0.9.198,login_failure,failure,endpoint-23,unknown account
+2026-10-28 13:58:07,analyst1,10.0.19.111,password_reset,success,hr-portal,password reset completed
+2026-10-28 13:58:09,admin_ops,10.0.11.104,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 13:58:28,websvc,185.22.224.157,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 13:58:35,contractor7,185.22.55.239,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 13:59:24,akshay,10.0.7.173,login_success,success,endpoint-23,valid credentials
+2026-10-28 13:59:36,hr_user,185.22.234.29,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 13:59:39,analyst1,10.0.7.247,security_setting_change,success,cloud-console,firewall rule changed
+2026-10-28 13:59:49,mira,10.0.9.198,data_export,success,idp-server,small report exported
+2026-10-28 14:00:15,finance_user,10.0.6.138,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 14:00:24,admin_ops,185.22.188.126,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 14:00:44,nina,10.0.4.175,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 14:00:48,admin_ops,10.0.4.93,file_access,success,backup-server,file accessed
+2026-10-28 14:01:07,priya,10.0.12.92,password_reset,success,idp-server,password reset completed
+2026-10-28 14:02:05,akshay,10.0.19.226,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 14:02:16,nina,10.0.9.118,file_access,success,backup-server,file accessed
+2026-10-28 14:03:28,nina,185.22.223.162,data_export,success,email-gateway,sensitive archive downloaded
+2026-10-28 14:04:11,akshay,185.22.209.19,privilege_change,success,hr-portal,role membership updated
+2026-10-28 14:04:55,service_backup,10.0.19.104,data_export,success,endpoint-17,bulk customer export requested
+2026-10-28 14:05:19,nina,10.0.18.194,password_reset,success,endpoint-23,password reset completed
+2026-10-28 14:07:26,rahul,10.0.15.139,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 14:07:26,akshay,185.22.165.89,security_setting_change,success,idp-server,firewall rule changed
+2026-10-28 14:07:39,finance_user,10.0.15.38,login_failure,failure,cloud-console,MFA timeout
+2026-10-28 14:07:53,analyst2,185.22.188.126,password_reset,success,backup-server,password reset completed
+2026-10-28 14:07:55,analyst2,185.22.185.226,vpn_connection,success,endpoint-17,VPN session established
+2026-10-28 14:08:10,admin_ops,10.0.2.208,process_alert,warning,hr-portal,suspicious process behavior
+2026-10-28 14:08:37,analyst1,10.0.4.176,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 14:09:06,websvc,185.22.172.168,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 14:09:31,finance_user,10.0.2.208,data_export,success,endpoint-17,bulk customer export requested
+2026-10-28 14:09:49,rahul,10.0.12.156,login_success,success,cloud-console,valid credentials
+2026-10-28 14:09:54,analyst2,185.22.139.195,password_reset,success,file-server,password reset completed
+2026-10-28 14:10:06,priya,10.0.9.18,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 14:10:23,nina,10.0.8.37,file_access,success,backup-server,file accessed
+2026-10-28 14:10:26,dbadmin,10.0.9.118,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 14:10:26,hr_user,185.22.209.19,privilege_change,success,cloud-console,privilege removed
+2026-10-28 14:10:29,service_backup,10.0.15.137,vpn_connection,success,endpoint-17,VPN session established
+2026-10-28 14:10:32,nina,185.22.172.168,login_success,success,idp-server,valid credentials
+2026-10-28 14:10:54,websvc,10.0.4.93,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 14:11:08,analyst2,10.0.9.193,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 14:13:04,contractor7,185.22.197.34,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 14:13:07,admin_ops,10.0.11.28,password_reset,success,file-server,password reset completed
+2026-10-28 14:13:34,websvc,10.0.9.41,privilege_change,success,hr-portal,role membership updated
+2026-10-28 14:13:43,nina,10.0.12.43,file_access,success,hr-portal,file accessed
+2026-10-28 14:13:43,contractor7,10.0.7.182,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 14:13:48,analyst1,10.0.8.192,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 14:14:22,nina,10.0.15.99,login_failure,failure,endpoint-17,unknown account
+2026-10-28 14:14:49,finance_user,10.0.18.139,firewall_block,blocked,db-server,connection blocked by firewall
+2026-10-28 14:15:06,priya,10.0.19.226,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 14:15:06,hr_user,10.0.12.149,login_failure,failure,endpoint-17,invalid password
+2026-10-28 14:15:33,hr_user,10.0.18.58,security_setting_change,success,email-gateway,firewall rule changed
+2026-10-28 14:16:05,hr_user,185.22.1.155,security_setting_change,success,backup-server,audit logging disabled
+2026-10-28 14:16:50,rahul,10.0.8.131,privilege_change,success,file-server,privilege removed
+2026-10-28 14:16:59,mira,10.0.9.118,data_export,success,backup-server,small report exported
+2026-10-28 14:17:12,contractor7,10.0.12.149,privilege_change,success,hr-portal,admin role granted
+2026-10-28 14:17:46,analyst1,185.22.77.217,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 14:18:02,hr_user,10.0.9.41,login_failure,failure,email-gateway,unknown account
+2026-10-28 14:18:54,websvc,10.0.15.38,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 14:19:01,rahul,185.22.112.42,data_export,success,vpn-gateway,bulk customer export requested
+2026-10-28 14:19:07,admin_ops,185.22.224.157,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 14:19:11,analyst1,10.0.1.196,data_export,success,hr-portal,bulk customer export requested
+2026-10-28 14:19:35,contractor7,10.0.12.43,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 14:19:36,analyst2,10.0.11.217,password_reset,success,hr-portal,password reset completed
+2026-10-28 14:19:55,dev,10.0.8.192,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 14:21:10,analyst2,10.0.4.41,password_reset,success,db-server,password reset completed
+2026-10-28 14:21:20,finance_user,10.0.9.64,login_success,success,endpoint-23,valid credentials
+2026-10-28 14:21:26,priya,10.0.18.24,data_export,success,endpoint-23,sensitive archive downloaded
+2026-10-28 14:22:05,mira,10.0.19.226,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 14:22:08,service_backup,185.22.33.170,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 14:22:40,websvc,10.0.11.104,privilege_change,success,email-gateway,role membership updated
+2026-10-28 14:23:00,hr_user,10.0.9.238,file_access,success,backup-server,file accessed
+2026-10-28 14:23:00,analyst1,10.0.12.156,firewall_block,blocked,vpn-gateway,connection blocked by firewall
+2026-10-28 14:24:10,service_backup,10.0.19.110,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 14:24:10,analyst2,10.0.13.154,password_reset,success,endpoint-17,password reset completed
+2026-10-28 14:24:29,admin_ops,10.0.18.194,privilege_change,success,email-gateway,role membership updated
+2026-10-28 14:25:47,akshay,185.22.188.126,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 14:26:42,hr_user,10.0.6.138,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 14:26:42,mira,10.0.4.176,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 14:27:17,analyst2,10.0.15.137,vpn_connection,success,idp-server,VPN session established
+2026-10-28 14:27:30,contractor7,10.0.12.156,data_export,success,hr-portal,small report exported
+2026-10-28 14:27:30,mira,10.0.9.118,privilege_change,success,endpoint-17,privilege removed
+2026-10-28 14:27:31,analyst2,10.0.4.8,privilege_change,success,hr-portal,privilege removed
+2026-10-28 14:27:40,akshay,10.0.18.109,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 14:28:30,nina,185.22.172.168,security_setting_change,success,email-gateway,MFA policy updated
+2026-10-28 14:28:31,dbadmin,10.0.6.180,privilege_change,success,idp-server,role membership updated
+2026-10-28 14:28:46,analyst2,185.22.187.178,file_access,success,endpoint-23,file accessed
+2026-10-28 14:28:55,finance_user,10.0.6.204,password_reset,success,db-server,password reset completed
+2026-10-28 14:30:35,admin_ops,10.0.20.228,login_failure,failure,endpoint-17,invalid password
+2026-10-28 14:30:36,service_backup,10.0.20.8,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 14:30:59,admin_ops,10.0.18.77,login_success,success,db-server,valid credentials
+2026-10-28 14:31:03,websvc,185.22.112.42,privilege_change,success,endpoint-23,role membership updated
+2026-10-28 14:31:31,hr_user,10.0.5.132,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 14:31:54,nina,10.0.8.199,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 14:31:57,dbadmin,10.0.18.222,data_export,success,file-server,small report exported
+2026-10-28 14:32:02,mira,10.0.4.238,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 14:33:19,nina,10.0.15.137,password_reset,success,hr-portal,password reset completed
+2026-10-28 14:33:26,akshay,10.0.16.103,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 14:33:39,rahul,10.0.3.100,security_setting_change,success,cloud-console,MFA policy updated
+2026-10-28 14:33:40,dbadmin,10.0.15.38,file_access,success,cloud-console,file accessed
+2026-10-28 14:33:42,analyst1,10.0.18.194,file_access,success,email-gateway,file accessed
+2026-10-28 14:33:45,mira,10.0.4.41,security_setting_change,success,endpoint-23,firewall rule changed
+2026-10-28 14:33:51,hr_user,10.0.4.175,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 14:33:58,akshay,10.0.4.93,vpn_connection,success,backup-server,VPN session established
+2026-10-28 14:35:43,dbadmin,10.0.10.22,security_setting_change,success,backup-server,firewall rule changed
+2026-10-28 14:36:03,admin_ops,10.0.9.250,password_reset,success,file-server,password reset completed
+2026-10-28 14:36:16,hr_user,10.0.3.157,data_export,success,endpoint-17,sensitive archive downloaded
+2026-10-28 14:36:26,admin_ops,10.0.18.194,data_export,success,cloud-console,bulk customer export requested
+2026-10-28 14:36:43,akshay,185.22.77.217,login_failure,failure,cloud-console,MFA timeout
+2026-10-28 14:36:49,dev,185.22.52.184,login_failure,failure,email-gateway,MFA timeout
+2026-10-28 14:36:50,priya,10.0.2.60,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 14:37:18,nina,10.0.9.238,login_success,success,cloud-console,valid credentials
+2026-10-28 14:37:27,priya,10.0.18.52,file_access,success,endpoint-17,file accessed
+2026-10-28 14:37:42,nina,10.0.19.73,file_access,success,endpoint-23,file accessed
+2026-10-28 14:37:42,akshay,10.0.14.154,vpn_connection,success,idp-server,VPN session established
+2026-10-28 14:37:54,contractor7,10.0.18.222,password_reset,success,idp-server,password reset completed
+2026-10-28 14:38:37,service_backup,10.0.18.194,firewall_block,blocked,endpoint-23,connection blocked by firewall
+2026-10-28 14:41:00,mira,10.0.9.193,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 14:41:03,dbadmin,10.0.8.199,login_failure,failure,vpn-gateway,invalid password
+2026-10-28 14:41:49,contractor7,10.0.9.238,login_success,success,idp-server,valid credentials
+2026-10-28 14:42:42,websvc,10.0.4.238,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 14:42:49,rahul,10.0.14.89,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 14:42:50,akshay,10.0.8.116,vpn_connection,success,endpoint-23,VPN session established
+2026-10-28 14:42:55,nina,10.0.4.175,login_success,success,endpoint-17,valid credentials
+2026-10-28 14:43:17,hr_user,10.0.2.188,privilege_change,success,email-gateway,role membership updated
+2026-10-28 14:43:22,admin_ops,10.0.18.222,vpn_connection,success,backup-server,VPN session established
+2026-10-28 14:43:25,analyst2,185.22.112.42,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 14:43:47,contractor7,10.0.19.111,login_failure,failure,backup-server,MFA timeout
+2026-10-28 14:43:57,service_backup,10.0.19.73,login_failure,failure,vpn-gateway,unknown account
+2026-10-28 14:44:03,admin_ops,10.0.4.8,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 14:44:55,contractor7,10.0.13.22,security_setting_change,success,hr-portal,MFA policy updated
+2026-10-28 14:44:58,service_backup,10.0.4.99,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 14:45:25,analyst1,185.22.40.97,login_failure,failure,endpoint-17,unknown account
+2026-10-28 14:45:27,finance_user,10.0.4.99,password_reset,success,endpoint-23,password reset completed
+2026-10-28 14:46:38,analyst2,10.0.14.89,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 14:47:10,rahul,10.0.12.92,firewall_block,blocked,endpoint-23,connection blocked by firewall
+2026-10-28 14:47:12,contractor7,185.22.187.178,backup_job,success,file-server,scheduled backup completed
+2026-10-28 14:47:13,mira,10.0.9.238,vpn_connection,success,backup-server,VPN session established
+2026-10-28 14:47:39,analyst1,10.0.11.56,security_setting_change,success,db-server,MFA policy updated
+2026-10-28 14:47:43,dbadmin,10.0.1.196,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 14:47:54,analyst1,10.0.9.37,backup_job,success,db-server,scheduled backup completed
+2026-10-28 14:47:58,service_backup,10.0.11.217,vpn_connection,success,endpoint-23,VPN session established
+2026-10-28 14:48:14,analyst2,10.0.4.176,file_access,success,email-gateway,file accessed
+2026-10-28 14:48:19,analyst1,185.22.165.89,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 14:49:39,priya,10.0.11.104,login_success,success,endpoint-23,valid credentials
+2026-10-28 14:49:42,websvc,10.0.4.99,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 14:50:52,analyst2,10.0.8.131,password_reset,success,idp-server,password reset completed
+2026-10-28 14:51:39,rahul,185.22.83.127,password_reset,success,backup-server,password reset completed
+2026-10-28 14:52:56,service_backup,10.0.9.18,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 14:53:02,websvc,10.0.11.104,data_export,success,email-gateway,sensitive archive downloaded
+2026-10-28 14:53:20,dbadmin,10.0.8.37,firewall_block,blocked,vpn-gateway,connection blocked by firewall
+2026-10-28 14:53:27,dev,10.0.15.38,vpn_connection,success,file-server,VPN session established
+2026-10-28 14:53:32,finance_user,10.0.3.99,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 14:53:40,nina,185.22.209.19,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 14:54:25,analyst2,10.0.18.194,login_success,success,idp-server,valid credentials
+2026-10-28 14:54:47,finance_user,185.22.117.2,vpn_connection,success,endpoint-17,VPN session established
+2026-10-28 14:55:10,websvc,10.0.12.156,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 14:55:18,websvc,10.0.15.139,mfa_challenge,success,hr-portal,MFA challenge completed
+2026-10-28 14:55:19,websvc,10.0.4.8,security_setting_change,success,vpn-gateway,MFA policy updated
+2026-10-28 14:56:04,priya,10.0.1.176,login_failure,failure,hr-portal,unknown account
+2026-10-28 14:56:10,dev,10.0.15.139,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 14:56:21,priya,10.0.6.138,privilege_change,success,email-gateway,role membership updated
+2026-10-28 14:56:23,hr_user,10.0.4.176,password_reset,success,backup-server,password reset completed
+2026-10-28 14:56:39,contractor7,10.0.3.157,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 14:56:44,mira,10.0.2.222,data_export,success,cloud-console,bulk customer export requested
+2026-10-28 14:56:45,websvc,10.0.16.25,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 14:57:01,nina,10.0.12.43,login_success,success,idp-server,valid credentials
+2026-10-28 14:57:16,priya,10.0.2.60,data_export,success,endpoint-17,small report exported
+2026-10-28 14:57:20,rahul,10.0.6.180,login_success,success,email-gateway,valid credentials
+2026-10-28 14:57:22,dbadmin,10.0.19.110,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 14:57:25,akshay,10.0.20.228,login_failure,failure,endpoint-17,invalid password
+2026-10-28 14:58:01,nina,185.22.146.244,security_setting_change,success,file-server,audit logging disabled
+2026-10-28 14:58:34,analyst1,10.0.8.116,password_reset,success,endpoint-17,password reset completed
+2026-10-28 14:58:35,rahul,10.0.4.175,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 14:58:49,nina,10.0.4.176,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 14:58:51,hr_user,10.0.4.175,process_alert,warning,hr-portal,suspicious process behavior
+2026-10-28 14:59:10,analyst2,10.0.13.154,file_access,success,db-server,file accessed
+2026-10-28 14:59:11,admin_ops,10.0.15.139,privilege_change,success,email-gateway,admin role granted
+2026-10-28 15:00:14,dbadmin,10.0.16.25,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 15:00:42,analyst1,10.0.8.223,login_success,success,endpoint-23,valid credentials
+2026-10-28 15:00:47,priya,10.0.9.208,data_export,success,hr-portal,small report exported
+2026-10-28 15:01:15,dbadmin,10.0.19.104,firewall_block,blocked,vpn-gateway,connection blocked by firewall
+2026-10-28 15:01:18,contractor7,10.0.19.226,privilege_change,success,hr-portal,role membership updated
+2026-10-28 15:01:20,hr_user,10.0.3.157,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 15:01:31,dev,185.22.62.226,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 15:01:54,analyst1,10.0.12.149,privilege_change,success,endpoint-17,privilege removed
+2026-10-28 15:02:02,admin_ops,10.0.10.22,mfa_challenge,success,endpoint-17,MFA challenge completed
+2026-10-28 15:02:24,dbadmin,10.0.9.41,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 15:02:26,dbadmin,10.0.18.109,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 15:02:43,dbadmin,10.0.7.235,password_reset,success,idp-server,password reset completed
+2026-10-28 15:03:02,dbadmin,10.0.7.182,login_success,success,backup-server,valid credentials
+2026-10-28 15:03:35,websvc,10.0.18.222,backup_job,success,db-server,scheduled backup completed
+2026-10-28 15:03:37,finance_user,10.0.16.103,privilege_change,success,backup-server,admin role granted
+2026-10-28 15:04:28,admin_ops,10.0.19.104,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 15:04:46,dbadmin,10.0.12.92,login_failure,failure,backup-server,invalid password
+2026-10-28 15:05:31,mira,10.0.3.100,file_access,success,backup-server,file accessed
+2026-10-28 15:05:53,admin_ops,10.0.4.176,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 15:06:41,contractor7,10.0.15.139,login_success,success,idp-server,valid credentials
+2026-10-28 15:06:54,service_backup,10.0.11.28,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 15:07:01,analyst2,10.0.6.204,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 15:08:20,websvc,10.0.4.99,backup_job,success,vpn-gateway,scheduled backup completed
+2026-10-28 15:08:24,nina,185.22.165.89,privilege_change,success,cloud-console,admin role granted
+2026-10-28 15:08:53,admin_ops,10.0.3.100,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 15:08:59,akshay,10.0.1.196,login_failure,failure,endpoint-23,MFA timeout
+2026-10-28 15:09:07,rahul,185.22.225.214,security_setting_change,success,file-server,audit logging disabled
+2026-10-28 15:09:07,hr_user,10.0.9.181,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 15:09:09,finance_user,10.0.7.235,security_setting_change,success,endpoint-17,audit logging disabled
+2026-10-28 15:09:29,nina,10.0.5.132,login_failure,failure,cloud-console,MFA timeout
+2026-10-28 15:09:29,finance_user,10.0.2.60,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 15:09:47,hr_user,10.0.14.154,file_access,success,backup-server,file accessed
+2026-10-28 15:09:59,nina,10.0.12.149,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 15:10:15,websvc,10.0.15.139,security_setting_change,success,idp-server,firewall rule changed
+2026-10-28 15:10:41,admin_ops,10.0.9.238,backup_job,success,endpoint-17,scheduled backup completed
+2026-10-28 15:11:11,websvc,10.0.18.194,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 15:11:12,websvc,10.0.18.222,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 15:11:51,rahul,10.0.2.188,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 15:12:03,priya,185.22.5.30,privilege_change,success,hr-portal,admin role granted
+2026-10-28 15:12:27,analyst1,185.22.52.184,data_export,success,endpoint-17,sensitive archive downloaded
+2026-10-28 15:12:47,dev,10.0.8.199,file_access,success,backup-server,file accessed
+2026-10-28 15:12:53,nina,10.0.9.41,privilege_change,success,endpoint-17,privilege removed
+2026-10-28 15:13:50,rahul,10.0.2.208,file_access,success,vpn-gateway,file accessed
+2026-10-28 15:13:53,priya,10.0.18.52,password_reset,success,db-server,password reset completed
+2026-10-28 15:14:31,mira,10.0.12.43,vpn_connection,success,file-server,VPN session established
+2026-10-28 15:14:54,rahul,10.0.15.99,vpn_connection,success,idp-server,VPN session established
+2026-10-28 15:15:08,contractor7,10.0.4.175,password_reset,success,email-gateway,password reset completed
+2026-10-28 15:15:08,akshay,10.0.2.188,security_setting_change,success,hr-portal,audit logging disabled
+2026-10-28 15:15:24,akshay,10.0.9.193,mfa_challenge,success,email-gateway,MFA challenge completed
+2026-10-28 15:15:40,service_backup,10.0.9.208,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 15:15:52,hr_user,10.0.2.9,data_export,success,hr-portal,small report exported
+2026-10-28 15:16:27,hr_user,10.0.15.139,security_setting_change,success,db-server,firewall rule changed
+2026-10-28 15:16:33,finance_user,185.22.238.94,login_failure,failure,endpoint-17,MFA timeout
+2026-10-28 15:16:38,dbadmin,10.0.9.238,data_export,success,endpoint-23,bulk customer export requested
+2026-10-28 15:16:40,hr_user,185.22.146.244,login_success,success,db-server,valid credentials
+2026-10-28 15:16:40,hr_user,10.0.16.103,data_export,success,idp-server,sensitive archive downloaded
+2026-10-28 15:16:46,dbadmin,10.0.4.238,privilege_change,success,idp-server,privilege removed
+2026-10-28 15:16:56,dev,185.22.139.246,vpn_connection,success,endpoint-17,VPN session established
+2026-10-28 15:16:59,nina,10.0.15.99,vpn_connection,success,hr-portal,VPN session established
+2026-10-28 15:17:32,mira,10.0.18.52,security_setting_change,success,backup-server,MFA policy updated
+2026-10-28 15:17:35,hr_user,10.0.19.104,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 15:17:40,admin_ops,10.0.3.100,password_reset,success,db-server,password reset completed
+2026-10-28 15:18:26,analyst2,10.0.7.173,file_access,success,db-server,file accessed
+2026-10-28 15:18:30,finance_user,185.22.141.44,password_reset,success,file-server,password reset completed
+2026-10-28 15:19:04,admin_ops,10.0.11.28,password_reset,success,hr-portal,password reset completed
+2026-10-28 15:19:07,dbadmin,10.0.3.157,security_setting_change,success,backup-server,MFA policy updated
+2026-10-28 15:19:16,finance_user,185.22.62.226,login_failure,failure,email-gateway,unknown account
+2026-10-28 15:20:25,dev,10.0.12.156,data_export,success,vpn-gateway,small report exported
+2026-10-28 15:20:47,analyst1,10.0.9.37,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 15:20:57,websvc,10.0.14.89,file_access,success,endpoint-17,file accessed
+2026-10-28 15:23:54,rahul,10.0.9.250,login_failure,failure,hr-portal,invalid password
+2026-10-28 15:24:16,nina,185.22.5.30,file_access,success,endpoint-17,file accessed
+2026-10-28 15:25:11,mira,10.0.9.18,login_success,success,file-server,valid credentials
+2026-10-28 15:25:19,finance_user,10.0.18.24,firewall_block,blocked,endpoint-23,connection blocked by firewall
+2026-10-28 15:26:01,admin_ops,185.22.29.77,security_setting_change,success,vpn-gateway,audit logging disabled
+2026-10-28 15:26:15,mira,185.22.21.23,backup_job,success,endpoint-17,scheduled backup completed
+2026-10-28 15:26:24,websvc,10.0.8.223,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 15:27:15,dbadmin,10.0.9.18,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 15:27:53,dbadmin,10.0.9.208,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 15:27:58,mira,10.0.14.154,login_failure,failure,file-server,unknown account
+2026-10-28 15:28:07,akshay,10.0.12.43,password_reset,success,backup-server,password reset completed
+2026-10-28 15:28:14,nina,10.0.4.99,login_success,success,endpoint-23,valid credentials
+2026-10-28 15:28:44,analyst2,10.0.3.157,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 15:28:50,analyst2,10.0.9.18,login_failure,failure,file-server,MFA timeout
+2026-10-28 15:28:59,mira,10.0.20.8,password_reset,success,vpn-gateway,password reset completed
+2026-10-28 15:29:06,rahul,185.22.33.170,vpn_connection,success,backup-server,VPN session established
+2026-10-28 15:29:14,rahul,10.0.9.250,file_access,success,backup-server,file accessed
+2026-10-28 15:29:21,dbadmin,10.0.9.250,privilege_change,success,email-gateway,privilege removed
+2026-10-28 15:29:38,dev,10.0.16.25,privilege_change,success,db-server,admin role granted
+2026-10-28 15:29:39,priya,10.0.8.43,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 15:30:03,rahul,10.0.2.188,security_setting_change,success,endpoint-17,audit logging disabled
+2026-10-28 15:30:18,websvc,10.0.6.138,login_failure,failure,cloud-console,invalid password
+2026-10-28 15:30:56,contractor7,10.0.15.137,login_failure,failure,backup-server,MFA timeout
+2026-10-28 15:31:19,analyst2,10.0.19.110,file_access,success,db-server,file accessed
+2026-10-28 15:31:23,dev,10.0.12.156,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 15:33:29,websvc,185.22.234.29,file_access,success,cloud-console,file accessed
+2026-10-28 15:33:29,service_backup,10.0.9.250,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 15:34:03,mira,10.0.12.43,mfa_challenge,success,endpoint-17,MFA challenge completed
+2026-10-28 15:34:24,nina,10.0.19.111,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 15:34:50,contractor7,185.22.196.43,password_reset,success,db-server,password reset completed
+2026-10-28 15:35:32,hr_user,10.0.8.131,login_failure,failure,cloud-console,MFA timeout
+2026-10-28 15:35:58,mira,10.0.6.204,login_success,success,db-server,valid credentials
+2026-10-28 15:35:59,finance_user,10.0.9.18,password_reset,success,db-server,password reset completed
+2026-10-28 15:36:05,analyst2,185.22.112.42,firewall_block,blocked,db-server,connection blocked by firewall
+2026-10-28 15:36:23,mira,10.0.11.56,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 15:37:28,contractor7,10.0.18.109,privilege_change,success,vpn-gateway,admin role granted
+2026-10-28 15:37:40,hr_user,10.0.18.109,login_success,success,idp-server,valid credentials
+2026-10-28 15:37:56,dev,10.0.15.99,data_export,success,email-gateway,bulk customer export requested
+2026-10-28 15:38:01,mira,10.0.18.194,password_reset,success,cloud-console,password reset completed
+2026-10-28 15:38:57,dbadmin,10.0.4.99,privilege_change,success,vpn-gateway,admin role granted
+2026-10-28 15:39:09,akshay,10.0.11.217,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 15:39:47,finance_user,10.0.12.43,password_reset,success,endpoint-17,password reset completed
+2026-10-28 15:40:03,dev,10.0.2.60,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 15:41:24,nina,10.0.11.56,backup_job,success,db-server,scheduled backup completed
+2026-10-28 15:41:45,admin_ops,10.0.12.43,password_reset,success,backup-server,password reset completed
+2026-10-28 15:41:54,dev,10.0.8.43,password_reset,success,backup-server,password reset completed
+2026-10-28 15:41:59,mira,10.0.14.154,privilege_change,success,endpoint-17,privilege removed
+2026-10-28 15:42:04,finance_user,10.0.1.196,security_setting_change,success,email-gateway,MFA policy updated
+2026-10-28 15:42:44,service_backup,10.0.19.73,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 15:43:29,hr_user,10.0.16.103,login_success,success,endpoint-17,valid credentials
+2026-10-28 15:44:34,admin_ops,10.0.4.93,login_failure,failure,endpoint-17,MFA timeout
+2026-10-28 15:45:04,analyst1,185.22.55.239,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 15:45:14,admin_ops,185.22.185.226,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 15:45:18,dev,10.0.4.93,data_export,success,db-server,bulk customer export requested
+2026-10-28 15:45:43,websvc,185.22.224.157,backup_job,success,vpn-gateway,scheduled backup completed
+2026-10-28 15:46:43,admin_ops,10.0.14.154,file_access,success,idp-server,file accessed
+2026-10-28 15:47:34,analyst1,185.22.21.23,vpn_connection,success,db-server,VPN session established
+2026-10-28 15:48:26,dev,10.0.19.104,privilege_change,success,cloud-console,privilege removed
+2026-10-28 15:48:32,hr_user,10.0.4.175,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 15:49:26,contractor7,10.0.4.176,privilege_change,success,idp-server,admin role granted
+2026-10-28 15:50:14,analyst2,10.0.19.226,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 15:50:52,priya,10.0.8.192,privilege_change,success,vpn-gateway,privilege removed
+2026-10-28 15:50:58,analyst2,10.0.18.52,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 15:51:08,dev,10.0.7.247,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 15:51:09,websvc,185.22.33.170,file_access,success,email-gateway,file accessed
+2026-10-28 15:51:27,akshay,10.0.4.99,data_export,success,vpn-gateway,sensitive archive downloaded
+2026-10-28 15:51:52,mira,10.0.7.235,data_export,success,hr-portal,bulk customer export requested
+2026-10-28 15:52:12,websvc,185.22.172.168,login_success,success,email-gateway,valid credentials
+2026-10-28 15:52:19,priya,10.0.3.100,security_setting_change,success,endpoint-23,firewall rule changed
+2026-10-28 15:52:21,finance_user,185.22.165.89,firewall_block,blocked,hr-portal,connection blocked by firewall
+2026-10-28 15:52:26,analyst1,10.0.2.9,password_reset,success,email-gateway,password reset completed
+2026-10-28 15:53:09,analyst1,10.0.9.198,login_failure,failure,email-gateway,invalid password
+2026-10-28 15:53:11,mira,185.22.197.34,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 15:53:26,contractor7,10.0.12.149,process_alert,warning,file-server,suspicious process behavior
+2026-10-28 15:53:31,analyst1,10.0.14.89,file_access,success,endpoint-17,file accessed
+2026-10-28 15:53:34,hr_user,10.0.9.181,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 15:54:55,priya,185.22.139.246,password_reset,success,cloud-console,password reset completed
+2026-10-28 15:54:55,contractor7,185.22.62.16,login_failure,failure,hr-portal,invalid password
+2026-10-28 15:56:09,mira,10.0.19.110,login_failure,failure,hr-portal,MFA timeout
+2026-10-28 15:56:46,rahul,10.0.9.193,data_export,success,hr-portal,small report exported
+2026-10-28 15:57:44,finance_user,10.0.19.110,login_success,success,backup-server,valid credentials
+2026-10-28 15:57:51,priya,10.0.8.37,privilege_change,success,cloud-console,privilege removed
+2026-10-28 15:58:37,websvc,10.0.1.176,security_setting_change,success,endpoint-17,MFA policy updated
+2026-10-28 16:00:13,hr_user,10.0.2.188,file_access,success,vpn-gateway,file accessed
+2026-10-28 16:00:18,websvc,10.0.9.18,login_success,success,file-server,valid credentials
+2026-10-28 16:00:39,rahul,10.0.16.25,file_access,success,idp-server,file accessed
+2026-10-28 16:01:49,dbadmin,10.0.18.24,security_setting_change,success,email-gateway,MFA policy updated
+2026-10-28 16:02:04,nina,10.0.2.60,security_setting_change,success,backup-server,firewall rule changed
+2026-10-28 16:02:19,rahul,10.0.2.60,security_setting_change,success,db-server,audit logging disabled
+2026-10-28 16:02:35,hr_user,10.0.9.118,file_access,success,vpn-gateway,file accessed
+2026-10-28 16:03:26,analyst1,10.0.2.188,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 16:03:56,analyst1,10.0.2.60,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 16:04:30,hr_user,10.0.9.41,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 16:04:37,nina,10.0.6.180,security_setting_change,success,db-server,firewall rule changed
+2026-10-28 16:07:10,dbadmin,10.0.3.157,process_alert,warning,cloud-console,suspicious process behavior
+2026-10-28 16:07:11,hr_user,10.0.3.99,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 16:07:12,akshay,185.22.187.178,login_success,success,backup-server,valid credentials
+2026-10-28 16:07:49,admin_ops,10.0.11.56,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 16:08:19,analyst1,10.0.19.110,login_failure,failure,email-gateway,invalid password
+2026-10-28 16:08:39,dbadmin,10.0.18.58,mfa_challenge,success,vpn-gateway,MFA challenge completed
+2026-10-28 16:09:19,rahul,185.22.224.157,firewall_block,blocked,endpoint-17,connection blocked by firewall
+2026-10-28 16:09:35,mira,10.0.15.99,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 16:09:37,hr_user,185.22.195.138,login_failure,failure,file-server,invalid password
+2026-10-28 16:09:40,analyst2,185.22.209.19,login_failure,failure,file-server,unknown account
+2026-10-28 16:09:45,nina,10.0.18.109,security_setting_change,success,endpoint-17,MFA policy updated
+2026-10-28 16:09:51,websvc,10.0.11.56,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 16:10:33,dbadmin,10.0.3.13,security_setting_change,success,endpoint-23,firewall rule changed
+2026-10-28 16:10:34,analyst1,10.0.5.132,login_failure,failure,idp-server,invalid password
+2026-10-28 16:10:34,websvc,10.0.8.199,file_access,success,email-gateway,file accessed
+2026-10-28 16:10:43,dev,185.22.165.89,password_reset,success,file-server,password reset completed
+2026-10-28 16:11:18,finance_user,10.0.7.182,file_access,success,idp-server,file accessed
+2026-10-28 16:11:32,rahul,10.0.9.18,data_export,success,cloud-console,sensitive archive downloaded
+2026-10-28 16:11:46,finance_user,10.0.9.198,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 16:13:05,finance_user,10.0.4.41,mfa_challenge,success,endpoint-17,MFA challenge completed
+2026-10-28 16:13:31,dev,10.0.15.38,login_failure,failure,hr-portal,invalid password
+2026-10-28 16:13:33,analyst1,10.0.15.99,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 16:14:02,service_backup,10.0.5.132,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 16:14:03,rahul,185.22.129.197,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 16:14:07,rahul,10.0.9.37,privilege_change,success,file-server,admin role granted
+2026-10-28 16:14:28,akshay,185.22.185.226,vpn_connection,success,endpoint-23,VPN session established
+2026-10-28 16:15:15,mira,185.22.156.52,privilege_change,success,endpoint-17,role membership updated
+2026-10-28 16:16:07,analyst1,10.0.7.247,backup_job,success,cloud-console,scheduled backup completed
+2026-10-28 16:17:10,priya,10.0.9.193,data_export,success,endpoint-23,small report exported
+2026-10-28 16:17:11,analyst2,10.0.12.92,login_failure,failure,db-server,invalid password
+2026-10-28 16:17:47,analyst1,10.0.18.58,password_reset,success,hr-portal,password reset completed
+2026-10-28 16:17:48,dev,10.0.1.176,login_success,success,endpoint-23,valid credentials
+2026-10-28 16:18:26,hr_user,10.0.2.60,privilege_change,success,endpoint-17,role membership updated
+2026-10-28 16:18:29,admin_ops,10.0.8.37,login_success,success,hr-portal,valid credentials
+2026-10-28 16:18:51,websvc,10.0.11.28,process_alert,warning,vpn-gateway,suspicious process behavior
+2026-10-28 16:18:53,rahul,185.22.200.238,process_alert,warning,file-server,suspicious process behavior
+2026-10-28 16:19:24,priya,10.0.4.238,security_setting_change,success,endpoint-23,firewall rule changed
+2026-10-28 16:20:17,rahul,10.0.9.250,security_setting_change,success,email-gateway,MFA policy updated
+2026-10-28 16:20:51,dev,10.0.3.100,vpn_connection,success,idp-server,VPN session established
+2026-10-28 16:20:53,dbadmin,10.0.9.198,password_reset,success,hr-portal,password reset completed
+2026-10-28 16:21:11,finance_user,10.0.11.56,password_reset,success,file-server,password reset completed
+2026-10-28 16:21:22,mira,10.0.12.149,file_access,success,backup-server,file accessed
+2026-10-28 16:21:59,mira,10.0.3.100,password_reset,success,db-server,password reset completed
+2026-10-28 16:22:40,mira,10.0.19.104,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 16:22:43,admin_ops,185.22.117.2,backup_job,success,endpoint-17,scheduled backup completed
+2026-10-28 16:23:05,rahul,10.0.8.192,backup_job,success,file-server,scheduled backup completed
+2026-10-28 16:23:23,hr_user,185.22.80.104,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 16:23:27,websvc,10.0.11.56,security_setting_change,success,idp-server,MFA policy updated
+2026-10-28 16:23:46,dev,10.0.11.104,password_reset,success,backup-server,password reset completed
+2026-10-28 16:24:04,admin_ops,10.0.18.52,login_failure,failure,cloud-console,invalid password
+2026-10-28 16:24:49,finance_user,10.0.12.156,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 16:25:29,websvc,10.0.15.139,data_export,success,cloud-console,small report exported
+2026-10-28 16:25:32,hr_user,10.0.8.116,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 16:25:38,hr_user,10.0.8.131,privilege_change,success,endpoint-23,admin role granted
+2026-10-28 16:25:40,hr_user,10.0.18.24,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 16:25:44,websvc,10.0.9.181,data_export,success,email-gateway,bulk customer export requested
+2026-10-28 16:25:50,service_backup,10.0.8.199,password_reset,success,file-server,password reset completed
+2026-10-28 16:25:54,analyst2,10.0.7.182,vpn_connection,success,file-server,VPN session established
+2026-10-28 16:25:55,websvc,185.22.77.217,security_setting_change,success,email-gateway,audit logging disabled
+2026-10-28 16:25:59,service_backup,10.0.7.173,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 16:25:59,dbadmin,10.0.19.226,login_failure,failure,endpoint-17,MFA timeout
+2026-10-28 16:26:03,analyst1,185.22.109.248,login_failure,failure,email-gateway,unknown account
+2026-10-28 16:26:32,contractor7,10.0.18.109,file_access,success,file-server,file accessed
+2026-10-28 16:26:37,rahul,10.0.19.111,login_failure,failure,vpn-gateway,MFA timeout
+2026-10-28 16:26:41,analyst2,10.0.16.25,privilege_change,success,backup-server,privilege removed
+2026-10-28 16:27:01,contractor7,185.22.209.19,firewall_block,blocked,vpn-gateway,connection blocked by firewall
+2026-10-28 16:27:17,rahul,10.0.11.217,security_setting_change,success,endpoint-23,MFA policy updated
+2026-10-28 16:27:22,websvc,185.22.165.89,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 16:27:26,mira,185.22.223.162,login_success,success,idp-server,valid credentials
+2026-10-28 16:27:44,service_backup,10.0.8.199,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 16:28:04,service_backup,10.0.9.37,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 16:28:04,nina,185.22.234.29,login_failure,failure,db-server,MFA timeout
+2026-10-28 16:28:29,priya,10.0.15.99,password_reset,success,backup-server,password reset completed
+2026-10-28 16:28:29,admin_ops,10.0.9.37,data_export,success,endpoint-17,small report exported
+2026-10-28 16:29:29,akshay,10.0.10.22,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 16:29:33,finance_user,10.0.9.41,login_failure,failure,backup-server,MFA timeout
+2026-10-28 16:30:03,dbadmin,10.0.19.104,security_setting_change,success,cloud-console,MFA policy updated
+2026-10-28 16:30:24,contractor7,10.0.18.139,login_success,success,file-server,valid credentials
+2026-10-28 16:30:39,nina,10.0.12.43,security_setting_change,success,vpn-gateway,firewall rule changed
+2026-10-28 16:31:30,analyst2,185.22.1.155,login_success,success,vpn-gateway,valid credentials
+2026-10-28 16:31:48,priya,185.22.46.131,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 16:32:54,nina,10.0.19.111,file_access,success,idp-server,file accessed
+2026-10-28 16:32:56,akshay,10.0.8.199,mfa_challenge,success,backup-server,MFA challenge completed
+2026-10-28 16:33:58,websvc,10.0.2.9,privilege_change,success,backup-server,admin role granted
+2026-10-28 16:34:59,analyst2,10.0.9.118,backup_job,success,idp-server,scheduled backup completed
+2026-10-28 16:35:09,analyst2,10.0.15.137,file_access,success,endpoint-17,file accessed
+2026-10-28 16:36:18,service_backup,185.22.146.244,file_access,success,endpoint-17,file accessed
+2026-10-28 16:37:25,priya,10.0.18.194,privilege_change,success,db-server,admin role granted
+2026-10-28 16:37:30,websvc,10.0.13.22,privilege_change,success,idp-server,role membership updated
+2026-10-28 16:37:50,analyst2,10.0.8.37,process_alert,warning,db-server,suspicious process behavior
+2026-10-28 16:37:59,rahul,10.0.16.25,password_reset,success,hr-portal,password reset completed
+2026-10-28 16:38:01,hr_user,185.22.164.131,firewall_block,blocked,cloud-console,connection blocked by firewall
+2026-10-28 16:38:07,hr_user,10.0.7.247,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 16:38:12,analyst1,185.22.139.195,data_export,success,idp-server,sensitive archive downloaded
+2026-10-28 16:38:14,hr_user,185.22.1.155,login_success,success,db-server,valid credentials
+2026-10-28 16:38:20,rahul,10.0.6.138,security_setting_change,success,endpoint-17,MFA policy updated
+2026-10-28 16:38:25,websvc,10.0.4.93,file_access,success,endpoint-23,file accessed
+2026-10-28 16:38:38,websvc,185.22.200.238,process_alert,warning,idp-server,suspicious process behavior
+2026-10-28 16:38:47,priya,10.0.9.118,file_access,success,idp-server,file accessed
+2026-10-28 16:38:50,websvc,185.22.139.195,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 16:39:01,nina,10.0.2.9,file_access,success,email-gateway,file accessed
+2026-10-28 16:39:18,admin_ops,10.0.13.154,mfa_challenge,success,endpoint-23,MFA challenge completed
+2026-10-28 16:40:14,websvc,10.0.11.56,login_failure,failure,cloud-console,unknown account
+2026-10-28 16:40:28,nina,10.0.8.199,mfa_challenge,success,db-server,MFA challenge completed
+2026-10-28 16:40:41,dbadmin,10.0.7.182,login_failure,failure,cloud-console,invalid password
+2026-10-28 16:41:05,nina,10.0.19.111,vpn_connection,success,vpn-gateway,VPN session established
+2026-10-28 16:41:36,hr_user,10.0.18.109,data_export,success,db-server,small report exported
+2026-10-28 16:42:02,service_backup,10.0.19.73,firewall_block,blocked,backup-server,connection blocked by firewall
+2026-10-28 16:42:49,analyst2,185.22.68.137,firewall_block,blocked,email-gateway,connection blocked by firewall
+2026-10-28 16:43:12,nina,10.0.13.154,login_failure,failure,vpn-gateway,MFA timeout
+2026-10-28 16:43:12,service_backup,10.0.14.89,firewall_block,blocked,file-server,connection blocked by firewall
+2026-10-28 16:43:38,analyst1,10.0.4.41,data_export,success,idp-server,bulk customer export requested
+2026-10-28 16:43:41,akshay,10.0.9.181,security_setting_change,success,idp-server,audit logging disabled
+2026-10-28 16:43:54,service_backup,10.0.7.182,backup_job,success,endpoint-23,scheduled backup completed
+2026-10-28 16:44:21,analyst1,10.0.18.58,login_success,success,hr-portal,valid credentials
+2026-10-28 16:44:34,dbadmin,10.0.14.154,data_export,success,db-server,small report exported
+2026-10-28 16:44:35,mira,10.0.2.208,password_reset,success,idp-server,password reset completed
+2026-10-28 16:44:36,finance_user,10.0.20.228,vpn_connection,success,cloud-console,VPN session established
+2026-10-28 16:45:14,analyst2,10.0.2.222,privilege_change,success,email-gateway,privilege removed
+2026-10-28 16:45:40,rahul,10.0.1.176,security_setting_change,success,db-server,firewall rule changed
+2026-10-28 16:46:05,rahul,185.22.223.162,data_export,success,email-gateway,sensitive archive downloaded
+2026-10-28 16:46:45,finance_user,185.22.77.217,security_setting_change,success,email-gateway,audit logging disabled
+2026-10-28 16:46:59,dbadmin,10.0.8.37,login_success,success,db-server,valid credentials
+2026-10-28 16:47:18,admin_ops,10.0.9.208,login_success,success,endpoint-17,valid credentials
+2026-10-28 16:48:00,websvc,10.0.11.56,login_failure,failure,vpn-gateway,invalid password
+2026-10-28 16:48:03,websvc,10.0.5.132,security_setting_change,success,hr-portal,audit logging disabled
+2026-10-28 16:48:15,dbadmin,10.0.9.238,login_failure,failure,cloud-console,invalid password
+2026-10-28 16:48:31,hr_user,10.0.9.181,security_setting_change,success,file-server,audit logging disabled
+2026-10-28 16:49:03,finance_user,10.0.18.194,data_export,success,endpoint-23,sensitive archive downloaded
+2026-10-28 16:49:06,akshay,10.0.18.139,backup_job,success,backup-server,scheduled backup completed
+2026-10-28 16:49:09,websvc,10.0.10.22,process_alert,warning,email-gateway,suspicious process behavior
+2026-10-28 16:49:15,dev,185.22.197.34,security_setting_change,success,db-server,firewall rule changed
+2026-10-28 16:49:49,finance_user,185.22.185.69,security_setting_change,success,hr-portal,audit logging disabled
+2026-10-28 16:49:49,analyst2,10.0.12.58,data_export,success,file-server,bulk customer export requested
+2026-10-28 16:50:02,priya,185.22.40.97,process_alert,warning,endpoint-17,suspicious process behavior
+2026-10-28 16:50:38,websvc,10.0.4.8,firewall_block,blocked,idp-server,connection blocked by firewall
+2026-10-28 16:50:38,akshay,10.0.15.137,mfa_challenge,success,cloud-console,MFA challenge completed
+2026-10-28 16:50:52,dev,10.0.9.181,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 16:51:06,dbadmin,10.0.12.43,backup_job,success,email-gateway,scheduled backup completed
+2026-10-28 16:52:04,analyst2,10.0.18.58,vpn_connection,success,backup-server,VPN session established
+2026-10-28 16:52:09,priya,10.0.14.154,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 16:52:14,analyst2,10.0.8.116,vpn_connection,success,endpoint-17,VPN session established
+2026-10-28 16:52:15,websvc,10.0.2.60,process_alert,warning,endpoint-23,suspicious process behavior
+2026-10-28 16:52:17,mira,10.0.18.194,login_failure,failure,hr-portal,invalid password
+2026-10-28 16:52:27,dev,10.0.7.235,process_alert,warning,backup-server,suspicious process behavior
+2026-10-28 16:52:28,dbadmin,10.0.10.22,vpn_connection,success,email-gateway,VPN session established
+2026-10-28 16:52:44,dev,10.0.6.180,login_success,success,cloud-console,valid credentials
+2026-10-28 16:53:51,admin_ops,185.22.185.69,file_access,success,email-gateway,file accessed
+2026-10-28 16:54:05,dbadmin,10.0.8.223,login_success,success,backup-server,valid credentials
+2026-10-28 16:54:23,rahul,10.0.6.204,security_setting_change,success,hr-portal,audit logging disabled
+2026-10-28 16:54:39,analyst2,10.0.15.137,privilege_change,success,hr-portal,privilege removed
+2026-10-28 16:55:36,hr_user,10.0.2.208,password_reset,success,backup-server,password reset completed
+2026-10-28 16:55:39,analyst2,10.0.9.208,mfa_challenge,success,idp-server,MFA challenge completed
+2026-10-28 16:55:56,analyst2,10.0.12.156,vpn_connection,success,hr-portal,VPN session established
+2026-10-28 16:56:54,priya,10.0.3.57,mfa_challenge,success,file-server,MFA challenge completed
+2026-10-28 16:57:05,analyst1,10.0.12.156,backup_job,success,hr-portal,scheduled backup completed
+2026-10-28 16:57:36,websvc,185.22.136.237,security_setting_change,success,endpoint-23,firewall rule changed
+2026-10-28 16:57:38,hr_user,10.0.4.238,privilege_change,success,endpoint-23,role membership updated
+2026-10-28 16:58:58,nina,185.22.234.29,security_setting_change,success,backup-server,audit logging disabled
