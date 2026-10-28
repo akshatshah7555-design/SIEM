@@ -1,37 +1,28 @@
-# SentinelX — Explainable Cyber Threat Correlation & Response Platform
+# SentinelX — Explainable Cyber Threat Correlation & Investigation
 
-A Streamlit prototype for security event exploration, deterministic detection rules, evidence-linked alert explanations, investigation storylines, response checklists, and JSON/CSV exports.
+## Updated features
+- Professional dark SOC dashboard
+- CSV event ingestion and normalization
+- Rule-based detection for repeated authentication failures, failure-to-success sequences, privilege changes, data export, security configuration changes, and rejected change events
+- Attack storyline view with source-row evidence
+- **Evidence-driven next-check engine**: deterministic heuristics identify likely missing evidence and prioritize follow-up checks with explanations
+- Event explorer, indicator context, response playbooks, JSON/CSV exports
 
 ## Run locally
-
 ```bash
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Deploy on Render
-
-1. Push `app.py`, `requirements.txt`, and `Procfile` to a GitHub repository.
-2. In Render, create a **Web Service** connected to the repository.
-3. Build command: `pip install -r requirements.txt`
-4. Start command: `streamlit run app.py --server.port $PORT --server.address 0.0.0.0`
-5. Deploy and test the generated public URL.
+## Render settings
+- Build command: `pip install -r requirements.txt`
+- Start command: `streamlit run app.py --server.port $PORT --server.address 0.0.0.0`
 
 ## CSV schema
-Required: `timestamp,username,source_ip,event,status`
-Optional: `asset,details`
+Required: `timestamp, username, source_ip, event, status`
+Optional: `asset, details`
 
-Download the in-app sample CSV for an example.
+The detector supports common event names including `login_failure`, `login_success`, `privilege_change`, `data_export`, and `security_setting_change`.
 
-## Prototype scope and limitations
-- Uses deterministic, explainable rules rather than an ML model.
-- No live SIEM integration, external threat-intelligence API, or automatic blocking.
-- Risk scores are heuristic prioritization values, not probabilities.
-- Correlation suggests a sequence; it does not prove compromise or attribution.
-- Use synthetic data or logs you are authorized to process.
-
-## Suggested evaluation
-Create a labelled synthetic test set with expected detections. Report precision, recall, false positives, and processing time. Compare independent alerts against the evidence-linked storyline and next-validation workflow. Do not claim novelty until the exact feature set has been compared with relevant existing tools.
+## Important scope
+SentinelX is an academic prototype. It processes uploaded/sample logs; it is not a production SIEM and does not perform live endpoint monitoring or automatic containment. The next-check engine uses transparent deterministic heuristics; it is not a trained AI model. Recommendations must be validated by an analyst. Market differentiation must be substantiated through a competitor review and measured evaluation, not asserted as an unverified first.
