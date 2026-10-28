@@ -1,13 +1,9 @@
 import os
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 
 import pandas as pd
 import streamlit as st
-
-# ============================================================
-# SENTINELX — INCIDENT COMMAND CENTER
-# ============================================================
 
 st.set_page_config(
     page_title="SentinelX | Incident Command",
@@ -16,1049 +12,419 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# -------------------- Visual system --------------------
 st.markdown("""
 <style>
-.stApp {
-    background: #080b16;
-    color: #e8ecf8;
-}
-.block-container {
-    max-width: 1700px;
-    padding-top: 1.2rem;
-    padding-bottom: 2rem;
-}
-[data-testid="stSidebar"] {
-    background: #0b1020;
-    border-right: 1px solid #252d48;
-}
-[data-testid="stMetric"] {
-    background: linear-gradient(145deg,#141c30,#0d1424);
-    border: 1px solid #293451;
-    border-radius: 13px;
-    padding: 16px;
-}
-[data-testid="stMetricLabel"] {
-    color: #9eafd0 !important;
-}
-[data-testid="stMetricValue"] {
-    color: #f5f7ff !important;
-    font-weight: 750;
-}
-.stTabs [data-baseweb="tab-list"] {
-    gap: 15px;
-    background: #0b1020;
-}
-.stTabs [data-baseweb="tab"] {
-    color: #aab7d2;
-}
-.stTabs [aria-selected="true"] {
-    color: #83a8ff !important;
-}
-.stButton button, .stDownloadButton button {
-    border-radius: 8px;
-}
-.sx-header {
-    background: linear-gradient(110deg,#111a30,#123f4c);
-    border: 1px solid #30425e;
-    border-radius: 16px;
-    padding: 25px;
-    margin-bottom: 22px;
-}
-.sx-header h1 {
-    color: #ffffff;
-    font-size: 2.15rem;
-    margin: 0;
-}
-.sx-header p {
-    color: #b5c8e3;
-    margin: 7px 0 0 0;
-}
-.sx-panel {
-    background: #101728;
-    border: 1px solid #28334d;
-    border-radius: 13px;
-    padding: 16px;
-    margin-bottom: 12px;
-}
-.sx-muted {
-    color: #91a2c2;
-    font-size: 0.85rem;
-}
-hr {
-    border-color: #28334d;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root { --bg:#080d18; --panel:#101827; --panel2:#141f32; --line:#26344c; --muted:#91a1bd; --text:#edf3ff; --blue:#75a7ff; --cyan:#51d6d0; }
+.stApp { background: radial-gradient(ellipse at 75% 0%, #152b45 0%, #0a1120 35%, #080d18 70%); color:var(--text); font-family:'DM Sans',sans-serif; }
+[data-testid="stHeader"] { background:rgba(8,13,24,.85); }
+.block-container { max-width:1600px; padding-top:1.25rem; padding-bottom:2rem; }
+[data-testid="stSidebar"] { background:linear-gradient(180deg,#0d1627,#0a101d); border-right:1px solid var(--line); }
+[data-testid="stSidebar"] * { color:#dce7fb; }
+h1,h2,h3 { font-family:'Space Grotesk',sans-serif !important; letter-spacing:-.025em; }
+h1 { font-size:2rem !important; }
+h2 { font-size:1.35rem !important; }
+h3 { font-size:1.05rem !important; }
+p, label, .stMarkdown { color:#dce6f8; }
+.sx-hero { padding:25px 28px; border-radius:20px; border:1px solid #304967; background:linear-gradient(115deg,rgba(21,36,60,.97),rgba(14,75,86,.92)); box-shadow:0 18px 48px rgba(0,0,0,.22); margin-bottom:18px; position:relative; overflow:hidden; }
+.sx-hero:after { content:""; position:absolute; width:240px;height:240px;right:-70px;top:-115px;border:1px solid rgba(117,167,255,.2);border-radius:50%;box-shadow:0 0 0 25px rgba(117,167,255,.035),0 0 0 55px rgba(117,167,255,.025); }
+.sx-kicker { color:#8fe5e2; font-size:.72rem; font-weight:700; letter-spacing:.17em; text-transform:uppercase; }
+.sx-title { font-family:'Space Grotesk',sans-serif; font-size:2.35rem; font-weight:700; color:#fff; margin-top:5px; line-height:1.15; }
+.sx-subtitle { color:#c1d2e9; font-size:1rem; margin-top:9px; }
+.sx-status { display:inline-block; padding:5px 10px; border-radius:99px; background:rgba(81,214,208,.12); border:1px solid rgba(81,214,208,.3); color:#8de7df; font-size:.75rem; font-weight:700; margin-top:16px; }
+.sx-section { display:flex; align-items:center; gap:10px; margin:12px 0 14px 0; }
+.sx-section-bar { width:4px; height:23px; border-radius:10px; background:linear-gradient(#75a7ff,#51d6d0); }
+.sx-card { background:linear-gradient(145deg,rgba(19,29,47,.96),rgba(13,21,35,.96)); border:1px solid #283750; border-radius:16px; padding:17px 18px; min-height:118px; box-shadow:0 8px 22px rgba(0,0,0,.12); }
+.sx-card-label { color:#9eafca; font-size:.78rem; font-weight:600; letter-spacing:.045em; text-transform:uppercase; }
+.sx-card-value { color:#f3f7ff; font-family:'Space Grotesk',sans-serif; font-size:2rem; font-weight:700; margin-top:9px; line-height:1.1; }
+.sx-card-foot { color:#8c9db9; font-size:.75rem; margin-top:8px; }
+.sx-panel { background:rgba(15,24,40,.9); border:1px solid #27364f; border-radius:16px; padding:17px; margin-bottom:12px; }
+.sx-panel-title { color:#eef4ff; font-weight:700; font-size:1rem; margin-bottom:3px; }
+.sx-panel-sub { color:#91a3c0; font-size:.78rem; margin-bottom:12px; }
+.sx-pill { display:inline-block; padding:4px 8px; border-radius:7px; font-size:.72rem; font-weight:700; border:1px solid #34445f; background:#17233a; color:#bcd0f0; }
+div[data-testid="stMetric"] { background:linear-gradient(145deg,#142139,#101827); border:1px solid #293a55; padding:16px 18px; border-radius:15px; }
+[data-testid="stMetricLabel"] { color:#a5b5ce !important; font-size:.8rem; }
+[data-testid="stMetricValue"] { color:#f5f8ff !important; font-family:'Space Grotesk',sans-serif; }
+.stTabs [data-baseweb="tab-list"] { gap:8px; border-bottom:1px solid #263650; }
+.stTabs [data-baseweb="tab"] { background:#101827; border:1px solid #263650; border-radius:9px 9px 0 0; padding:10px 15px; color:#b8c7df; }
+.stTabs [aria-selected="true"] { background:#1a2b46 !important; color:#8eb7ff !important; border-color:#43638e !important; }
+.stButton button, .stDownloadButton button { border-radius:10px; border:1px solid #38577e; background:linear-gradient(100deg,#24446d,#1a6370); color:#f5f9ff; font-weight:600; }
+.stButton button:hover, .stDownloadButton button:hover { border-color:#7fb2ff; color:white; }
+[data-testid="stFileUploader"] { background:#111c2e; border:1px dashed #45617e; border-radius:12px; padding:8px; }
+[data-testid="stDataFrame"] { border:1px solid #283750; border-radius:12px; overflow:hidden; }
+div[data-baseweb="select"] > div { background:#111c2e; border-color:#344761; }
+.stAlert { border-radius:12px; }
+hr { border-color:#263650; }
+footer { visibility:hidden; }
+#MainMenu { visibility:hidden; }
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-<div class="sx-header">
-    <h1>🛡️ SentinelX</h1>
-    <p>CYBER THREAT CORRELATION · INCIDENT INVESTIGATION · RESPONSE</p>
-    <p>Evidence-driven security analytics and explainable incident triage</p>
-</div>
-""", unsafe_allow_html=True)
-
-# ============================================================
-# DATA INPUT — NO SOURCE-SELECTION SCENARIO
-# ============================================================
-
-REQUIRED = {
-    "timestamp", "username", "source_ip", "event", "status"
-}
-
+# -------------------- Data helpers --------------------
+REQUIRED = {"timestamp", "username", "source_ip", "event", "status"}
 
 @st.cache_data
 def load_bundled_data():
-    path = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)),
-        "sentinelx_sample_events_1500.csv"
-    )
-
-    if not os.path.exists(path):
-        return None
-
-    return pd.read_csv(path)
-
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sentinelx_sample_events_1500.csv")
+    if os.path.exists(path):
+        return pd.read_csv(path)
+    return None
 
 def normalize_events(raw):
     df = raw.copy()
-    df.columns = [
-        str(c).strip().lower() for c in df.columns
-    ]
-
+    df.columns = [str(c).strip().lower() for c in df.columns]
     missing = REQUIRED - set(df.columns)
-
     if missing:
-        raise ValueError(
-            "Missing required columns: "
-            + ", ".join(sorted(missing))
-        )
-
+        raise ValueError("Missing required columns: " + ", ".join(sorted(missing)))
     for col in ["username", "source_ip", "event", "status"]:
-        df[col] = (
-            df[col].fillna("unknown").astype(str).str.strip()
-        )
-
+        df[col] = df[col].fillna("unknown").astype(str).str.strip()
     if "asset" not in df.columns:
         df["asset"] = "unspecified"
-
     if "details" not in df.columns:
         df["details"] = ""
-
-    df["timestamp"] = pd.to_datetime(
-        df["timestamp"], errors="coerce"
-    )
-
+    df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
     df = df.dropna(subset=["timestamp"]).copy()
     df = df.sort_values("timestamp").reset_index(drop=True)
-
-    df["event_norm"] = (
-        df["event"].str.lower().str.replace(" ", "_", regex=False)
-    )
+    df["event_norm"] = df["event"].str.lower().str.replace(" ", "_", regex=False)
     df["status_norm"] = df["status"].str.lower()
-
     return df
-
-
-# ============================================================
-# DETECTION ENGINE
-# ============================================================
 
 def detect_events(df, threshold=4):
     alerts = []
-
-    auth_events = {
-        "login", "login_failure", "login_success",
-        "authentication", "auth", "authentication_failure",
-        "authentication_success", "failed_login",
-        "successful_login", "vpn_login"
-    }
-
-    def add_alert(severity, rule, user, ip, rows,
-                  explanation, next_check, recommendation, score):
-
+    auth_events = {"login", "login_failure", "login_success", "authentication", "auth",
+                   "authentication_failure", "authentication_success", "failed_login",
+                   "successful_login", "vpn_login"}
+    def add(severity, rule, user, ip, rows, explanation, next_check, recommendation, score):
         alerts.append({
-            "severity": severity,
-            "rule": rule,
-            "entity": str(user),
-            "source_ip": str(ip),
-            "event_count": len(rows),
-            "first_seen": rows["timestamp"].min(),
+            "severity": severity, "rule": rule, "entity": str(user), "source_ip": str(ip),
+            "event_count": len(rows), "first_seen": rows["timestamp"].min(),
             "last_seen": rows["timestamp"].max(),
-            "evidence_rows": ", ".join(
-                str(int(x) + 2) for x in rows.index[:12]
-            ),
-            "explanation": explanation,
-            "next_validation": next_check,
-            "recommended_action": recommendation,
-            "risk_score": min(100, score)
+            "evidence_rows": ", ".join(str(int(x)+2) for x in rows.index[:12]),
+            "explanation": explanation, "next_validation": next_check,
+            "recommended_action": recommendation, "risk_score": min(100, score)
         })
-
-    # Rule 1: Repeated authentication failures
-    failures = df[
-        df["event_norm"].isin(auth_events)
-        & df["status_norm"].isin(
-            ["failed", "failure", "denied", "blocked", "error"]
-        )
-    ]
-
-    for (user, ip), group in failures.groupby(
-        ["username", "source_ip"]
-    ):
+    failures = df[df["event_norm"].isin(auth_events) & df["status_norm"].isin(
+        ["failed", "failure", "denied", "blocked", "error"])]
+    for (user, ip), group in failures.groupby(["username", "source_ip"]):
         if len(group) >= threshold:
-            add_alert(
-                "HIGH",
-                "Repeated authentication failures",
-                user, ip, group,
-                f"{len(group)} failed authentication events "
-                f"for this account and source IP.",
-                "Check subsequent successful logins, MFA results "
-                "and whether the user recognizes the activity.",
-                "Review identity-provider logs and follow the "
-                "organization's account-protection procedure.",
-                72 + min(20, len(group))
-            )
-
-    # Rule 2: Failure followed by successful login
-    for (user, ip), group in df.groupby(
-        ["username", "source_ip"]
-    ):
-        failed = group[
-            group["status_norm"].isin(
-                ["failed", "failure", "denied", "blocked"]
-            )
-        ]
-
-        succeeded = group[
-            group["status_norm"].isin(
-                ["success", "successful", "allowed"]
-            )
-            & group["event_norm"].isin(auth_events)
-        ]
-
+            add("HIGH", "Repeated authentication failures", user, ip, group,
+                f"{len(group)} failed authentication events for this account and source IP.",
+                "Check subsequent successful logins, MFA results and whether the user recognizes the activity.",
+                "Review identity-provider logs and follow the organization's account-protection procedure.",
+                72 + min(20, len(group)))
+    for (user, ip), group in df.groupby(["username", "source_ip"]):
+        failed = group[group["status_norm"].isin(["failed", "failure", "denied", "blocked"])]
+        succeeded = group[group["status_norm"].isin(["success", "successful", "allowed"]) &
+                          group["event_norm"].isin(auth_events)]
         for _, success in succeeded.iterrows():
-            prior = failed[
-                failed["timestamp"].between(
-                    success["timestamp"] - pd.Timedelta(minutes=20),
-                    success["timestamp"]
-                )
-            ]
-
+            prior = failed[failed["timestamp"].between(
+                success["timestamp"] - pd.Timedelta(minutes=20), success["timestamp"])]
             if len(prior) >= 2:
-                sequence = group[
-                    (group["timestamp"] >= prior["timestamp"].min())
-                    & (group["timestamp"] <= success["timestamp"])
-                ]
-
-                add_alert(
-                    "CRITICAL",
-                    "Failure-to-success sequence",
-                    user, ip, sequence,
-                    f"{len(prior)} failed attempts were followed "
-                    "by a successful login within 20 minutes.",
-                    "Validate MFA, device identity, session details "
-                    "and the user's recognition of the login.",
-                    "Escalate for analyst review. Contain the "
-                    "account only under approved procedures.",
-                    92
-                )
+                sequence = group[(group["timestamp"] >= prior["timestamp"].min()) &
+                                 (group["timestamp"] <= success["timestamp"])]
+                add("CRITICAL", "Failure-to-success sequence", user, ip, sequence,
+                    f"{len(prior)} failed attempts were followed by a successful login within 20 minutes.",
+                    "Validate MFA, device identity, session details and the user's recognition of the login.",
+                    "Escalate for analyst review. Contain the account only under approved procedures.", 92)
                 break
-
-    # Rule 3: Privilege changes
-    privilege_events = {
-        "privilege_change", "role_change",
-        "privilege_escalation", "admin_role_granted",
-        "privilege_escalation_attempt"
-    }
-
-    for idx, row in df[
-        df["event_norm"].isin(privilege_events)
-    ].iterrows():
-        add_alert(
-            "HIGH", "Privilege or role change",
-            row["username"], row["source_ip"], df.loc[[idx]],
-            f"Privilege-related event on {row['asset']}. "
-            f"Details: {row['details']}.",
-            "Verify the change request, approver and actor authorization.",
-            "Review identity audit logs and investigate "
-            "unauthorized privilege changes.",
-            78
-        )
-
-    # Rule 4: Data movement
-    data_events = {
-        "data_export", "bulk_download", "mass_download",
-        "database_export", "bulk_data_export"
-    }
-
-    for idx, row in df[
-        df["event_norm"].isin(data_events)
-    ].iterrows():
-        add_alert(
-            "HIGH", "Potential bulk data movement",
-            row["username"], row["source_ip"], df.loc[[idx]],
-            f"Data export observed on {row['asset']}. "
-            "The event alone does not prove data exfiltration.",
-            "Check export volume, destination, business purpose "
-            "and data-owner approval.",
-            "Preserve relevant logs and validate the activity "
-            "with the data owner.",
-            76
-        )
-
-    # Rule 5: Security-setting changes
-    security_events = {
-        "security_setting_change", "mfa_disabled",
-        "logging_disabled", "audit_logging_disabled",
-        "firewall_rule_change"
-    }
-
-    for idx, row in df[
-        df["event_norm"].isin(security_events)
-    ].iterrows():
-        add_alert(
-            "HIGH", "Security control configuration change",
-            row["username"], row["source_ip"], df.loc[[idx]],
-            f"Security configuration event: {row['details']}.",
-            "Verify the change ticket, approver and before/after settings.",
-            "Check security-control effectiveness and follow "
-            "the approved change-management process.",
-            82
-        )
-
-    # Rule 6: Failed changes
-    for idx, row in df[
-        df["event_norm"].isin(
-            {"change", "deployment", "config_change"}
-        )
-        & df["status_norm"].isin(
-            {"failed", "denied", "rejected"}
-        )
-    ].iterrows():
-        add_alert(
-            "MEDIUM", "Failed or rejected change",
-            row["username"], row["source_ip"], df.loc[[idx]],
-            f"Change on {row['asset']} was marked {row['status']}.",
-            "Review the change request, approval and deployment logs.",
-            "Investigate repeated attempts and reconcile "
-            "with the authorized change calendar.",
-            48
-        )
-
-    columns = [
-        "severity", "rule", "entity", "source_ip", "event_count",
-        "first_seen", "last_seen", "evidence_rows", "explanation",
-        "next_validation", "recommended_action", "risk_score"
+    rules = [
+        ({"privilege_change", "role_change", "privilege_escalation", "admin_role_granted"},
+         "HIGH", "Privilege or role change", 78,
+         "Verify the change request, approver and actor authorization.",
+         "Review identity audit logs and investigate unauthorized privilege changes."),
+        ({"data_export", "bulk_download", "mass_download", "database_export", "bulk_data_export"},
+         "HIGH", "Potential bulk data movement", 76,
+         "Check export volume, destination, business purpose and data-owner approval.",
+         "Preserve relevant logs and validate the activity with the data owner."),
+        ({"security_setting_change", "mfa_disabled", "logging_disabled", "audit_logging_disabled",
+          "firewall_rule_change"}, "HIGH", "Security control configuration change", 82,
+         "Verify the change ticket, approver and before/after settings.",
+         "Check security-control effectiveness and follow the approved change-management process.")
     ]
-
-    result = pd.DataFrame(alerts, columns=columns)
-
+    for event_names, severity, rule, score, check, action in rules:
+        for idx, row in df[df["event_norm"].isin(event_names)].iterrows():
+            add(severity, rule, row["username"], row["source_ip"], df.loc[[idx]],
+                f"Event on {row['asset']}: {row['details']}.",
+                check, action, score)
+    result = pd.DataFrame(alerts)
     if not result.empty:
-        result = result.drop_duplicates(
-            subset=["rule", "entity", "source_ip", "first_seen"]
-        )
-        result = result.sort_values(
-            "risk_score", ascending=False
-        ).reset_index(drop=True)
-
+        result = result.drop_duplicates(subset=["rule", "entity", "source_ip", "first_seen"])
+        result = result.sort_values("risk_score", ascending=False).reset_index(drop=True)
     return result
 
-
-# ============================================================
-# EVIDENCE-DRIVEN NEXT-CHECK ENGINE
-# ============================================================
-
-def next_check_engine(events, alert):
-    user = str(alert["entity"])
-    ip = str(alert["source_ip"])
-
-    start = pd.to_datetime(alert["first_seen"])
-    end = pd.to_datetime(alert["last_seen"])
-
-    window = events[
-        (events["timestamp"] >= start - pd.Timedelta(minutes=20))
-        & (events["timestamp"] <= end + pd.Timedelta(minutes=20))
-    ]
-
-    related = window[
-        (window["username"] == user)
-        | (window["source_ip"] == ip)
-    ]
-
-    event_types = set(related["event_norm"])
-    details = " ".join(
-        related["details"].fillna("").astype(str).str.lower()
-    )
-
+def next_checks(events, alert):
+    user, ip = str(alert["entity"]), str(alert["source_ip"])
+    start, end = pd.to_datetime(alert["first_seen"]), pd.to_datetime(alert["last_seen"])
+    window = events[(events["timestamp"] >= start-pd.Timedelta(minutes=20)) &
+                    (events["timestamp"] <= end+pd.Timedelta(minutes=20))]
+    related = window[(window["username"] == user) | (window["source_ip"] == ip)]
+    types = set(related["event_norm"])
     checks = []
-
-    def recommend(priority, title, reason, evidence):
-        checks.append({
-            "Priority": priority,
-            "Next investigation check": title,
-            "Reason": reason,
-            "Evidence to collect": evidence
-        })
-
+    def add(priority, title, reason, evidence):
+        checks.append({"Priority": priority, "Next check": title, "Why": reason, "Evidence to collect": evidence})
     rule = str(alert["rule"]).lower()
-
     if "authentication" in rule or "failure-to-success" in rule:
-        recommend(
-            1, "Validate MFA and identity-provider outcome",
-            "Authentication activity needs identity verification.",
-            "MFA result, identity-provider audit record and session ID."
-        )
-
-        if not any(x in event_types for x in [
-            "mfa_challenge", "mfa_result", "mfa_verification"
-        ]):
-            recommend(
-                1, "Evidence gap: MFA result missing",
-                "The supplied event window has no explicit MFA result.",
-                "MFA success/failure record from the identity provider."
-            )
-
-        if not any(x in event_types for x in [
-            "device_posture", "endpoint_check", "device_compliance"
-        ]):
-            recommend(
-                2, "Verify device identity and posture",
-                "No device compliance event is present in this window.",
-                "Device ID, managed-device status and endpoint telemetry."
-            )
-
-        recommend(
-            3, "Validate sign-in context",
-            "Confirm whether the source and timing fit expected activity.",
-            "Authorized location, VPN context and sign-in risk telemetry."
-        )
-
-    if "privilege" in rule or any(
-        x in event_types for x in [
-            "privilege_change", "role_change", "admin_role_granted"
-        ]
-    ):
-        if not any(x in details for x in [
-            "ticket", "approved", "change request", "request id"
-        ]):
-            recommend(
-                1, "Verify privilege-change approval",
-                "No obvious approval reference appears in event details.",
-                "Change ticket, approver and role assignment audit record."
-            )
-
-        recommend(
-            2, "Review actions after privilege elevation",
-            "Elevated access may increase the impact of suspicious activity.",
-            "Subsequent admin actions and accessed assets."
-        )
-
-    if "data" in rule or any(
-        x in event_types for x in [
-            "data_export", "bulk_download",
-            "mass_download", "database_export"
-        ]
-    ):
-        if not any(x in details for x in [
-            "approved export", "business purpose", "ticket"
-        ]):
-            recommend(
-                1, "Validate export purpose and approval",
-                "The supplied details do not establish business approval.",
-                "Export request, data-owner approval and reference ID."
-            )
-
-        recommend(
-            2, "Inspect export volume and destination",
-            "A data-export event alone does not prove exfiltration.",
-            "Bytes exported, destination, job ID and DLP records."
-        )
-
-    if "security control" in rule or any(
-        x in event_types for x in [
-            "security_setting_change", "mfa_disabled",
-            "logging_disabled", "audit_logging_disabled"
-        ]
-    ):
-        recommend(
-            1, "Confirm change request and maintenance window",
-            "Verify that the configuration change was authorized.",
-            "Change ticket, approver and before/after configuration."
-        )
-
-        recommend(
-            2, "Check telemetry continuity",
-            "Security-setting changes may reduce visibility.",
-            "Audit pipeline status and log-source heartbeat."
-        )
-
+        add(1, "Validate MFA and identity-provider outcome",
+            "The login sequence needs identity verification.", "MFA result, identity-provider record and session ID.")
+        if not types.intersection({"mfa_challenge", "mfa_result", "mfa_verification"}):
+            add(1, "Evidence gap: MFA result not present",
+                "No explicit MFA event appears in the supplied time window.", "MFA success/failure record.")
+        add(2, "Verify device identity and sign-in context",
+            "Confirm whether the device and source are expected.", "Device ID, VPN context and sign-in telemetry.")
+    if "privilege" in rule:
+        add(1, "Verify privilege-change approval", "Authorization is not established by the event alone.",
+            "Change ticket, approver and role assignment record.")
+    if "data" in rule:
+        add(1, "Validate export purpose and approval", "The event does not establish business approval.",
+            "Export request, data-owner approval and reference ID.")
+    if "security control" in rule:
+        add(1, "Confirm configuration change authorization", "Verify the change was approved.",
+            "Change ticket and before/after configuration.")
+        add(2, "Check telemetry continuity", "A configuration change may affect security visibility.",
+            "Audit pipeline status and log-source heartbeat.")
     if not checks:
-        recommend(
-            1, "Confirm the event with the system owner",
-            "Additional context is required before drawing a conclusion.",
-            "Owner confirmation and related source-system records."
-        )
+        add(1, "Confirm event with system owner", "More context is needed before a conclusion.",
+            "Owner confirmation and source-system records.")
+    return checks[:5]
 
-    seen = set()
-    unique = []
-
-    for check in sorted(checks, key=lambda item: item["Priority"]):
-        if check["Next investigation check"] not in seen:
-            unique.append(check)
-            seen.add(check["Next investigation check"])
-
-    return unique[:5]
-
-
-# ============================================================
-# SIDEBAR AND DATA LOADING
-# ============================================================
-
+# -------------------- Sidebar --------------------
 with st.sidebar:
-    st.markdown("## 🛡️ SentinelX")
-    st.caption("INCIDENT CONTROLS")
-
-    threshold = st.slider(
-        "Failed-login alert threshold", 3, 10, 4
-    )
-
+    st.markdown("### 🛡️ SENTINELX")
+    st.caption("SECURITY OPERATIONS")
     st.markdown("---")
-    st.markdown("### Security event input")
-
-    uploaded = st.file_uploader(
-        "Upload authorized security logs",
-        type=["csv"],
-        help="Upload a CSV export to analyze it."
-    )
-
-    st.caption(
-        "Required: timestamp, username, source_ip, event, status. "
-        "Optional: asset, details."
-    )
-
+    st.markdown("**Detection configuration**")
+    threshold = st.slider("Failed-login threshold", 3, 10, 4)
+    st.markdown("**Event ingestion**")
+    uploaded = st.file_uploader("Upload security event CSV", type=["csv"])
+    st.caption("Required: timestamp, username, source_ip, event, status")
+    st.caption("Optional: asset, details")
     bundled = load_bundled_data()
-
     if bundled is not None:
-        st.download_button(
-            "Download event dataset",
-            bundled.to_csv(index=False),
-            file_name="sentinelx_sample_events_1500.csv",
-            mime="text/csv",
-            use_container_width=True
-        )
+        st.download_button("↓ Download sample dataset", bundled.to_csv(index=False),
+                           "sentinelx_sample_events_1500.csv", "text/csv", use_container_width=True)
+    st.markdown("---")
+    st.caption("MODE · RULE-BASED TRIAGE")
+    st.caption("Analyst validation required")
 
 try:
     if uploaded is not None:
         raw = pd.read_csv(uploaded)
-        data_source = "Uploaded security logs"
+        source_label = "Uploaded security logs"
     elif bundled is not None:
         raw = bundled
-        data_source = "Bundled event dataset"
+        source_label = "Bundled dataset"
     else:
-        st.error(
-            "No bundled CSV found. Add "
-            "sentinelx_sample_events_1500.csv beside app.py "
-            "or upload a CSV using the sidebar."
-        )
+        st.error("No dataset available. Upload a CSV to begin.")
         st.stop()
-
     events = normalize_events(raw)
     alerts = detect_events(events, threshold)
-
-except Exception as error:
-    st.error(f"Unable to process input: {error}")
+except Exception as e:
+    st.error(f"Could not process the input: {e}")
     st.stop()
 
+# -------------------- Hero and status --------------------
+st.markdown("""
+<div class="sx-hero">
+ <div class="sx-kicker">Security Operations · Incident Intelligence</div>
+ <div class="sx-title">SentinelX <span style="color:#76b7ff">/</span> Incident Command</div>
+ <div class="sx-subtitle">Investigate suspicious activity. Connect evidence. Prioritize the next action.</div>
+ <div class="sx-status">● ANALYSIS READY</div>
+</div>
+""", unsafe_allow_html=True)
 
-# ============================================================
-# INCIDENT COMMAND DASHBOARD
-# ============================================================
+status_col1, status_col2 = st.columns([3, 1])
+with status_col1:
+    st.caption(f"DATA SOURCE  /  {source_label}  ·  {len(events):,} valid timestamped events")
+with status_col2:
+    st.caption(f"UPDATED  /  {datetime.now().strftime('%H:%M:%S')}")
 
-tabs = st.tabs([
-    "Incident Command",
-    "Event Explorer",
-    "Attack Storylines",
-    "Threat Context",
-    "Response Playbooks",
-    "Export & Methodology"
-])
+tabs = st.tabs(["◈ Command Center", "⌕ Event Explorer", "⤳ Attack Storylines",
+                "◎ Threat Context", "☷ Response Playbooks", "⇩ Reports & Methodology"])
 
+# -------------------- Command Center --------------------
 with tabs[0]:
-    st.markdown("## Incident Command Center")
-    st.caption(
-        f"Data source: {data_source} · "
-        "Detections require analyst validation."
-    )
+    critical = int((alerts["severity"] == "CRITICAL").sum()) if not alerts.empty else 0
+    high = int((alerts["severity"] == "HIGH").sum()) if not alerts.empty else 0
+    clusters = alerts[["entity", "source_ip"]].drop_duplicates().shape[0] if not alerts.empty else 0
+    cols = st.columns(4)
+    metrics = [
+        ("EVENTS ANALYZED", f"{len(events):,}", "Timestamped records"),
+        ("DETECTIONS", f"{len(alerts):,}", "Rule-triggered candidates"),
+        ("HIGH / CRITICAL", f"{high+critical:,}", "Priority for triage"),
+        ("IDENTITY / IP PAIRS", f"{clusters:,}", "Observed alert pairs")
+    ]
+    for col, (label, value, foot) in zip(cols, metrics):
+        with col:
+            st.markdown(f'<div class="sx-card"><div class="sx-card-label">{label}</div><div class="sx-card-value">{value}</div><div class="sx-card-foot">{foot}</div></div>', unsafe_allow_html=True)
 
-    incident_count = len(alerts)
-    critical = (
-        int((alerts["severity"] == "CRITICAL").sum())
-        if not alerts.empty else 0
-    )
-    high = (
-        int((alerts["severity"] == "HIGH").sum())
-        if not alerts.empty else 0
-    )
-    users = (
-        alerts["entity"].nunique()
-        if not alerts.empty else 0
-    )
-    clusters = (
-        alerts[["entity", "source_ip"]].drop_duplicates().shape[0]
-        if not alerts.empty else 0
-    )
-
-    m1, m2, m3, m4, m5 = st.columns(5)
-    m1.metric("EVENTS ANALYZED", f"{len(events):,}")
-    m2.metric("INCIDENTS TO TRIAGE", f"{incident_count:,}")
-    m3.metric("CRITICAL PRIORITY", f"{critical:,}")
-    m4.metric("HIGH PRIORITY", f"{high:,}")
-    m5.metric("CORRELATED CLUSTERS", f"{clusters:,}")
-
+    st.markdown("")
     left, right = st.columns([1.7, 1])
-
     with left:
-        st.markdown("### Incident Queue")
-
+        st.markdown('<div class="sx-section"><div class="sx-section-bar"></div><h3 style="margin:0">Priority incident queue</h3></div>', unsafe_allow_html=True)
         if not alerts.empty:
-            queue = alerts.copy()
-
-            severity_order = {
-                "CRITICAL": 0,
-                "HIGH": 1,
-                "MEDIUM": 2,
-                "LOW": 3
-            }
-
-            queue["order"] = queue["severity"].map(severity_order)
-            queue = queue.sort_values(
-                ["order", "risk_score"],
-                ascending=[True, False]
-            ).reset_index(drop=True)
-
-            queue["case_id"] = [
-                f"SX-{1001 + i:04d}" for i in range(len(queue))
-            ]
-            queue["status"] = "Needs review"
-
-            display = queue[[
-                "case_id", "severity", "rule", "entity",
-                "source_ip", "first_seen", "risk_score", "status"
-            ]].rename(columns={
-                "case_id": "CASE ID",
-                "severity": "PRIORITY",
-                "rule": "DETECTION",
-                "entity": "IDENTITY",
-                "source_ip": "SOURCE IP",
-                "first_seen": "FIRST SEEN",
-                "risk_score": "RISK",
-                "status": "STATUS"
-            })
-
-            st.dataframe(
-                display,
-                use_container_width=True,
-                hide_index=True,
-                height=330
-            )
-
-            selected = st.selectbox(
-                "Investigate incident",
-                queue.index,
-                format_func=lambda i: (
-                    f"{queue.loc[i, 'case_id']} · "
-                    f"{queue.loc[i, 'severity']} · "
-                    f"{queue.loc[i, 'rule']} · "
-                    f"{queue.loc[i, 'entity']}"
-                )
-            )
-
-            incident = queue.loc[selected]
-
-            st.markdown("### Investigation details")
-
-            st.markdown(
-                f"**Case:** {incident['case_id']}  \n"
-                f"**Detection:** {incident['rule']}  \n"
-                f"**Priority:** {incident['severity']}  \n"
-                f"**Identity:** {incident['entity']}  \n"
-                f"**Source IP:** {incident['source_ip']}  \n"
-                f"**Risk score:** {incident['risk_score']}/100"
-            )
-
-            st.markdown("**Why this was detected**")
-            st.write(incident["explanation"])
-
-            st.markdown("**Next validation step**")
-            st.write(incident["next_validation"])
-
-            st.markdown("**Recommended response**")
-            st.write(incident["recommended_action"])
-
-            st.caption(
-                "Supporting CSV row references: "
-                + str(incident["evidence_rows"])
-            )
-
-            st.markdown("### Evidence-driven next checks")
-
-            for check in next_check_engine(events, incident):
-                with st.container(border=True):
-                    st.markdown(
-                        f"**Priority {check['Priority']} — "
-                        f"{check['Next investigation check']}**"
-                    )
-                    st.write(check["Reason"])
-                    st.caption(
-                        "Evidence to collect: "
-                        + check["Evidence to collect"]
-                    )
-
+            q = alerts.copy()
+            order = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3}
+            q["priority_order"] = q["severity"].map(order)
+            q = q.sort_values(["priority_order", "risk_score"], ascending=[True, False]).reset_index(drop=True)
+            q["case_id"] = [f"SX-{1001+i:04d}" for i in range(len(q))]
+            st.dataframe(q[["case_id", "severity", "rule", "entity", "source_ip", "risk_score"]].rename(
+                columns={"case_id":"CASE ID","severity":"PRIORITY","rule":"DETECTION","entity":"IDENTITY","source_ip":"SOURCE IP","risk_score":"RISK"}),
+                use_container_width=True, hide_index=True, height=340)
+            selected = st.selectbox("Open an incident", q.index, format_func=lambda i:
+                f"{q.loc[i,'case_id']} · {q.loc[i,'severity']} · {q.loc[i,'rule']} · {q.loc[i,'entity']}")
+            incident = q.loc[selected]
+            with st.container(border=True):
+                st.markdown(f"**{incident['case_id']} · {incident['rule']}**")
+                a, b, c = st.columns(3)
+                a.metric("Priority", incident["severity"])
+                b.metric("Risk score", f"{incident['risk_score']}/100")
+                c.metric("Related events", int(incident["event_count"]))
+                st.write(incident["explanation"])
+                st.caption("Evidence row references: " + str(incident["evidence_rows"]))
+                st.markdown("**Recommended next validation**")
+                st.write(incident["next_validation"])
+                st.markdown("**Response guidance**")
+                st.write(incident["recommended_action"])
+                st.markdown("**Evidence-driven next checks**")
+                for check in next_checks(events, incident):
+                    st.markdown(f"**P{check['Priority']} · {check['Next check']}** — {check['Why']}")
+                    st.caption("Collect: " + check["Evidence to collect"])
         else:
-            st.success(
-                "No detections matched the current rules. "
-                "Review the input data and configured threshold."
-            )
-
+            st.success("No detections matched the current rules.")
     with right:
-        st.markdown("### Priority distribution")
-
+        st.markdown('<div class="sx-section"><div class="sx-section-bar"></div><h3 style="margin:0">Severity distribution</h3></div>', unsafe_allow_html=True)
         if not alerts.empty:
-            severity_counts = alerts.groupby("severity").size()
-            st.bar_chart(severity_counts)
+            st.bar_chart(alerts.groupby("severity").size())
         else:
-            st.info("No alerts available.")
-
-        st.markdown("### Event activity")
-
-        trend = (
-            events.set_index("timestamp")
-            .resample("15min")
-            .size()
-            .rename("Events")
-        )
-        st.area_chart(trend)
-
-        st.markdown("### Top detection categories")
-
+            st.info("No detections to chart.")
+        st.markdown('<div class="sx-section"><div class="sx-section-bar"></div><h3 style="margin:0">Event volume over time</h3></div>', unsafe_allow_html=True)
+        st.area_chart(events.set_index("timestamp").resample("15min").size().rename("Events"))
+        st.markdown('<div class="sx-section"><div class="sx-section-bar"></div><h3 style="margin:0">Top detection types</h3></div>', unsafe_allow_html=True)
         if not alerts.empty:
-            categories = (
-                alerts.groupby("rule").size()
-                .sort_values(ascending=True)
-                .tail(8)
-                .rename("Cases")
-            )
-            st.bar_chart(categories)
+            st.bar_chart(alerts.groupby("rule").size().sort_values().tail(7))
 
-    st.caption(
-        "Incident queue entries are rule-triggered candidates, "
-        "not confirmed breaches. Use authorized logs for real investigations."
-    )
+    st.info("Detections are rule-triggered candidates, not confirmed breaches. Scores are prioritization heuristics, not probabilities.")
 
-
-# ============================================================
-# EVENT EXPLORER
-# ============================================================
-
+# -------------------- Event Explorer --------------------
 with tabs[1]:
-    st.subheader("Security Event Explorer")
-
+    st.markdown("## Event Explorer")
     c1, c2, c3 = st.columns(3)
+    uf = c1.selectbox("Identity", ["All"] + sorted(events["username"].unique().tolist()))
+    ef = c2.selectbox("Event type", ["All"] + sorted(events["event"].unique().tolist()))
+    sf = c3.selectbox("Status", ["All"] + sorted(events["status"].unique().tolist()))
+    view = events.copy()
+    if uf != "All": view = view[view["username"] == uf]
+    if ef != "All": view = view[view["event"] == ef]
+    if sf != "All": view = view[view["status"] == sf]
+    st.caption(f"{len(view):,} records match the selected filters.")
+    st.dataframe(view.drop(columns=["event_norm","status_norm"], errors="ignore"), use_container_width=True, hide_index=True)
+    st.download_button("Export filtered events", view.to_csv(index=False), "filtered_events.csv", "text/csv")
 
-    user_filter = c1.selectbox(
-        "Username",
-        ["All"] + sorted(events["username"].unique().tolist())
-    )
-    event_filter = c2.selectbox(
-        "Event type",
-        ["All"] + sorted(events["event"].unique().tolist())
-    )
-    status_filter = c3.selectbox(
-        "Status",
-        ["All"] + sorted(events["status"].unique().tolist())
-    )
-
-    filtered = events.copy()
-
-    if user_filter != "All":
-        filtered = filtered[filtered["username"] == user_filter]
-
-    if event_filter != "All":
-        filtered = filtered[filtered["event"] == event_filter]
-
-    if status_filter != "All":
-        filtered = filtered[filtered["status"] == status_filter]
-
-    st.dataframe(
-        filtered.drop(
-            columns=["event_norm", "status_norm"],
-            errors="ignore"
-        ),
-        use_container_width=True,
-        hide_index=True
-    )
-
-    st.caption(
-        f"Displaying {len(filtered):,} of {len(events):,} events."
-    )
-
-
-# ============================================================
-# ATTACK STORYLINES
-# ============================================================
-
+# -------------------- Attack Storylines --------------------
 with tabs[2]:
-    st.subheader("Attack Storyline Engine")
-
-    st.write(
-        "Related detections are grouped by username and source IP. "
-        "The engine identifies possible evidence gaps and suggests "
-        "the next validation steps. Correlation alone does not prove "
-        "that an attack occurred."
-    )
-
+    st.markdown("## Attack Storylines")
+    st.write("Explore event sequences associated with an identity or source IP. Correlation is a lead for investigation, not proof of attribution.")
     if alerts.empty:
-        st.info("No investigation threads are currently available.")
+        st.info("No alert-linked storylines available.")
     else:
-        pairs = (
-            alerts.assign(
-                thread=alerts["entity"] + " | " + alerts["source_ip"]
-            )["thread"]
-            .drop_duplicates()
-            .tolist()
-        )
-
-        chosen = st.selectbox("Investigation thread", pairs)
+        q = alerts.copy()
+        q["thread"] = q["entity"] + " | " + q["source_ip"]
+        options = q["thread"].drop_duplicates().tolist()
+        chosen = st.selectbox("Investigation thread", options)
         user, ip = chosen.split(" | ", 1)
-
-        related_alerts = alerts[
-            (alerts["entity"] == user)
-            & (alerts["source_ip"] == ip)
-        ]
-
-        story_events = events[
-            (events["username"] == user)
-            | (events["source_ip"] == ip)
-        ].sort_values("timestamp")
-
-        st.markdown(f"**Identity:** `{user}` · **Source IP:** `{ip}`")
-        st.markdown("### Correlated event timeline")
-
-        columns = [
-            c for c in [
-                "timestamp", "username", "source_ip",
-                "event", "status", "asset", "details"
-            ] if c in story_events.columns
-        ]
-
-        st.dataframe(
-            story_events[columns].head(100),
-            use_container_width=True,
-            hide_index=True
-        )
-
-        for _, alert in related_alerts.iterrows():
-            with st.expander(
-                f"{alert['severity']} · {alert['rule']}"
-            ):
+        timeline = events[(events["username"] == user) | (events["source_ip"] == ip)].sort_values("timestamp")
+        st.markdown(f"**Identity:** `{user}`  ·  **Source IP:** `{ip}`")
+        st.dataframe(timeline.drop(columns=["event_norm","status_norm"], errors="ignore").head(150),
+                     use_container_width=True, hide_index=True)
+        for _, alert in q[q["thread"] == chosen].iterrows():
+            with st.expander(f"{alert['severity']} · {alert['rule']}"):
                 st.write(alert["explanation"])
-                st.write(
-                    "**Evidence rows:** " + alert["evidence_rows"]
-                )
-                st.write(
-                    "**Next validation:** " + alert["next_validation"]
-                )
-                st.write(
-                    "**Recommended response:** "
-                    + alert["recommended_action"]
-                )
+                st.caption("Evidence rows: " + str(alert["evidence_rows"]))
+                for check in next_checks(events, alert):
+                    st.markdown(f"**P{check['Priority']} · {check['Next check']}**")
+                    st.write(check["Why"])
+                    st.caption("Collect: " + check["Evidence to collect"])
 
-                for check in next_check_engine(events, alert):
-                    st.markdown(
-                        f"**Priority {check['Priority']}: "
-                        f"{check['Next investigation check']}**"
-                    )
-                    st.write(check["Reason"])
-                    st.caption(check["Evidence to collect"])
-
-
-# ============================================================
-# THREAT CONTEXT
-# ============================================================
-
+# -------------------- Threat Context --------------------
 with tabs[3]:
-    st.subheader("Threat Context & Indicator Explorer")
-
-    context = (
-        events.groupby("source_ip")
-        .agg(
-            events=("source_ip", "size"),
-            users=("username", "nunique"),
-            event_types=("event", "nunique"),
-            first_seen=("timestamp", "min"),
-            last_seen=("timestamp", "max")
-        )
-        .reset_index()
-        .sort_values("events", ascending=False)
-    )
-
+    st.markdown("## Threat Context")
+    st.caption("Observed indicators from the uploaded dataset; no external reputation lookup is performed.")
+    context = events.groupby("source_ip").agg(
+        event_count=("source_ip","size"), unique_users=("username","nunique"),
+        event_types=("event","nunique"), first_seen=("timestamp","min"),
+        last_seen=("timestamp","max")).reset_index().sort_values("event_count", ascending=False)
     st.dataframe(context, use_container_width=True, hide_index=True)
+    search = st.text_input("Search across event fields")
+    if search:
+        matched = events[events.astype(str).apply(lambda col: col.str.contains(search, case=False, na=False)).any(axis=1)]
+        st.dataframe(matched.drop(columns=["event_norm","status_norm"], errors="ignore"), use_container_width=True, hide_index=True)
 
-    indicator = st.text_input(
-        "Search username, source IP, asset or event detail"
-    )
-
-    if indicator:
-        matches = events[
-            events.astype(str).apply(
-                lambda col: col.str.contains(
-                    indicator, case=False, na=False
-                )
-            ).any(axis=1)
-        ]
-
-        st.write(f"{len(matches)} matching events")
-        st.dataframe(
-            matches.drop(
-                columns=["event_norm", "status_norm"],
-                errors="ignore"
-            ),
-            use_container_width=True,
-            hide_index=True
-        )
-
-    st.warning(
-        "This module summarizes observed indicators. "
-        "It does not query an external threat-intelligence service "
-        "or independently confirm malicious reputation."
-    )
-
-
-# ============================================================
-# RESPONSE PLAYBOOKS
-# ============================================================
-
+# -------------------- Response Playbooks --------------------
 with tabs[4]:
-    st.subheader("Incident Response Playbooks")
-
+    st.markdown("## Response Playbooks")
     playbooks = {
-        "Authentication failures": [
-            "Confirm the account owner and source device.",
-            "Review identity-provider logs and MFA results.",
-            "Check whether failures were followed by success.",
-            "Follow approved account protection procedures.",
-            "Record evidence and document the outcome."
+        "Authentication anomalies": [
+            "Validate the account owner, source device and sign-in context.",
+            "Review identity-provider records and MFA outcomes.",
+            "Check whether failures were followed by successful access.",
+            "Preserve relevant evidence and follow approved account-protection procedures.",
+            "Document the investigation outcome."
         ],
-        "Failure followed by success": [
-            "Validate the session, device and MFA outcome.",
-            "Review activity after successful authentication.",
-            "Contact the account owner using a trusted channel.",
-            "Preserve relevant logs and investigate related activity.",
-            "Contain the account or session if confirmed and authorized."
-        ],
-        "Privilege change": [
+        "Privilege changes": [
             "Locate the change request and approval.",
-            "Confirm the actor's authorization.",
-            "Review activity performed with elevated access.",
-            "Remove unauthorized access under approved procedures.",
-            "Document findings and review least-privilege controls."
+            "Verify the actor's authorization.",
+            "Review subsequent activity performed with elevated access.",
+            "Escalate or contain only under approved incident-response procedures.",
+            "Record evidence and remediation."
         ],
         "Potential data movement": [
             "Confirm the business purpose and data-owner approval.",
-            "Inspect export volume, destination and access history.",
-            "Preserve relevant logs and system metadata.",
-            "Escalate to incident response or privacy teams if appropriate.",
-            "Do not assume exfiltration from a single event."
+            "Review export volume, destination and access history.",
+            "Preserve relevant logs and metadata.",
+            "Escalate to the appropriate security or privacy team if warranted.",
+            "Do not infer exfiltration from one event alone."
         ],
-        "Security configuration change": [
+        "Security configuration changes": [
             "Verify the approved change and maintenance window.",
-            "Compare before-and-after settings.",
+            "Compare before-and-after configuration.",
             "Confirm logging and MFA remain effective.",
-            "Restore secure settings if unauthorized and approved.",
-            "Document the investigation and change history."
+            "Follow approved recovery procedures if the change was unauthorized.",
+            "Document findings and review change controls."
         ]
     }
+    selected_pb = st.selectbox("Playbook", list(playbooks.keys()))
+    for i, step in enumerate(playbooks[selected_pb]):
+        st.checkbox(step, key=f"pb_{selected_pb}_{i}")
 
-    selected_playbook = st.selectbox(
-        "Choose a response playbook",
-        list(playbooks.keys())
-    )
-
-    st.markdown("### Analyst checklist")
-
-    for i, step in enumerate(playbooks[selected_playbook]):
-        st.checkbox(step, key=f"playbook_{selected_playbook}_{i}")
-
-
-# ============================================================
-# REPORT EXPORT AND METHODOLOGY
-# ============================================================
-
+# -------------------- Reports --------------------
 with tabs[5]:
-    st.subheader("Export Investigation Reports")
-
+    st.markdown("## Reports & Methodology")
     report = {
         "product": "SentinelX",
-        "generated_at": datetime.utcnow().isoformat() + "Z",
-        "data_source": data_source,
-        "event_count": len(events),
-        "alert_count": len(alerts),
-        "method": (
-            "Rule-based event triage, user/source correlation "
-            "and evidence-gap next-check heuristics."
-        ),
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "source": source_label,
+        "events_analyzed": len(events),
+        "detections": alerts.to_dict(orient="records") if not alerts.empty else [],
+        "methodology": "Rule-based detection, identity/IP correlation and evidence-gap heuristics.",
         "limitations": [
             "Rule-triggered detections require analyst validation.",
-            "No live SIEM ingestion.",
-            "No external threat-intelligence lookup.",
-            "Risk scores are not calibrated probabilities.",
-            "Correlated events do not prove attribution.",
-            "The bundled dataset is for testing."
-        ],
-        "alerts": (
-            alerts.to_dict(orient="records")
-            if not alerts.empty else []
-        )
+            "No live SIEM ingestion or external threat-intelligence lookup.",
+            "Risk scores are heuristic priorities, not calibrated probabilities.",
+            "Correlated events do not prove attribution."
+        ]
     }
-
-    st.download_button(
-        "Download investigation report (JSON)",
-        json.dumps(report, indent=2, default=str),
-        file_name="sentinelx_investigation_report.json",
-        mime="application/json"
-    )
-
-    csv_report = (
-        alerts.to_csv(index=False)
-        if not alerts.empty
-        else "severity,rule,entity,source_ip\n"
-    )
-
-    st.download_button(
-        "Download detections (CSV)",
-        csv_report,
-        file_name="sentinelx_alerts.csv",
-        mime="text/csv"
-    )
-
+    st.download_button("Download investigation report (JSON)", json.dumps(report, indent=2, default=str),
+                       "sentinelx_investigation_report.json", "application/json")
+    st.download_button("Download detections (CSV)",
+                       alerts.to_csv(index=False) if not alerts.empty else "severity,rule,entity,source_ip\n",
+                       "sentinelx_detections.csv", "text/csv")
     st.markdown("### Detection methodology")
-
-    st.markdown("""
-    - **Inputs:** timestamped CSV logs with username, source IP,
-      event type and status.
-    - **Detection:** repeated login failures, failure-to-success
-      sequences, privilege changes, data exports, security-setting
-      changes and rejected change events.
-    - **Explainability:** each alert includes a rule, evidence-row
-      references, explanation and recommended validation.
-    - **Next-check engine:** deterministic evidence-gap heuristics
-      prioritize follow-up checks and identify evidence to collect.
-    - **Limitations:** no live SIEM ingestion, endpoint telemetry,
-      automated containment or external indicator-reputation feed.
-    """)
+    st.write("The platform validates CSV fields, applies deterministic event rules, prioritizes findings, correlates events by identity/source IP, and recommends evidence to collect.")
+    st.markdown("### Current limitations")
+    st.write("This prototype does not ingest live SIEM streams, block IPs, disable accounts, query external reputation services, or prove malicious intent. The bundled dataset is synthetic test data.")
+    st.markdown("### Evaluation metrics to report")
+    st.write("Use labeled test cases to measure precision, recall, false-positive rate, correlation accuracy, and processing time.")
 
 st.divider()
-st.caption(
-    "SentinelX Incident Command Prototype · "
-    "Rule-based decision support · Analyst validation required"
-)
+st.caption("SENTINELX · Incident intelligence prototype · Rule-based decision support · Analyst validation required")
